@@ -3,268 +3,326 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ontario K vs Spooner NHL Picks Updated Report</title>
+  <title>Ontario K Vs Spooner NHL Bracket Tracker Report</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.8.1/prop-types.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
-  <script src="https://unpkg.com/papaparse@latest/papaparse.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/chrono-node/1.3.11/chrono.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/recharts/2.15.0/Recharts.min.js"></script>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #1e3a8a;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    .highlight {
+      background-color: #fef08a;
+      padding: 0.5rem;
+      border-radius: 0.25rem;
+    }
+  </style>
 </head>
 <body class="bg-gray-100 font-sans">
-  <!-- Rendering main app container -->
-  <div id="root" class="container mx-auto px-4 py-8"></div>
+  <!-- Header -->
+  <header class="bg-blue-900 text-white py-4">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">NHL Bracket Tracker Report</h1>
+      <nav>
+        <a href="0420results.html" class="mx-2 hover:text-blue-300">Updates</a>
+        <a href="https://forms.gle/k5rn5aTJnWEYAYjn7" class="mx-2 hover:text-blue-300">Join Now</a>
+      </nav>
+    </div>
+  </header>
 
-  <script type="text/babel">
-    // Initializing React root
-    const { createRoot } = ReactDOM;
-    const root = createRoot(document.getElementById('root'));
+  <!-- Summary Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-4">Summary of Bracket Entries</h2>
+      <p class="text-lg mb-4">
+        As of April 20, 2025, we have received 12 entries for the Ontario K vs Spooner NHL Bracket Tracker challenge. Participants have submitted their predictions for eight key NHL playoff matchups. Below, we analyze the entries, highlight popular picks, and uncover some fun facts about the data.
+      </p>
+      <p class="text-lg mb-4">
+        The matchups include: Winnipeg Jets vs. St Louis Blues, Dallas Stars vs. Colorado Avalanche, Las Vegas Golden Knights vs. Minnesota Wild, LA Kings vs. Edmonton Oilers, Toronto Maple Leafs vs. Ottawa Senators, Tampa Bay Lightning vs. Florida Panthers, Washington Capitals vs. Montreal Canadiens, and Carolina Hurricanes vs. New Jersey Devils.
+      </p>
+    </div>
+  </section>
 
-    // Defining main App component
-    function App() {
-      const [data, setData] = React.useState(null);
-      const [loading, setLoading] = React.useState(true);
+  <!-- Entries Table -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-4">All Entries</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Nickname</th>
+            <th>Timestamp</th>
+            <th>Jets vs Blues</th>
+            <th>Stars vs Avalanche</th>
+            <th>Knights vs Wild</th>
+            <th>Kings vs Oilers</th>
+            <th>Leafs vs Senators</th>
+            <th>Lightning vs Panthers</th>
+            <th>Capitals vs Canadiens</th>
+            <th>Hurricanes vs Devils</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>“Greatness” Vs Spooner</td>
+            <td>4/19/2025 16:19:00</td>
+            <td>St Louis Blues</td>
+            <td>Dallas Stars</td>
+            <td>Minnesota Wild</td>
+            <td>Edmonton Oilers</td>
+            <td>Toronto Maple Leafs</td>
+            <td>Tampa Bay Lightning</td>
+            <td>Washington Capitals</td>
+            <td>New Jersey Devils</td>
+          </tr>
+          <tr>
+            <td>K</td>
+            <td>4/19/2025 16:42:26</td>
+            <td>St Louis Blues</td>
+            <td>Dallas Stars</td>
+            <td>Minnesota Wild</td>
+            <td>Edmonton Oilers</td>
+            <td>Toronto Maple Leafs</td>
+            <td>Tampa Bay Lightning</td>
+            <td>Washington Capitals</td>
+            <td>New Jersey Devils</td>
+          </tr>
+          <tr>
+            <td>Mickey</td>
+            <td>4/19/2025 16:51:47</td>
+            <td>St Louis Blues</td>
+            <td>Colorado Avalanche</td>
+            <td>Minnesota Wild</td>
+            <td>Edmonton Oilers</td>
+            <td>Toronto Maple Leafs</td>
+            <td>Florida Panthers</td>
+            <td>Washington Capitals</td>
+            <td>New Jersey Devils</td>
+          </tr>
+          <tr>
+            <td>Big</td>
+            <td>4/19/2025 17:29:02</td>
+            <td>Winnipeg Jets</td>
+            <td>Dallas Stars</td>
+            <td>Las Vegas Golden Knights</td>
+            <td>LA Kings</td>
+            <td>Toronto Maple Leafs</td>
+            <td>Tampa Bay Lightning</td>
+            <td>Washington Capitals</td>
+            <td>Carolina Hurricanes</td>
+          </tr>
+          <tr>
+            <td>Elgourdo</td>
+            <td>4/19/2025 17:41:14</td>
+            <td>Winnipeg Jets</td>
+            <td>Colorado Avalanche</td>
+            <td>Las Vegas Golden Knights</td>
+            <td>Edmonton Oilers</td>
+            <td>Toronto Maple Leafs</td>
+            <td>Tampa Bay Lightning</td>
+            <td>Montreal Canadiens</td>
+            <td>Carolina Hurricanes</td>
+          </tr>
+          <tr>
+            <td>J</td>
+            <td>4/19/2025 17:42:28</td>
+            <td>Winnipeg Jets</td>
+            <td>Colorado Avalanche</td>
+            <td>Las Vegas Golden Knights</td>
+            <td>LA Kings</td>
+            <td>Toronto Maple Leafs</td>
+            <td>Tampa Bay Lightning</td>
+            <td>Washington Capitals</td>
+            <td>Carolina Hurricanes</td>
+          </tr>
+          <tr>
+            <td>Mean Joe</td>
+            <td>4/19/2025 21:35:44</td>
+            <td>Winnipeg Jets</td>
+            <td>Dallas Stars</td>
+            <td>Las Vegas Golden Knights</td>
+            <td>LA Kings</td>
+            <td>Toronto Maple Leafs</td>
+            <td>Florida Panthers</td>
+            <td>Washington Capitals</td>
+            <td>Carolina Hurricanes</td>
+          </tr>
+          <tr>
+            <td>Spooner - My Picks</td>
+            <td>4/20/2025 11:17:34</td>
+            <td>Winnipeg Jets</td>
+            <td>Colorado Avalanche</td>
+            <td>Las Vegas Golden Knights</td>
+            <td>LA Kings</td>
+            <td>Toronto Maple Leafs</td>
+            <td>Tampa Bay Lightning</td>
+            <td>Washington Capitals</td>
+            <td>New Jersey Devils</td>
+          </tr>
+          <tr>
+            <td>Spooner Vs Ontario K Picks</td>
+            <td>4/20/2025 11:20:17</td>
+            <td>Winnipeg Jets</td>
+            <td>Dallas Stars</td>
+            <td>Las Vegas Golden Knights</td>
+            <td>LA Kings</td>
+            <td>Ottawa Senators</td>
+            <td>Florida Panthers</td>
+            <td>Montreal Canadiens</td>
+            <td>Carolina Hurricanes</td>
+          </tr>
+          <tr>
+            <td>Blanket</td>
+            <td>4/20/2025 13:25:56</td>
+            <td>Winnipeg Jets</td>
+            <td>Colorado Avalanche</td>
+            <td>Las Vegas Golden Knights</td>
+            <td>Edmonton Oilers</td>
+            <td>Toronto Maple Leafs</td>
+            <td>Tampa Bay Lightning</td>
+            <td>Montreal Canadiens</td>
+            <td>New Jersey Devils</td>
+          </tr>
+          <tr>
+            <td>Dagger</td>
+            <td>4/20/2025 13:45:25</td>
+            <td>Winnipeg Jets</td>
+            <td>Colorado Avalanche</td>
+            <td>Las Vegas Golden Knights</td>
+            <td>Edmonton Oilers</td>
+            <td>Ottawa Senators</td>
+            <td>Tampa Bay Lightning</td>
+            <td>Washington Capitals</td>
+            <td>Carolina Hurricanes</td>
+          </tr>
+          <tr>
+            <td>Sexy Mike</td>
+            <td>4/20/2025 13:48:56</td>
+            <td>Winnipeg Jets</td>
+            <td>Dallas Stars</td>
+            <td>Las Vegas Golden Knights</td>
+            <td>Edmonton Oilers</td>
+            <td>Toronto Maple Leafs</td>
+            <td>Tampa Bay Lightning</td>
+            <td>Washington Capitals</td>
+            <td>New Jersey Devils</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 
-      // Loading and parsing CSV data
-      React.useEffect(() => {
-        const csv = loadFileData('0420.csv');
-        Papa.parse(csv, {
-          header: true,
-          skipEmptyLines: true,
-          transformHeader: (header) => header.trim().replace(/^"|"$/g, ''),
-          transform: (value, header) => {
-            let cleaned = value.trim().replace(/^"|"$/g, '');
-            return cleaned;
-          },
-          complete: (results) => {
-            const cleanedData = results.data.map(row => ({
-              Timestamp: chrono.parseDate(row['Timestamp']),
-              Nickname: row['Your Nickname'],
-              JetsVsBlues: row['Who will win between Winnipeg Jets vs St Louis Blues'],
-              StarsVsAvalanche: row['Who will win between Dallas Stars vs Colorado Avalanche'],
-              KnightsVsWild: row['Who will win between Las Vegas Golden Knights vs Minnesota Wild'],
-              KingsVsOilers: row['Who will win between LA Kings vs Edmonton Oilers'],
-              LeafsVsSenators: row['Who will win between Toronto Maple Leaf\'s vs Ottawa Senators'],
-              LightningVsPanthers: row['Who will win between Tampa Bay Lightening  vs Florida Panthers'],
-              CapitalsVsCanadians: row['Who will win between Washington Capitals vs Montreal Canadians'],
-              HurricanesVsDevils: row['Who will win between  Carolina Panthers   vs New Jersey Devils']
-            }));
-            setData(cleanedData);
-            setLoading(false);
-          },
-          error: (err) => {
-            console.error(err);
-            setLoading(false);
-          }
-        });
-      }, []);
+  <!-- Analysis Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-4">Analysis of Picks</h2>
+      <p class="text-lg mb-4">Here’s a breakdown of the most popular picks for each matchup:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Matchup</th>
+            <th>Team 1 (Votes)</th>
+            <th>Team 2 (Votes)</th>
+            <th>Popular Pick</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Jets vs Blues</td>
+            <td>Winnipeg Jets (9)</td>
+            <td>St Louis Blues (3)</td>
+            <td>Winnipeg Jets</td>
+          </tr>
+          <tr>
+            <td>Stars vs Avalanche</td>
+            <td>Dallas Stars (6)</td>
+            <td>Colorado Avalanche (6)</td>
+            <td>Tie</td>
+          </tr>
+          <tr>
+            <td>Knights vs Wild</td>
+            <td>Las Vegas Golden Knights (9)</td>
+            <td>Minnesota Wild (3)</td>
+            <td>Las Vegas Golden Knights</td>
+          </tr>
+          <tr>
+            <td>Kings vs Oilers</td>
+            <td>LA Kings (5)</td>
+            <td>Edmonton Oilers (7)</td>
+            <td>Edmonton Oilers</td>
+          </tr>
+          <tr>
+            <td>Leafs vs Senators</td>
+            <td>Toronto Maple Leafs (10)</td>
+            <td>Ottawa Senators (2)</td>
+            <td>Toronto Maple Leafs</td>
+          </tr>
+          <tr>
+            <td>Lightning vs Panthers</td>
+            <td>Tampa Bay Lightning (9)</td>
+            <td>Florida Panthers (3)</td>
+            <td>Tampa Bay Lightning</td>
+          </tr>
+          <tr>
+            <td>Capitals vs Canadiens</td>
+            <td>Washington Capitals (9)</td>
+            <td>Montreal Canadiens (3)</td>
+            <td>Washington Capitals</td>
+          </tr>
+          <tr>
+            <td>Hurricanes vs Devils</td>
+            <td>Carolina Hurricanes (7)</td>
+            <td>New Jersey Devils (5)</td>
+            <td>Carolina Hurricanes</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 
-      // Rendering loading state
-      if (loading) {
-        return (
-          <div className="text-center py-16">
-            <h2 className="text-2xl font-bold text-blue-900">Loading Picks...</h2>
-          </div>
-        );
-      }
+  <!-- Fun Facts Section -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-4">Fun Facts</h2>
+      <ul class="list-disc list-inside text-lg space-y-4">
+        <li><span class="highlight">Unanimous Leafs Love:</span> Toronto Maple Leafs are the most favored team, with 10 out of 12 participants picking them to win against the Ottawa Senators. Looks like the Leafs Nation is strong in this bracket!</li>
+        <li><span class="highlight">Stars vs Avalanche Split:</span> The Dallas Stars vs. Colorado Avalanche matchup is the only one with a perfect 50-50 split (6 votes each), making it the most contested prediction.</li>
+        <li><span class="highlight">Spooner’s Influence:</span> Two entries, “Spooner - My Picks” and “Spooner Vs Ontario K Picks,” were submitted within 3 minutes of each other on April 20, suggesting Spooner was strategizing hard!</li>
+        <li><span class="highlight">Nickname Creativity:</span> Participants brought their A-game with nicknames like “Sexy Mike,” “Mean Joe,” and “Elgourdo,” adding some flair to the competition.</li>
+        <li><span class="highlight">Early Birds vs. Last Minute:</span> The earliest entry was submitted on April 19 at 16:19:00, while the latest came in on April 20 at 13:48:56, showing a mix of eager and last-minute predictors.</li>
+      </ul>
+    </div>
+  </section>
 
-      // Defining Game 1 results
-      const gameResults = {
-        JetsVsBlues: { winner: 'Winnipeg Jets', score: '5-3' },
-        StarsVsAvalanche: { winner: 'Colorado Avalanche', score: '5-1' }
-      };
+  <!-- Conclusion Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-4">Conclusion</h2>
+      <p class="text-lg mb-4">
+        The Ontario K vs Spooner NHL Bracket Tracker is off to an exciting start with 12 passionate participants. The Toronto Maple Leafs and Las Vegas Golden Knights are clear favorites, while the Dallas Stars vs. Colorado Avalanche matchup has fans split down the middle. With creative nicknames and strategic entries, the competition is heating up. As the 2025 Stanley Cup Playoffs progress, it’ll be thrilling to see whose predictions come out on top!
+      </p>
+      <a href="https://forms.gle/k5rn5aTJnWEYAYjn7" class="bg-yellow-500 text-blue-900 px-6 py-3 rounded-full font-semibold hover:bg-yellow-400">Join the Challenge Now</a>
+    </div>
+  </section>
 
-      // Calculating correct picks
-      const correctPicks = data.map(row => {
-        let correctCount = 0;
-        if (row.JetsVsBlues === gameResults.JetsVsBlues.winner) correctCount++;
-        if (row.StarsVsAvalanche === gameResults.StarsVsAvalanche.winner) correctCount++;
-        return { ...row, correctCount };
-      });
-
-      // Preparing data for visualizations
-      const matchups = [
-        { key: 'JetsVsBlues', teams: ['Winnipeg Jets', 'St Louis Blues'], result: gameResults.JetsVsBlues },
-        { key: 'StarsVsAvalanche', teams: ['Dallas Stars', 'Colorado Avalanche'], result: gameResults.StarsVsAvalanche },
-        { key: 'KnightsVsWild', teams: ['Las Vegas Golden Knights', 'Minnesota Wild'], result: null },
-        { key: 'KingsVsOilers', teams: ['LA Kings', 'Edmonton Oilers'], result: null },
-        { key: 'LeafsVsSenators', teams: ['Toronto Maple Leaf\'s', 'Ottawa Senators'], result: null },
-        { key: 'LightningVsPanthers', teams: ['Tampa Bay Lightening', 'Florida Panthers'], result: null },
-        { key: 'CapitalsVsCanadians', teams: ['Washington Capitals', 'Montreal Canadians'], result: null },
-        { key: 'HurricanesVsDevils', teams: ['Carolina Panthers', 'New Jersey Devils'], result: null }
-      ];
-
-      const pickCounts = matchups.map(matchup => {
-        const counts = {};
-        matchup.teams.forEach(team => {
-          counts[team] = data.filter(row => row[matchup.key] === team).length;
-        });
-        return { matchup: matchup.key, ...counts };
-      });
-
-      const correctPickData = [
-        { name: 'Both Correct', value: correctPicks.filter(row => row.correctCount === 2).length },
-        { name: 'One Correct', value: correctPicks.filter(row => row.correctCount === 1).length },
-        { name: 'None Correct', value: correctPicks.filter(row => row.correctCount === 0).length }
-      ];
-
-      // Rendering main report
-      return (
-        <div className="space-y-12">
-          {/* Displaying header */}
-          <header className="bg-blue-900 text-white py-6 rounded-lg text-center">
-            <h1 className="text-3xl md:text-4xl font-bold">Ontario K vs Spooner NHL Picks Update</h1>
-            <p className="text-lg mt-2">2025 Stanley Cup Playoffs - Game 1 Results & Trends</p>
-          </header>
-
-          {/* Summarizing picks and results */}
-          <section className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-2xl font-bold text-blue-900 mb-4">Summary</h2>
-            <p className="text-gray-700">
-              The 2025 Stanley Cup Playoffs are underway, and the Ontario K vs. Spooner NHL Bracket Tracker has 11 submissions from 10 participants. Game 1 results are in: the Winnipeg Jets defeated the St. Louis Blues 5-3, and the Colorado Avalanche crushed the Dallas Stars 5-1. Four participants nailed both picks, while the Toronto Maple Leafs remain a near-unanimous favorite against the Ottawa Senators. Check out the updated picks, results, trends, and fun facts below![](https://www.nhl.com/news/2025-stanley-cup-playoffs-first-round-schedule-television-results)
-            </p>
-          </section>
-
-          {/* Displaying picks table */}
-          <section className="bg-white p-6 rounded-lg shadow-md overflow-x-auto">
-            <h2 className="text-2xl font-bold text-blue-900 mb-4">Picks Table</h2>
-            <table className="w-full text-left text-sm">
-              <thead className="bg-blue-100">
-                <tr>
-                  <th className="p-3">Nickname</th>
-                  <th className="p-3">Jets vs Blues</th>
-                  <th className="p-3">Stars vs Avalanche</th>
-                  <th className="p-3">Knights vs Wild</th>
-                  <th className="p-3">Kings vs Oilers</th>
-                  <th className="p-3">Leafs vs Senators</th>
-                  <th className="p-3">Lightning vs Panthers</th>
-                  <th className="p-3">Capitals vs Canadians</th>
-                  <th className="p-3">Hurricanes vs Devils</th>
-                </tr>
-              </thead>
-              <tbody>
-                {correctPicks.map((row, index) => (
-                  <tr key={index} className="border-b">
-                    <td className="p-3">{row.Nickname}</td>
-                    <td className={`p-3 ${row.JetsVsBlues === gameResults.JetsVsBlues.winner ? 'bg-green-100' : 'bg-red-100'}`}>
-                      {row.JetsVsBlues}
-                    </td>
-                    <td className={`p-3 ${row.StarsVsAvalanche === gameResults.StarsVsAvalanche.winner ? 'bg-green-100' : 'bg-red-100'}`}>
-                      {row.StarsVsAvalanche}
-                    </td>
-                    <td className="p-3">{row.KnightsVsWild}</td>
-                    <td className="p-3">{row.KingsVsOilers}</td>
-                    <td className="p-3">{row.LeafsVsSenators}</td>
-                    <td className="p-3">{row.LightningVsPanthers}</td>
-                    <td className="p-3">{row.CapitalsVsCanadians}</td>
-                    <td className="p-3">{row.HurricanesVsDevils}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            <p className="text-gray-600 text-sm mt-2">Green: Correct pick | Red: Incorrect pick (based on Game 1 results)</p>
-          </section>
-
-          {/* Visualizing pick trends */}
-          <section className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-2xl font-bold text-blue-900 mb-4">Trends & Visualizations</h2>
-            <div className="space-y-8">
-              {/* Rendering bar chart for picks per matchup */}
-              {pickCounts.map((counts, index) => (
-                <div key={index}>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                    {matchups[index].teams.join(' vs ')}
-                    {matchups[index].result ? ` (Game 1: ${matchups[index].result.winner} won ${matchups[index].result.score})` : ''}
-                  </h3>
-                  <Recharts.ResponsiveContainer width="100%" height={300}>
-                    <Recharts.BarChart data={[counts]} margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
-                      <Recharts.CartesianGrid strokeDasharray="3 3" />
-                      <Recharts.XAxis dataKey="matchup" hide />
-                      <Recharts.YAxis label={{ value: 'Number of Picks', angle: -90, position: 'insideLeft', style: { fontSize: 12 } }} style={{ fontSize: 12 }} />
-                      <Recharts.Tooltip contentStyle={{ fontSize: 12 }} />
-                      <Recharts.Legend wrapperStyle={{ fontSize: 12 }} />
-                      {matchups[index].teams.map(team => (
-                        <Recharts.Bar
-                          key={team}
-                          dataKey={team}
-                          fill={matchups[index].result && team === matchups[index].result.winner ? '#10B981' : team === matchups[index].teams[0] ? '#1D4ED8' : '#EF4444'}
-                        />
-                      ))}
-                    </Recharts.BarChart>
-                  </Recharts.ResponsiveContainer>
-                </div>
-              ))}
-
-              {/* Rendering pie chart for correct picks */}
-              <div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Correct Picks After Game 1</h3>
-                <Recharts.ResponsiveContainer width="100%" height={300}>
-                  <Recharts.PieChart>
-                    <Recharts.Pie
-                      data={correctPickData}
-                      dataKey="value"
-                      nameKey="name"
-                      cx="50%"
-                      cy="50%"
-                      outerRadius={100}
-                      fill="#1D4ED8"
-                      label={{ style: { fontSize: 12 } }}
-                    >
-                      {correctPickData.map((entry, index) => (
-                        <Recharts.Cell key={`cell-${index}`} fill={['#10B981', '#F59E0B', '#EF4444'][index]} />
-                      ))}
-                    </Recharts.Pie>
-                    <Recharts.Tooltip contentStyle={{ fontSize: 12 }} />
-                    <Recharts.Legend wrapperStyle={{ fontSize: 12 }} />
-                  </Recharts.PieChart>
-                </Recharts.ResponsiveContainer>
-              </div>
-            </div>
-          </section>
-
-          {/* Highlighting fun facts */}
-          <section className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-2xl font-bold text-blue-900 mb-4">Fun Facts</h2>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2">
-              <li><strong>Early Leaders:</strong> Elgourdo, J, Spooner - My Picks, and Blanket are perfect so far, correctly picking both the Jets and Avalanche in Game 1!</li>
-              <li><strong>Biggest Upset:</strong> The Avalanche’s 5-1 rout of the Stars surprised half the participants, with 5 incorrectly picking Dallas.</li>
-              <li><strong>Bold Move:</strong> Spooner Vs Ontario K Picks is the only one backing the Ottawa Senators against the heavily favored Toronto Maple Leafs (10/11 picks).</li>
-              <li><strong>Hot Streak Potential:</strong> The Jets’ Game 1 win aligns with their Presidents’ Trophy status, backed by 7 participants. Can they keep it up?</li>[](https://www.nhl.com/news/2025-stanley-cup-playoffs-first-round-schedule-television-results)
-            </ul>
-          </section>
-
-          {/* Highlighting trends */}
-          <section className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-2xl font-bold text-blue-900 mb-4">Trends</h2>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2">
-              <li><strong>Fan Favorites:</strong> Toronto Maple Leafs (10/11) and Vegas Golden Knights (7/11) are the most popular picks, reflecting confidence in their playoff prowess.</li>
-              <li><strong>Even Splits:</strong> The Stars vs. Avalanche matchup was perfectly split (5-5), but the Avalanche’s Game 1 win gives their backers an edge.</li>
-              <li><strong>Spooner’s Strategy:</strong> Spooner’s two brackets show a shift, picking Ottawa in one but Toronto in the other, hedging on the Battle of Ontario.</li>
-              <li><strong>Underdog Watch:</strong> Montreal Canadians (3/11) and Ottawa Senators (1/11) are the least picked, but could surprise as underdogs.</li>
-            </ul>
-          </section>
-
-          {/* Concluding the report */}
-          <section className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-2xl font-bold text-blue-900 mb-4">Conclusion</h2>
-            <p className="text-gray-700">
-              The Ontario K vs. Spooner NHL Bracket Tracker is off to an exciting start with Game 1 results shaking up the leaderboard. With perfect picks from four participants and bold underdog choices like Ottawa, the 2025 Stanley Cup Playoffs are full of surprises. Stay tuned for more results and keep competing to see who can outpredict Ontario K and Spooner!
-            </p>
-            <a
-              href="https://forms.gle/k5rn5aTJnWEYAYjn7"
-              className="mt-4 inline-block bg-yellow-500 text-blue-900 px-6 py-3 rounded-full font-semibold hover:bg-yellow-400"
-            >
-              Submit or Update Your Bracket
-            </a>
-          </section>
-        </div>
-      );
-    }
-
-    // Rendering the app
-    root.render(<App />);
-  </script>
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-4">
+    <div class="container mx-auto px-4 text-center">
+      <p>© 2025 Ontario K Vs Spooner NHL Bracket Tracker. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
 </html>
+```
