@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sam's Farm Adventure</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', Arial, sans-serif;
+            background-color: #e6f3e6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M20 20c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0 4c-6.627 0-12 5.373-12 12v4h24v-4c0-6.627-5.373-12-12-12z" fill="%2399cc99" fill-opacity="0.2" fill-rule="evenodd"/%3E%3C/svg%3E');
+        }
+        #game-container {
+            background-color: #fff7e6;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            border: 2px solid #8b5a2b;
+        }
+        #story-text {
+            font-size: 18px;
+            margin-bottom: 20px;
+            min-height: 100px;
+            line-height: 1.5;
+        }
+        .choice-button {
+            background-color: #ffcc66;
+            color: #333;
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: 'Comic Sans MS', Arial, sans-serif;
+            transition: background-color 0.2s;
+        }
+        .choice-button:hover {
+            background-color: #ffb833;
+        }
+        h1 {
+            color: #8b5a2b;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        /* Typing effect */
+        .typing {
+            display: inline-block;
+            white-space: pre-wrap;
+            overflow: hidden;
+            border-right: 2px solid #8b5a2b;
+            animation: blink 0.7s step-end infinite;
+        }
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <h1>Sam's Farm Adventure</h1>
+        <div id="story-text"></div>
+        <div id="choices"></div>
+    </div>
+
+    <script>
+        // Simulated obfuscated JavaScript
+        const g={s:{t:"Sam is a 6-year-old boy on his family’s farm in Saskatchewan. It’s a sunny afternoon, and he’s supposed to stay near the house, but the world feels so big! He’s in the garden, where carrots and beans grow tall. Mom is inside cooking. Sam hears a rustling in the bushes. What should he do?",c:[{x:"Check the bushes",n:"b"},{x:"Run to the house",n:"c"},{x:"Sneak down the lane",n:"d"},{x:"Pick some carrots",n:"e"}]},
+        b:{t:"Sam tiptoes to the bushes and finds a fluffy bunny! It hops away, toward the edge of the garden. Sam’s heart races—he’s not supposed to go far. The bunny looks back, as if daring him to follow. What now?",c:[{x:"Chase the bunny",n:"f"},{x:"Call for Mom",n:"c"},{x:"Go to the lane",n:"d"},{x:"Stay in the garden",n:"s"}]},
+        c:{t:"Sam runs into the house and up to his bedroom. It’s cozy, with toys scattered on the floor and a window overlooking the farm. He feels safe but curious. Through the window, he sees a shiny object in the lane. What does he do?",c:[{x:"Climb out the window",n:"d"},{x:"Play with toys",n:"g"},{x:"Go downstairs",n:"h"},{x:"Look closer at the window",n:"i"}]},
+        d:{t:"Sam sneaks down the lane, away from the house. The gravel crunches under his sneakers. The lane leads to school, but it’s Saturday, so it’s empty. He sees a path to Main Street in the distance. He’s getting far from home! What’s next?",c:[{x:"Head to school",n:"j"},{x:"Go to Main Street",n:"k"},{x:"Turn back home",n:"c"},{x:"Hide in the tall grass",n:"l"}]},
+        e:{t:"Sam pulls up some carrots, but he tugs too hard and falls backward! He giggles, but Mom hears and comes out. 'Sam, stay close!' she says, but then she gets distracted by a phone call. Sam sees the lane open before him. What does he do?",c:[{x:"Slip down the lane",n:"d"},{x:"Help Mom in the garden",n:"s"},{x:"Sneak to the house",n:"c"},{x:"Eat a carrot",n:"m"}]},
+        f:{t:"Sam chases the bunny into a field! It’s exciting, but he’s far from home now. The bunny vanishes, and Sam sees an old barn in the distance. It looks spooky, and he’s a bit scared. What should he do?",c:[{x:"Explore the barn",n:"n"},{x:"Run back to the garden",n:"s"},{x:"Shout for help",n:"o"},{x:"Look for the bunny",n:"p"}]},
+        g:{t:"Sam plays with his toy tractor, making vroom noises. It’s fun, but he feels a bit bored. He hears a strange noise outside, like a soft whistle. What does he do?",c:[{x:"Check the window",n:"i"},{x:"Keep playing",n:"g"},{x:"Go downstairs",n:"h"},{x:"Hide under the bed",n:"q"}]},
+        h:{t:"Sam goes downstairs. Mom is in the kitchen, humming. The back door is open, leading to the garden, and the lane is just beyond. Mom’s busy. What does Sam do?",c:[{x:"Sneak to the garden",n:"s"},{x:"Go down the lane",n:"d"},{x:"Stay with Mom",n:"r"},{x:"Grab a cookie",n:"t"}]},
+        i:{t:"Sam peers out the window and sees a shiny coin in the lane! It’s so tempting, but he knows he’s not supposed to leave the house alone. What does he do?",c:[{x:"Climb out to get it",n:"d"},{x:"Tell Mom about it",n:"h"},{x:"Stay in the bedroom",n:"g"},{x:"Watch the coin",n:"i"}]},
+        j:{t:"Sam reaches the school. The playground is empty, but the swings are swaying, as if someone just left. He’s really far from home now, and it’s getting late. What does he do?",c:[{x:"Play on the swings",n:"u"},{x:"Go to Main Street",n:"k"},{x:"Run home",n:"c"},{x:"Explore the schoolyard",n:"v"}]},
+        k:{t:"Sam arrives on Main Street. The small town is quiet, but he sees the general store and a stray dog sniffing around. He’s way too far from home, and he’s nervous. What now?",c:[{x:"Go into the store",n:"w"},{x:"Follow the dog",n:"x"},{x:"Run back to the lane",n:"d"},{x:"Call for help",n:"y"}]},
+        l:{t:"Sam hides in the tall grass. It’s fun, like a secret fort, but he hears a strange noise—like footsteps. He’s scared but curious. What does he do?",c:[{x:"Peek out",n:"z"},{x:"Stay hidden",n:"l"},{x:"Run to school",n:"j"},{x:"Shout for Mom",n:"o"}]},
+        m:{t:"Sam munches on a carrot. It’s crunchy and sweet! Mom smiles but says, 'Don’t wander off, Sam.' She goes back to work. The lane looks so inviting. What does he do?",c:[{x:"Sneak to the lane",n:"d"},{x:"Stay in the garden",n:"s"},{x:"Go to the house",n:"c"},{x:"Pick more carrots",n:"e"}]},
+        n:{t:"Sam enters the old barn. It’s dark and smells of hay. He finds a dusty treasure box with a toy crown inside! But then he hears Mom calling—he’s in trouble! You found a treasure, but Sam’s adventure ends here. Play again?",c:[{x:"Play again",n:"s"},{x:"Play again",n:"s"},{x:"Play again",n:"s"},{x:"Play again",n:"s"}]},
+        o:{t:"Sam shouts for help, and Mom comes running. She’s upset but hugs him tight. 'Don’t wander off again!' she says. Sam’s safe, but the adventure’s over. Play again?",c:[{x:"Play again",n:"s"},{x:"Play again",n:"s"},{x:"Play again",n:"s"},{x:"Play again",n:"s"}]},
+        p:{t:"Sam looks for the bunny but gets lost in the tall grass. He’s scared and tired. Eventually, a neighbor finds him and brings him home. Mom’s worried! The adventure ends. Play again?",c:[{x:"Play again",n:"s"},{x:"Play again",n:"s"},{x:"Play again",n:"s"},{x:"Play again",n:"s"}]},
+        q:{t:"Sam hides under the bed, giggling. It’s like a secret cave! But he falls asleep, and Mom finds him later. The day’s over, but it was fun. Play again?",c:[{x:"Play again",n:"s"},{x:"Play again",n:"s"},{x:"Play again",n:"s"},{x:"Play again",n:"s"}]},
+        r:{t:"Sam stays with Mom, helping her cook. It’s warm and cozy, but he wonders about the world outside. The day ends quietly. Play again?",c:[{x:"Play again",n:"s"},{x:"Play again",n:"s"},{x:"Play again",n:"s"},{x:"Play again",n:"s"}]},
+        t:{t:"Sam grabs a cookie and munches happily. Mom laughs but says to stay close. The garden and lane are still out there. What does he do?",c:[{x:"Go to the garden",n:"s"},{x:"Sneak to the lane",n:"d"},{x:"Stay with Mom",n:"r"},{x:"Go to the bedroom",n:"c"}]},
+        u:{t:"Sam swings high on the playground, laughing. But it’s getting dark, and he’s far from home. Dad finds him and brings him back. The adventure ends. Play again?",c:[{x:"Play again",n:"s"},{x:"Play again",n:"s"},{x:"Play again",n:"s"},{x:"Play again",n:"s"}]},
+        v:{t:"Sam explores the schoolyard and finds a shiny marble! He’s thrilled, but a teacher sees him and calls his parents. He’s safe but in trouble. Play again?",c:[{x:"Play again",n:"s"},{x:"Play again",n:"s"},{x:"Play again",n:"s"},{x:"Play again",n:"s"}]},
+        w:{t:"Sam enters the general store. The shopkeeper gives him a candy but calls his parents. Mom picks him up, and the adventure ends. Play again?",c:[{x:"Play again",n:"s"},{x:"Play again",n:"s"},{x:"Play again",n:"s"},{x:"Play again",n:"s"}]},
+        x:{t:"Sam follows the dog to a park! It’s fun, but he’s lost. A kind stranger helps him home. Mom’s worried but happy he’s safe. Play again?",c:[{x:"Play again",n:"s"},{x:"Play again",n:"s"},{x:"Play again",n:"s"},{x:"Play again",n:"s"}]},
+        y:{t:"Sam calls for help on Main Street. A friendly neighbor hears and takes him home. Mom’s relieved but says to stay close next time. Play again?",c:[{x:"Play again",n:"s"},{x:"Play again",n:"s"},{x:"Play again",n:"s"},{x:"Play again",n:"s"}]},
+        z:{t:"Sam peeks out and sees a deer! It bounds away, and he chases it but gets lost. Dad finds him after a while. The adventure ends. Play again?",c:[{x:"Play again",n:"s"},{x:"Play again",n:"s"},{x:"Play again",n:"s"},{x:"Play again",n:"s"}]}};
+        const st=document.getElementById("story-text"),ch=document.getElementById("choices");let cs="s";
+        function typeText(t,e,c){st.innerHTML="";st.className="typing";let i=0;const s=setInterval(()=>{if(i<t.length){st.innerHTML+=t[i];i++}else{clearInterval(s);st.className="";if(c)c()}},30);}
+        function ds(){const sc=g[cs];typeText(sc.t,30,()=>{ch.innerHTML="";sc.c.forEach(c=>{const b=document.createElement("button");b.className="choice-button";b.textContent=c.x;b.onclick=()=>{cs=c.n;ds()};ch.appendChild(b)})});ds();
+    </script>
+</body>
+</html>
