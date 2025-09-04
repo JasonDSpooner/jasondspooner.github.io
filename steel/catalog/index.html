@@ -170,51 +170,51 @@
 
   <!-- Category Tiles -->
   <div class="container">
-    <div class="category-tile" id="cncwood">
+    <div class="category-tile" id="cncwood" data-href="cncwood.html">
       <img src="./image/cncwood/2.jpg" alt="CNCWOOD">
       <h2>CNCWOOD</h2>
     </div>
-    <div class="category-tile" id="coolstuff">
+    <div class="category-tile" id="coolstuff" data-href="coolstuff.html">
       <img src="./image/coolstuff/38.jpg" alt="coolstuff">
       <h2>coolstuff</h2>
     </div>
-    <div class="category-tile" id="doorsgates">
+    <div class="category-tile" id="doors" data-href="doors.html">
       <img src="./image/doors/12.JPG" alt="doors">
-      <h2>doorss</h2>
+      <h2>doors</h2>
     </div>
-    <div class="category-tile" id="furniture">
+    <div class="category-tile" id="furniture" data-href="furniture.html">
       <img src="./image/furniture/23.JPG" alt="furniture">
       <h2>furniture</h2>
     </div>
-        <div class="category-tile" id="furniture">
+    <div class="category-tile" id="gates" data-href="gates.html">
       <img src="./image/gates/WhatsApp Image 2025-04-01 at 3.22.06 PM.jpeg" alt="gates">
-      <h2>Gates</h2>
+      <h2>GATES</h2>
     </div>
-    <div class="category-tile" id="handrails">
+    <div class="category-tile" id="handrails" data-href="handrails.html">
       <img src="./image/handrails/HANDRAIL.jpg" alt="HANDRAILS">
       <h2>HANDRAILS</h2>
     </div>
-    <div class="category-tile" id="panels">
+    <div class="category-tile" id="panels" data-href="panels.html">
       <img src="./image/handrails/CASA SUR .jpg" alt="PANELS">
       <h2>PANELS</h2>
     </div>
-    <div class="category-tile" id="pergolas">
+    <div class="category-tile" id="pergolas" data-href="pergolas.html">
       <img src="./image/pergolas/JD PERGOLA3.jpeg" alt="PERGOLAS">
       <h2>PERGOLAS</h2>
     </div>
-    <div class="category-tile" id="sconces">
+    <div class="category-tile" id="sconces" data-href="sconces.html">
       <img src="./image/sconces/CACTUS SCOUNCE 2.JPG" alt="SCONCES">
       <h2>SCONCES</h2>
     </div>
-    <div class="category-tile" id="signs">
+    <div class="category-tile" id="signs" data-href="signs.html">
       <img src="./image/signs/2.jpg" alt="SIGNS">
       <h2>SIGNS</h2>
     </div>
-    <div class="category-tile" id="stairs">
+    <div class="category-tile" id="stairs" data-href="stairs.html">
       <img src="./image/stairs/25.jpg" alt="STAIRS">
       <h2>STAIRS</h2>
     </div>
-    <div class="category-tile" id="windows">
+    <div class="category-tile" id="windows" data-href="windows.html">
       <img src="./image/windows/MILAN  1.jpg" alt="WINDOWS">
       <h2>WINDOWS</h2>
     </div>
@@ -233,8 +233,10 @@
     const tiles = document.querySelectorAll('.category-tile');
     tiles.forEach(tile => {
       tile.addEventListener('click', () => {
-        alert(`Navigating to ${tile.id} category!`);
-        // Replace alert with actual navigation logic, e.g., window.location.href = `/category/${tile.id}`;
+        const href = tile.getAttribute('data-href');
+        if (href) {
+          window.location.href = href;
+        }
       });
     });
   </script>
