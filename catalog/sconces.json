@@ -1,5 +1,10 @@
 {
-    "0343.jpg": {
+    "0007.jpg": {
+        "title": "Placeholder Title",
+        "description": "Placeholder Description",
+        "price": "0.00"
+    },
+    "0027.jpg": {
         "title": "Placeholder Title",
         "description": "Placeholder Description",
         "price": "0.00"
@@ -14,17 +19,7 @@
         "description": "Placeholder Description",
         "price": "0.00"
     },
-    "0346.jpg": {
-        "title": "Placeholder Title",
-        "description": "Placeholder Description",
-        "price": "0.00"
-    },
     "0347.jpg": {
-        "title": "Placeholder Title",
-        "description": "Placeholder Description",
-        "price": "0.00"
-    },
-    "0348.jpg": {
         "title": "Placeholder Title",
         "description": "Placeholder Description",
         "price": "0.00"
@@ -49,17 +44,7 @@
         "description": "Placeholder Description",
         "price": "0.00"
     },
-    "0375.jpg": {
-        "title": "Placeholder Title",
-        "description": "Placeholder Description",
-        "price": "0.00"
-    },
     "0376.jpg": {
-        "title": "Placeholder Title",
-        "description": "Placeholder Description",
-        "price": "0.00"
-    },
-    "0377.jpg": {
         "title": "Placeholder Title",
         "description": "Placeholder Description",
         "price": "0.00"
@@ -74,17 +59,7 @@
         "description": "Placeholder Description",
         "price": "0.00"
     },
-    "0380.jpg": {
-        "title": "Placeholder Title",
-        "description": "Placeholder Description",
-        "price": "0.00"
-    },
     "0381.jpg": {
-        "title": "Placeholder Title",
-        "description": "Placeholder Description",
-        "price": "0.00"
-    },
-    "0382.jpg": {
         "title": "Placeholder Title",
         "description": "Placeholder Description",
         "price": "0.00"
@@ -120,11 +95,6 @@
         "price": "0.00"
     },
     "0389.jpg": {
-        "title": "Placeholder Title",
-        "description": "Placeholder Description",
-        "price": "0.00"
-    },
-    "0390.jpg": {
         "title": "Placeholder Title",
         "description": "Placeholder Description",
         "price": "0.00"
