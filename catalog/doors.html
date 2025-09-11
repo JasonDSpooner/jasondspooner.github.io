@@ -604,7 +604,8 @@
             .catch(error => console.error('Error loading JSON:', error));
         
         function openModal(imgName) {
-            document.getElementById('largeImg').src = '{cat}/' + imgName;
+            const fullPath = '{cat}/' + imgName;
+            document.getElementById('largeImg').src = fullPath;
             document.getElementById('itemTitle').innerText = itemData[imgName]?.title || 'No title';
             document.getElementById('itemDesc').innerText = itemData[imgName]?.description || 'No description';
             document.getElementById('itemPrice').innerText = 'Price: $' + (itemData[imgName]?.price || '0.00');

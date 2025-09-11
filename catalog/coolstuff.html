@@ -39,15 +39,7 @@
             </div>
         
             <div class="col-md-3 mb-4">
-                <img src="coolstuff/0014.jpg" class="img-thumbnail cursor-pointer" alt="0014.jpg" onclick="openModal('0014.jpg')">
-            </div>
-        
-            <div class="col-md-3 mb-4">
                 <img src="coolstuff/0015.jpg" class="img-thumbnail cursor-pointer" alt="0015.jpg" onclick="openModal('0015.jpg')">
-            </div>
-        
-            <div class="col-md-3 mb-4">
-                <img src="coolstuff/0016.jpg" class="img-thumbnail cursor-pointer" alt="0016.jpg" onclick="openModal('0016.jpg')">
             </div>
         
             <div class="col-md-3 mb-4">
@@ -99,10 +91,6 @@
             </div>
         
             <div class="col-md-3 mb-4">
-                <img src="coolstuff/0029.jpg" class="img-thumbnail cursor-pointer" alt="0029.jpg" onclick="openModal('0029.jpg')">
-            </div>
-        
-            <div class="col-md-3 mb-4">
                 <img src="coolstuff/0030.jpg" class="img-thumbnail cursor-pointer" alt="0030.jpg" onclick="openModal('0030.jpg')">
             </div>
         
@@ -124,14 +112,6 @@
         
             <div class="col-md-3 mb-4">
                 <img src="coolstuff/0035.jpg" class="img-thumbnail cursor-pointer" alt="0035.jpg" onclick="openModal('0035.jpg')">
-            </div>
-        
-            <div class="col-md-3 mb-4">
-                <img src="coolstuff/0036.jpg" class="img-thumbnail cursor-pointer" alt="0036.jpg" onclick="openModal('0036.jpg')">
-            </div>
-        
-            <div class="col-md-3 mb-4">
-                <img src="coolstuff/0037.jpg" class="img-thumbnail cursor-pointer" alt="0037.jpg" onclick="openModal('0037.jpg')">
             </div>
         
             <div class="col-md-3 mb-4">
@@ -219,10 +199,6 @@
             </div>
         
             <div class="col-md-3 mb-4">
-                <img src="coolstuff/0341.jpg" class="img-thumbnail cursor-pointer" alt="0341.jpg" onclick="openModal('0341.jpg')">
-            </div>
-        
-            <div class="col-md-3 mb-4">
                 <img src="coolstuff/0342.jpg" class="img-thumbnail cursor-pointer" alt="0342.jpg" onclick="openModal('0342.jpg')">
             </div>
         
@@ -268,7 +244,8 @@
             .catch(error => console.error('Error loading JSON:', error));
         
         function openModal(imgName) {
-            document.getElementById('largeImg').src = '{cat}/' + imgName;
+            const fullPath = '{cat}/' + imgName;
+            document.getElementById('largeImg').src = fullPath;
             document.getElementById('itemTitle').innerText = itemData[imgName]?.title || 'No title';
             document.getElementById('itemDesc').innerText = itemData[imgName]?.description || 'No description';
             document.getElementById('itemPrice').innerText = 'Price: $' + (itemData[imgName]?.price || '0.00');
