@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python Trading Platform — Jason Spooner</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="../index.html" class="logo">Jason Spooner</a>
+      <button class="mobile-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../career.html">Career</a></li>
+        <li><a href="../project-timeline.html">Project Timeline</a></li>
+        <li><a href="../projects.html">Projects</a></li>
+        <li><a href="../travels.html">Travels</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" style="padding:4rem 1.5rem;">
+    <h1>Python Trading Platform</h1>
+    <p class="tagline">Automated crypto futures trading on the Hyperliquid network using Python, technical analysis, and machine learning.</p>
+    <div class="cta">
+      <a href="../project-timeline.html" class="btn btn-outline"><i class="fas fa-arrow-left"></i> Back to Timeline</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="about-row">
+      <div class="about-text">
+        <h2 class="section-title">Overview</h2>
+        <p>This project is a fully automated cryptocurrency trading platform built in Python, designed to trade futures on the Hyperliquid decentralized exchange. The system combines real-time market data, technical indicator analysis, and machine learning optimization to execute trades with minimal human intervention.</p>
+        <p>I developed this because I wanted to understand the intersection of algorithmic finance and decentralized infrastructure — and because manually watching charts 24/7 isn't sustainable.</p>
+
+        <h3 style="margin-top:1.5rem;">What It Does</h3>
+        <ul style="margin-left:1.2rem; color:#333;">
+          <li>Connects to Hyperliquid's API for real-time order book and position data</li>
+          <li>Implements technical strategies using RSI, Bollinger Bands, and custom signals</li>
+          <li>Backtests strategies against historical data before going live</li>
+          <li>Uses machine learning to optimize strategy parameters over time</li>
+          <li>Manages risk through position sizing, stop-losses, and leverage controls</li>
+        </ul>
+
+        <h3 style="margin-top:1.5rem;">Current Configurations</h3>
+        <ul style="margin-left:1.2rem; color:#333;">
+          <li><strong>Binance Top 50 Pairs, 20 Trade Max — Demo:</strong> Dry-run testing on Binance's top 50 pairs</li>
+          <li><strong>Hyperliquid Top 50 Pairs, 20 Trade Max — Demo:</strong> Similar test on Hyperliquid for meme coins and stablecoins</li>
+          <li><strong>Hyperliquid Top 7 Pairs, $100 Balance — Demo:</strong> Testing top 7 meme coin pairs with simulated $100 balance</li>
+          <li><strong>Gold Trading via PAGX Token — Demo:</strong> Testing gold-tied token on Hyperliquid in dry-run mode</li>
+          <li><strong>Hyperliquid Top 7 Pairs, $100 Balance — Live:</strong> Live test with real funds on Hyperliquid</li>
+        </ul>
+        <p>Recent demo tests have shown a <strong>95% win rate</strong> under controlled conditions.</p>
+      </div>
+      <div>
+        <img src="../images/trading-chart.jpg" alt="Trading chart" style="border-radius:var(--radius); box-shadow:var(--shadow); margin-bottom:1.5rem;">
+        <img src="../images/crypto.jpg" alt="Cryptocurrency" style="border-radius:var(--radius); box-shadow:var(--shadow);">
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:#f7f7f7; border-top:1px solid var(--border);">
+    <h2 class="section-title">Technology Stack</h2>
+    <div class="skill-list">
+      <span class="skill">Python 3</span>
+      <span class="skill">Pandas / NumPy</span>
+      <span class="skill">Hyperliquid API</span>
+      <span class="skill">MetaMask / Web3</span>
+      <span class="skill">RSI & Bollinger Bands</span>
+      <span class="skill">Scikit-learn</span>
+      <span class="skill">Docker</span>
+      <span class="skill">SQLite</span>
+    </div>
+
+    <h3 style="margin-top:2rem;">Architecture</h3>
+    <p>The bot runs as a containerized Python service. It fetches candlestick data, computes indicators, generates signals, and submits orders through Hyperliquid's L1 blockchain. All trades, balances, and signals are logged to a local database for post-trade analysis and strategy refinement.</p>
+
+    <h3 style="margin-top:1.5rem;">Risk Warning</h3>
+    <p>Crypto trading is inherently risky. Leverage amplifies both gains and losses. This platform is experimental and should not be considered financial advice. Only invest what you can afford to lose.</p>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Results & Learnings</h2>
+    <p>The most valuable output of this project hasn't been profit — it's been understanding. I've learned how decentralized order books work, how to manage API rate limits, how to avoid overfitting strategies to historical data, and how emotions (even automated ones) can be the biggest risk in trading.</p>
+    <p>The project is ongoing. I continue to iterate on strategy logic, add new pairs, and refine the ML optimization pipeline.</p>
+    <div style="text-align:center; margin-top:2rem;">
+      <a href="mailto:jasondspooner@gmail.com" class="btn btn-primary">Ask About This Project</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="socials">
+      <a href="https://github.com/JasonDSpooner" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="mailto:jasondspooner@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+    <p>© Jason Spooner. Built with curiosity and caffeine.</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

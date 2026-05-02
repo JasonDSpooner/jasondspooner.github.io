@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YYC Tax Sale Reporting — Jason Spooner</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="../index.html" class="logo">Jason Spooner</a>
+      <button class="mobile-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../career.html">Career</a></li>
+        <li><a href="../project-timeline.html">Project Timeline</a></li>
+        <li><a href="../projects.html">Projects</a></li>
+        <li><a href="../travels.html">Travels</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" style="padding:4rem 1.5rem;">
+    <h1>2026 YYC Tax Sale Reporting</h1>
+    <p class="tagline">Real-time data platform tracking Calgary's 2026 property tax sale auction — over $31M in reserve value monitored daily.</p>
+    <div class="cta">
+      <a href="../project-timeline.html" class="btn btn-outline"><i class="fas fa-arrow-left"></i> Back to Timeline</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">The Problem</h2>
+    <p>Calgary's annual tax sale auction involves hundreds of properties with reserve values, bids, and outcomes spread across fragmented PDFs, spreadsheets, and municipal websites. For investors, researchers, and real estate professionals, keeping track of what's available, what's sold, and at what price is a manual, error-prone process.</p>
+
+    <h2 class="section-title" style="margin-top:2rem;">The Solution</h2>
+    <p>I built an automated reporting platform that:</p>
+    <ul style="margin-left:1.2rem; color:#333; margin-bottom:1rem;">
+      <li>Scrapes and parses auction data from municipal sources in real time</li>
+      <li>Computes aggregate statistics — total reserve value, average lot size, sale rates</li>
+      <li>Generates daily HTML reports with sortable tables and summary metrics</li>
+      <li>Tracks properties across multiple auction days to show bidding trends</li>
+      <li>Alerts users to high-value or strategically interesting lots</li>
+    </ul>
+
+    <h2 class="section-title" style="margin-top:2rem;">Impact</h2>
+    <div class="grid" style="max-width:700px;">
+      <div class="card" style="text-align:center;">
+        <h3>$31M+</h3>
+        <p>Total reserve value tracked</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <h3>Daily</h3>
+        <p>Automated report generation</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <h3>100%</h3>
+        <p>Automated data pipeline</p>
+      </div>
+    </div>
+
+    <h2 class="section-title" style="margin-top:2rem;">Technology</h2>
+    <div class="skill-list">
+      <span class="skill">Python</span>
+      <span class="skill">Pandas</span>
+      <span class="skill">BeautifulSoup</span>
+      <span class="skill">HTML Generation</span>
+      <span class="skill">Cron / Scheduling</span>
+      <span class="skill">Data Visualization</span>
+    </div>
+
+    <p style="margin-top:1.5rem;">The platform runs on a scheduled Python pipeline. Each morning, it fetches the latest auction data, cleans and normalizes it, computes statistics, and outputs a fresh HTML report. The entire process is hands-off after initial configuration.</p>
+  </section>
+
+  <section class="section" style="background:#f7f7f7; border-top:1px solid var(--border);">
+    <h2 class="section-title">What I Learned</h2>
+    <p>This project reinforced the value of making public data actually usable. Municipal datasets are often technically "open" but practically inaccessible. By building a simple, automated pipeline, I turned a slog of PDF parsing into actionable intelligence for real estate investors.</p>
+    <div style="text-align:center; margin-top:2rem;">
+      <a href="mailto:jasondspooner@gmail.com" class="btn btn-primary">Ask About This Project</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="socials">
+      <a href="https://github.com/JasonDSpooner" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="mailto:jasondspooner@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+    <p>© Jason Spooner. Built with curiosity and caffeine.</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

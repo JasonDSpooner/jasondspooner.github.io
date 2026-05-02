@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloud Migrations & Hybrid WANs — Jason Spooner</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="../index.html" class="logo">Jason Spooner</a>
+      <button class="mobile-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../career.html">Career</a></li>
+        <li><a href="../project-timeline.html">Project Timeline</a></li>
+        <li><a href="../projects.html">Projects</a></li>
+        <li><a href="../travels.html">Travels</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" style="padding:4rem 1.5rem;">
+    <h1>Cloud Migrations & Hybrid WANs</h1>
+    <p class="tagline">Designing and deploying wide-area networks that move data to hybrid cloud environments without relying solely on big cloud providers.</p>
+    <div class="cta">
+      <a href="../project-timeline.html" class="btn btn-outline"><i class="fas fa-arrow-left"></i> Back to Timeline</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">The Philosophy</h2>
+    <p>Not every business needs or wants AWS, Azure, or Google Cloud. Some need control. Some need compliance. Some just need their data to stay in Canada. I design hybrid infrastructure that uses cloud where it makes sense and keeps critical systems on-premise or in private data centers where it matters.</p>
+
+    <h2 class="section-title" style="margin-top:2rem;">What I Deliver</h2>
+    <ul style="margin-left:1.2rem; color:#333; margin-bottom:1rem;">
+      <li>Hybrid WAN design — connecting branch offices to central infrastructure and selective cloud services</li>
+      <li>VPN and SD-WAN deployments for secure, redundant connectivity</li>
+      <li>Data migration planning — what moves, what stays, and how to move it without downtime</li>
+      <li>Private cloud builds using Proxmox, VMware, and open-source orchestration</li>
+      <li>Cost modeling — comparing true cloud TCO vs. owned infrastructure over 3-5 years</li>
+    </ul>
+
+    <h2 class="section-title" style="margin-top:2rem;">Typical Architecture</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Core Infrastructure</h3>
+        <p>On-premise virtualization cluster (Proxmox/VMware) running Active Directory, file servers, and legacy applications.</p>
+      </div>
+      <div class="card">
+        <h3>Edge Services</h3>
+        <p>Cloud-hosted web front-ends, email, and collaboration tools connected via secure tunnels.</p>
+      </div>
+      <div class="card">
+        <h3>Backup & DR</h3>
+        <p>Replicated backups to off-site storage with tested recovery procedures and documented RTO/RPO.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title" style="margin-top:2rem;">Technology</h2>
+    <div class="skill-list">
+      <span class="skill">Proxmox / VMware</span>
+      <span class="skill">Azure (Selective)</span>
+      <span class="skill">SD-WAN</span>
+      <span class="skill">IPSec / WireGuard</span>
+      <span class="skill">PFSense / OPNsense</span>
+      <span class="skill">Linux Networking</span>
+      <span class="skill">TrueNAS / Ceph</span>
+    </div>
+  </section>
+
+  <section class="section" style="background:#f7f7f7; border-top:1px solid var(--border);">
+    <h2 class="section-title">What I Learned</h2>
+    <p>The cloud isn't always cheaper. For predictable workloads with steady growth, owning your infrastructure often wins on a 5-year TCO. The real value of cloud is elasticity — burst capacity, global distribution, and managed services. My job is to help clients find the right mix, not sell them a one-size-fits-all solution.</p>
+    <div style="text-align:center; margin-top:2rem;">
+      <a href="mailto:jasondspooner@gmail.com" class="btn btn-primary">Ask About This Project</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="socials">
+      <a href="https://github.com/JasonDSpooner" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="mailto:jasondspooner@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+    <p>© Jason Spooner. Built with curiosity and caffeine.</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Lost Explorer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #game-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+        }
+        #story-text {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .choice-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .choice-button:hover {
+            background-color: #45a049;
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
+<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-JFFSXHW0Q1"></script>
+		<script>
+  			window.dataLayer = window.dataLayer || [];
+  			function gtag(){dataLayer.push(arguments);}
+  			gtag('js', new Date());
+
+  			gtag('config', 'G-JFFSXHW0Q1');
+		</script>
+</head>
+<body>
+    <div id="game-container">
+        <h1>The Lost Explorer</h1>
+        <div id="story-text"></div>
+        <div id="choices"></div>
+    </div>
+
+    <script>
+        // Simulated obfuscated JavaScript (in practice, use an obfuscator tool)
+        const a={b:{t:"You are an explorer in a dense, mysterious forest. The sun is setting, and you hear strange noises. Ahead, you see a fork in the path. One path leads to a dark cave, and the other to an old wooden bridge over a river. Which do you choose?",c:[{x:"Enter the cave",n:"c"},{x:"Cross the bridge",n:"d"}]},
+        c:{t:"The cave is dark and damp. You light a torch and see ancient drawings on the walls. Suddenly, you hear a low growl from deeper within. Do you proceed further or turn back?",c:[{x:"Proceed deeper",n:"e"},{x:"Turn back",n:"b"}]},
+        d:{t:"The bridge creaks under your weight. Halfway across, you notice a loose plank. Below, the river rages. You also spot a shiny object caught in the planks. Do you try to grab it or hurry across?",c:[{x:"Grab the object",n:"f"},{x:"Hurry across",n:"g"}]},
+        e:{t:"You find a chest filled with gold and jewels! But a giant bear appears, guarding the treasure. You escape with some gold, but the bear chases you out. You win, but barely! Want to play again?",c:[{x:"Play again",n:"b"}]},
+        f:{t:"You retrieve a glowing amulet, but the bridge collapses! You fall into the river and wash ashore, clutching the amulet. It hums with power. You survived, but the adventure ends here. Play again?",c:[{x:"Play again",n:"b"}]},
+        g:{t:"You reach a small village on the other side. The villagers welcome you and share stories of the forest's mysteries. You’re safe, but the adventure feels unfinished. Play again?",c:[{x:"Play again",n:"b"}]}};
+        const s=document.getElementById("story-text"),ch=document.getElementById("choices");let cs="b";
+        function ds(){const sc=a[cs];s.textContent=sc.t;ch.innerHTML="";sc.c.forEach(c=>{const b=document.createElement("button");b.className="choice-button";b.textContent=c.x;b.onclick=()=>{cs=c.n;ds()};ch.appendChild(b)});}ds();
+    </script>
+</body>
+</html>
