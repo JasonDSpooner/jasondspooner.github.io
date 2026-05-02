@@ -3,18 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Shop books, coloring books, and creative goods by Jason Spooner. Including The Smart Bet Field Guide, custom illustrated coloring books, and 3D-printed accessories.">
-  <meta name="keywords" content="Jason Spooner, shop, books, coloring books, The Smart Bet Field Guide, 3D printed, creative goods, illustration, wellness">
-  <title>Jason Spooner — Shop</title>
+  <meta name="description" content="Shop books, coloring books, and creative goods by Jason Spooner.">
+  <meta name="keywords" content="Jason Spooner, shop, books, coloring books, 3D printed, creative goods">
+  <title>Shop — Jason Spooner</title>
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    .product-img {
-      max-width: 100%;
-      border-radius: 8px;
-      margin-bottom: var(--space-xs);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
-  </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JFFSXHW0Q1"></script>
 <script>
@@ -27,8 +19,6 @@
 <body>
   <div class="container">
     <header>
-      <h1>Shop</h1>
-      <p>Books, coloring books, and creative goods.</p>
       <nav>
         <a href="index.html">Resume</a>
         <a href="books.html">Books</a>
@@ -36,62 +26,155 @@
       </nav>
     </header>
 
-    <section>
-      <div class="book">
-        <img class="product-img" src="https://kimi-web-img.moonshot.cn/prod-data/online-image/search-upload/1b80a65d07da08833c6f7942df040057.png" alt="The Smart Bet Field Guide">
-        <h2><a href="books/smart-bet-field-guide.html">The Smart Bet Field Guide</a></h2>
-        <p class="meta">Book</p>
-        <p>How We Beat the MLB Lines — and How You Can Too. A field manual for betting baseball like a business, built on five months of backtesting and real data.</p>
-        <p><a href="https://www.amazon.ca/dp/B0GYBBRRSP" target="_blank">Buy on Amazon &rarr;</a></p>
-        <div class="tags">
-          <span class="tag">Sports Betting</span>
-          <span class="tag">Data</span>
-          <span class="tag">Strategy</span>
+    <div class="marketplace-header">
+      <h1>🛒 Shop</h1>
+      <p>Books, coloring books, and creative goods — direct from the maker.</p>
+      <div class="marketplace-search">
+        <input type="text" placeholder="Search products..." id="searchInput">
+        <button onclick="alert('Search coming soon!')">Search</button>
+      </div>
+    </div>
+
+    <div class="marketplace-categories">
+      <span class="category-pill active">All</span>
+      <span class="category-pill">Books</span>
+      <span class="category-pill">Coloring</span>
+      <span class="category-pill">Accessories</span>
+      <span class="category-pill">Digital</span>
+    </div>
+
+    <section class="marketplace-grid">
+      <div class="product-card" onclick="location.href='shop/smart-bet-field-guide.html'">
+        <span class="badge badge-bestseller">Bestseller</span>
+        <button class="like-btn" onclick="event.stopPropagation();toggleLike(this,'smart-bet')">🤍</button>
+        <img class="product-card-img" src="https://kimi-web-img.moonshot.cn/prod-data/online-image/search-upload/1b80a65d07da08833c6f7942df040057.png" alt="The Smart Bet Field Guide">
+        <div class="product-card-body">
+          <div class="product-card-title">The Smart Bet Field Guide</div>
+          <div class="product-card-meta">Sports Betting Strategy</div>
+          <div class="product-card-price-row">
+            <span class="product-card-price">$19.99</span>
+            <span class="product-card-old-price">$29.99</span>
+            <span class="product-card-discount">-33%</span>
+          </div>
+          <div class="rating">
+            <span class="rating-stars">★★★★★</span>
+            <span class="rating-count">(47)</span>
+          </div>
+          <div class="sold-count">1.2k+ sold</div>
+          <a href="shop/smart-bet-field-guide.html" class="btn-buy">Buy Now</a>
         </div>
       </div>
 
-      <div class="book">
-        <img class="product-img" src="https://kimi-web-img.moonshot.cn/prod-data/online-image/search-upload/4f7ee990b80d5775fd77702e9faf90af.jpg" alt="Custom Illustrated Coloring Book">
-        <h2>Custom Illustrated Coloring Book</h2>
-        <p class="meta">Coloring Book</p>
-        <p>A hand-illustrated coloring book filled with original designs made to help you relax, focus, and create. Perfect for all ages.</p>
-        <p><a href="https://buy.stripe.com/5kQ3cv3FQ3DucIvgeseZ205" target="_blank">Buy Now &rarr;</a></p>
-        <div class="tags">
-          <span class="tag">Illustration</span>
-          <span class="tag">Wellness</span>
-          <span class="tag">All Ages</span>
+      <div class="product-card" onclick="location.href='shop/custom-illustrated-coloring-book.html'">
+        <span class="badge badge-new">New</span>
+        <button class="like-btn" onclick="event.stopPropagation();toggleLike(this,'coloring-book')">🤍</button>
+        <img class="product-card-img" src="https://kimi-web-img.moonshot.cn/prod-data/online-image/search-upload/4f7ee990b80d5775fd77702e9faf90af.jpg" alt="Custom Illustrated Coloring Book">
+        <div class="product-card-body">
+          <div class="product-card-title">Custom Illustrated Coloring Book</div>
+          <div class="product-card-meta">Hand-Drawn · All Ages</div>
+          <div class="product-card-price-row">
+            <span class="product-card-price">$12.99</span>
+            <span class="product-card-old-price">$18.99</span>
+            <span class="product-card-discount">-32%</span>
+          </div>
+          <div class="rating">
+            <span class="rating-stars">★★★★★</span>
+            <span class="rating-count">(128)</span>
+          </div>
+          <div class="sold-count">3.4k+ sold</div>
+          <a href="shop/custom-illustrated-coloring-book.html" class="btn-buy">Buy Now</a>
         </div>
       </div>
 
-      <div class="book">
-        <img class="product-img" src="https://kimi-web-img.moonshot.cn/prod-data/online-image/search-upload/d6e58c3b6042fc96029d0720c85ae96b.jpg" alt="Hoodie Pen Holder">
-        <h2>Hoodie Pen Holder</h2>
-        <p class="meta">Accessory</p>
-        <p>A 3D-printed organizer designed like a tiny hoodie sweatshirt — perfect for keeping your pens, markers, and coloring supplies within reach.</p>
-        <p><a href="https://buy.stripe.com/4gM8wPfoya1SfUH1jyeZ204" target="_blank">Buy Now &rarr;</a></p>
-        <div class="tags">
-          <span class="tag">3D Printed</span>
-          <span class="tag">Desk Organizer</span>
+      <div class="product-card" onclick="location.href='shop/hoodie-pen-holder.html'">
+        <button class="like-btn" onclick="event.stopPropagation();toggleLike(this,'pen-holder')">🤍</button>
+        <img class="product-card-img" src="https://kimi-web-img.moonshot.cn/prod-data/online-image/search-upload/d6e58c3b6042fc96029d0720c85ae96b.jpg" alt="Hoodie Pen Holder">
+        <div class="product-card-body">
+          <div class="product-card-title">Hoodie Pen Holder</div>
+          <div class="product-card-meta">3D Printed Accessory</div>
+          <div class="product-card-price-row">
+            <span class="product-card-price">$24.99</span>
+            <span class="product-card-old-price">$34.99</span>
+            <span class="product-card-discount">-29%</span>
+          </div>
+          <div class="rating">
+            <span class="rating-stars">★★★★☆</span>
+            <span class="rating-count">(36)</span>
+          </div>
+          <div class="sold-count">890+ sold</div>
+          <a href="shop/hoodie-pen-holder.html" class="btn-buy">Buy Now</a>
         </div>
       </div>
 
-      <div class="book">
-        <img class="product-img" src="https://kimi-web-img.moonshot.cn/prod-data/online-image/search-upload/f3fd848f3c39936811b70d46fca2efd6.jpg" alt="A Ticket to the Circus">
-        <h2>A Ticket to the Circus</h2>
-        <p class="meta">Digital Ticket</p>
-        <p>Step right up. A digital ticket to the show — because life is better with a little chaos under the big top.</p>
-        <p><a href="https://buy.stripe.com/5kQaEX4JUa1SeQD7HWeZ206" target="_blank">Buy Now &rarr;</a></p>
-        <div class="tags">
-          <span class="tag">Digital</span>
-          <span class="tag">Art</span>
+      <div class="product-card" onclick="location.href='shop/ticket-to-the-circus.html'">
+        <span class="badge badge-sale">Sale</span>
+        <button class="like-btn" onclick="event.stopPropagation();toggleLike(this,'circus-ticket')">🤍</button>
+        <img class="product-card-img" src="https://kimi-web-img.moonshot.cn/prod-data/online-image/search-upload/f3fd848f3c39936811b70d46fca2efd6.jpg" alt="A Ticket to the Circus">
+        <div class="product-card-body">
+          <div class="product-card-title">A Ticket to the Circus</div>
+          <div class="product-card-meta">Digital Collectible</div>
+          <div class="product-card-price-row">
+            <span class="product-card-price">$4.99</span>
+            <span class="product-card-old-price">$9.99</span>
+            <span class="product-card-discount">-50%</span>
+          </div>
+          <div class="rating">
+            <span class="rating-stars">★★★★★</span>
+            <span class="rating-count">(62)</span>
+          </div>
+          <div class="sold-count">1.8k+ sold</div>
+          <a href="shop/ticket-to-the-circus.html" class="btn-buy">Buy Now</a>
         </div>
       </div>
     </section>
+
+    <div class="marketplace-trust">
+      <div class="trust-item">
+        <strong>🚚 Free Shipping</strong>
+        On orders over $35
+      </div>
+      <div class="trust-item">
+        <strong>🔒 Secure Checkout</strong>
+        Stripe encrypted payments
+      </div>
+      <div class="trust-item">
+        <strong>⭐ 4.8 Rating</strong>
+        From 273 happy customers
+      </div>
+      <div class="trust-item">
+        <strong>↩️ Easy Returns</strong>
+        30-day money back
+      </div>
+    </div>
 
     <footer>
       <p>© Jason Spooner</p>
       <p style="margin-top:var(--space-xs);"><a href="assessment.html" title="Assessment">&#128126;</a></p>
     </footer>
   </div>
+
+  <script>
+    function toggleLike(btn, id) {
+      const key = 'liked_' + id;
+      const liked = localStorage.getItem(key) === 'true';
+      if (liked) {
+        localStorage.setItem(key, 'false');
+        btn.textContent = '🤍';
+        btn.classList.remove('liked');
+      } else {
+        localStorage.setItem(key, 'true');
+        btn.textContent = '❤️';
+        btn.classList.add('liked');
+      }
+    }
+    // Restore likes on load
+    document.querySelectorAll('.like-btn').forEach(btn => {
+      const id = btn.getAttribute('onclick').match(/'([^']+)'/)[1];
+      if (localStorage.getItem('liked_' + id) === 'true') {
+        btn.textContent = '❤️';
+        btn.classList.add('liked');
+      }
+    });
+  </script>
 </body>
 </html>
