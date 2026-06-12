@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (!list) return;
 
   try {
-    const resp = await fetch('articles.json');
+    const resp = await fetch('/blog/articles.json');
     if (!resp.ok) return;
     const articles = await resp.json();
     
