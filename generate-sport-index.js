@@ -57,6 +57,7 @@ function sportPage({ key, label, description, articles }) {
         <a href="fifa2026.html">FIFA 2026</a>
         <a href="blog/index.html">Blog</a>
         <a href="sports/index.html">Sports</a>
+        <a href="bluejays.html">Blue Jays</a>
         <a href="sports/fact-check.html">Fact Check</a>
       </nav>
     </header>
@@ -93,7 +94,11 @@ function sportsHubPage(articlesBySport) {
           <p>${description}</p>
           ${latest ? `<ul>${latest}</ul>` : `<p><em>No articles yet.</em></p>`}
         </div>`;
-  }).join('\n');
+  }).join('\n') + `
+        <div class="sport-card">
+          <h3><a href="../bluejays.html">🍁 Blue Jays</a></h3>
+          <p>Toronto Blue Jays schedule, results, and home-run tracker powered by live MLB data.</p>
+        </div>`;
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -121,6 +126,7 @@ function sportsHubPage(articlesBySport) {
         <a href="../fifa2026.html">FIFA 2026</a>
         <a href="../blog/index.html">Blog</a>
         <a href="index.html">Sports</a>
+        <a href="../bluejays.html">Blue Jays</a>
         <a href="fact-check.html">Fact Check</a>
       </nav>
     </header>

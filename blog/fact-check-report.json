@@ -1,11 +1,25 @@
 {
-  "generatedAt": "2026-06-12T22:18:59.014Z",
+  "generatedAt": "2026-06-12T22:22:01.329Z",
   "results": [
     {
-      "slug": "cfl-weekend-roundup-week-2-outlook-blue-bombers-face-tiger-cats-in-clash-of-titans",
-      "title": "CFL Weekend Roundup: Week 2 Outlook – Blue Bombers Face Tiger-Cats in Clash of Titans",
+      "slug": "cfl-weekend-roundup-week-2-outlook",
+      "title": "CFL Weekend Roundup: Week 2 Outlook",
       "status": "pass",
       "summary": "Watchlist/outlook article; skipped detailed fact-check.",
+      "issues": []
+    },
+    {
+      "slug": "cfl-preview-bc-lions-at-saskatchewan-roughriders",
+      "title": "CFL Preview: BC Lions at Saskatchewan Roughriders",
+      "status": "pass",
+      "summary": "All claims in the article align with the source data, with no clear contradictions.",
+      "issues": []
+    },
+    {
+      "slug": "cfl-preview-toronto-argonauts-at-montreal-alouettes",
+      "title": "CFL Preview: Toronto Argonauts at Montreal Alouettes",
+      "status": "pass",
+      "summary": "All claims in the article align with the source data, with no clear contradictions found.",
       "issues": []
     },
     {

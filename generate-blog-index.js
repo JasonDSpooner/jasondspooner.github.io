@@ -48,6 +48,7 @@ function generateIndex(articles) {
         <a href="../fifa2026.html">FIFA 2026</a>
         <a href="index.html">Blog</a>
         <a href="../sports/index.html">Sports</a>
+        <a href="../bluejays.html">Blue Jays</a>
       </nav>
     </header>
 
