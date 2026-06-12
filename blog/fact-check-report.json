@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-12T22:22:01.329Z",
+  "generatedAt": "2026-06-12T22:49:47.291Z",
   "results": [
     {
       "slug": "cfl-weekend-roundup-week-2-outlook",
@@ -16,17 +16,10 @@
       "issues": []
     },
     {
-      "slug": "cfl-preview-toronto-argonauts-at-montreal-alouettes",
-      "title": "CFL Preview: Toronto Argonauts at Montreal Alouettes",
-      "status": "pass",
-      "summary": "All claims in the article align with the source data, with no clear contradictions found.",
-      "issues": []
-    },
-    {
       "slug": "hamilton-stuns-winnipeg-with-37-27-victory-in-battle-of-the-prairie",
       "title": "Hamilton Stuns Winnipeg with 37-27 Victory in Battle of the Prairie",
       "status": "pass",
-      "summary": "The article accurately reflects the game results and context as shown in the source data.",
+      "summary": "The article accurately reflects the game result between Hamilton and Winnipeg, with no clear contradictions to the source data.",
       "issues": []
     },
     {
@@ -47,21 +40,21 @@
       "slug": "mexico-faces-south-africa-in-world-cup-opener-betting-preview-and-takeaway",
       "title": "Mexico Faces South Africa in World Cup Opener: Betting Preview and Takeaway",
       "status": "pass",
-      "summary": "All claims in the article align with the source data.",
+      "summary": "All claims in the article align with the source data, with no clear factual contradictions.",
       "issues": []
     },
     {
       "slug": "royals-vs-rangers-preview-a-value-play-in-the-mlb-odds",
       "title": "Royals vs Rangers Preview: A Value Play in the MLB Odds",
       "status": "pass",
-      "summary": "The article accurately reflects the source data for the Royals vs Rangers matchup, including team names, odds, and spread lines.",
+      "summary": "The article accurately reflects the source data for the Royals vs Rangers matchup, including team names, odds, and game details.",
       "issues": []
     },
     {
       "slug": "mets-vs-cardinals-preview-a-value-bet-on-the-underdog-mets",
       "title": "Mets vs Cardinals Preview: A Value Bet on the Underdog Mets",
       "status": "pass",
-      "summary": "The article accurately reflects the Mets vs Cardinals game result and timing based on the source data.",
+      "summary": "The article accurately reflects the Mets vs Cardinals game result and timing as per the source data.",
       "issues": []
     },
     {
