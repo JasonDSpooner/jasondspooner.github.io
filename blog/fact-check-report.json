@@ -1,19 +1,12 @@
 {
-  "generatedAt": "2026-06-12T22:54:23.491Z",
+  "generatedAt": "2026-06-12T22:55:29.718Z",
   "results": [
     {
-      "slug": "new-york-yankees-at-toronto-blue-jays-betting-preview",
-      "title": "New York Yankees at Toronto Blue Jays: Betting Preview",
-      "status": "fail",
-      "summary": "REMOVED: The article incorrectly lists the New York Yankees as the away team in a matchup against the Toronto Blue Jays, while the source data shows the Blue Jays as the home team.",
-      "issues": [
-        {
-          "claim": "New York Yankees at Toronto Blue Jays",
-          "source": "Source data shows TOR BLUE JAYS as home team and NY YANKEES as away team in the matchup with start time 2026-06-13T01:37:00.000Z",
-          "severity": "high",
-          "explanation": "The article states 'New York Yankees at Toronto Blue Jays' implying the Yankees are the away team, but the source data confirms the Blue Jays are the home team and the Yankees are the away team, which is correct. However, the article's phrasing suggests a mismatch in team roles; the article's structure implies the Yankees are the home team, which contradicts the source data indicating the Blue Jays are home."
-        }
-      ]
+      "slug": "toronto-blue-jays-vs-new-york-yankees-betting-preview",
+      "title": "Toronto Blue Jays vs New York Yankees: Betting Preview",
+      "status": "pass",
+      "summary": "The article accurately reflects the source data for the Toronto Blue Jays vs New York Yankees matchup.",
+      "issues": []
     },
     {
       "slug": "cfl-weekend-roundup-week-2-outlook",
