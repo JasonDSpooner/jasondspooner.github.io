@@ -41,7 +41,7 @@ function generateArticleHTML(title, content, date, description) {
     .replace(/ARTICLE_DESCRIPTION/g, description || title);
 }
 
-function updateArticlesIndex(slug, title, date, excerpt) {
+function updateArticlesIndex(slug, title, date, excerpt, tags) {
   let articles = [];
   
   if (fs.existsSync(ARTICLES_JSON)) {
@@ -49,9 +49,19 @@ function updateArticlesIndex(slug, title, date, excerpt) {
   }
   
   // Add new article at the beginning
-  articles.unshift({ slug, title, date, excerpt });
+  const entry = { slug, title, date, excerpt };
+  if (Array.isArray(tags) && tags.length > 0) {
+    entry.tags = tags;
+  }
+  articles.unshift(entry);
   
   fs.writeFileSync(ARTICLES_JSON, JSON.stringify(articles, null, 2));
+}
+
+function parseTags(value) {
+  if (!value) return [];
+  if (Array.isArray(value)) return value.map(String).filter(Boolean);
+  return String(value).split(',').map(t => t.trim()).filter(Boolean);
 }
 
 function main() {
@@ -62,7 +72,7 @@ function main() {
 Article Generator
 
 Usage:
-  node generate-article.js --title "Title" --content "<p>Content</p>" [--slug "slug"] [--description "desc"]
+  node generate-article.js --title "Title" --content "<p>Content</p>" [--slug "slug"] [--description "desc"] [--tags "tag1,tag2"]
   node generate-article.js --from-json article-data.json
 
 Options:
@@ -70,13 +80,14 @@ Options:
   --content      Article content in HTML (required unless --from-json)
   --slug         URL slug (auto-generated from title if omitted)
   --description  Meta description (defaults to title)
+  --tags         Comma-separated tags (stored in articles.json)
   --from-json    Read article data from JSON file
   --help         Show this help
     `);
     process.exit(0);
   }
   
-  let title, content, slug, description, date;
+  let title, content, slug, description, date, tags;
   
   if (args.includes('--from-json')) {
     const jsonPath = args[args.indexOf('--from-json') + 1];
@@ -86,11 +97,13 @@ Options:
     slug = data.slug || slugify(title);
     description = data.description;
     date = data.date || formatDate(new Date());
+    tags = parseTags(data.tags);
   } else {
     title = args[args.indexOf('--title') + 1];
     content = args[args.indexOf('--content') + 1];
     slug = args.includes('--slug') ? args[args.indexOf('--slug') + 1] : slugify(title);
     description = args.includes('--description') ? args[args.indexOf('--description') + 1] : title;
+    tags = parseTags(args[args.indexOf('--tags') + 1]);
     date = formatDate(new Date());
   }
   
@@ -109,7 +122,7 @@ Options:
   
   // Update articles index
   const excerpt = content.replace(/<[^>]*>/g, '').substring(0, 150) + '...';
-  updateArticlesIndex(slug, title, date, excerpt);
+  updateArticlesIndex(slug, title, date, excerpt, tags);
   
   console.log(`✓ Article created: ${articlePath}`);
   console.log(`✓ Index updated: ${ARTICLES_JSON}`);
@@ -119,4 +132,13 @@ if (require.main === module) {
   main();
 }
 
-module.exports = { generateArticleHTML, updateArticlesIndex, slugify, formatDate };
+module.exports = {
+  generateArticleHTML,
+  updateArticlesIndex,
+  slugify,
+  formatDate,
+  BLOG_DIR,
+  ARTICLES_DIR,
+  ARTICLES_JSON,
+  TEMPLATE_PATH,
+};

@@ -18,6 +18,7 @@ const ARTICLES_DIR = path.join(BLOG_DIR, 'articles');
 const IMAGES_DIR = path.join(BLOG_DIR, 'images');
 const GENERATOR = path.join(REPO_DIR, 'generate-article.js');
 const INDEXER = path.join(REPO_DIR, 'generate-blog-index.js');
+const SPORT_INDEXER = path.join(REPO_DIR, 'generate-sport-index.js');
 const DEPLOYER = path.join(REPO_DIR, 'deploy.sh');
 
 function parseArgs(argv) {
@@ -26,12 +27,19 @@ function parseArgs(argv) {
     const idx = args.indexOf(flag);
     return idx >= 0 ? args[idx + 1] : undefined;
   };
+  const getTags = () => {
+    const raw = get('--tags');
+    if (!raw) return [];
+    return raw.split(',').map(t => t.trim()).filter(Boolean);
+  };
   return {
     title: get('--title'),
     markdownPath: get('--markdown'),
     imagePath: get('--image'),
     description: get('--description'),
     date: get('--date'),
+    sport: get('--sport'),
+    tags: getTags(),
     dryRun: args.includes('--dry-run'),
     help: args.includes('--help') || args.includes('-h'),
   };
@@ -247,12 +255,16 @@ Usage:
   }
 
   // Build JSON payload for the existing generator
+  const tags = Array.from(new Set(
+    [args.sport, ...(args.tags || [])].filter(Boolean)
+  ));
   const payload = {
     title: args.title,
     content: htmlContent,
     slug,
     description,
     date,
+    tags,
   };
 
   const payloadPath = path.join('/tmp', `publish-sports-article-${slug}.json`);
@@ -271,6 +283,13 @@ Usage:
       execSync(`node "${INDEXER}"`, { cwd: REPO_DIR, stdio: 'inherit' });
     } else {
       console.log(`[dry-run] Would run: node "${INDEXER}"`);
+    }
+
+    console.log('Regenerating sport index pages...');
+    if (!args.dryRun) {
+      execSync(`node "${SPORT_INDEXER}"`, { cwd: REPO_DIR, stdio: 'inherit' });
+    } else {
+      console.log(`[dry-run] Would run: node "${SPORT_INDEXER}"`);
     }
 
     console.log('Deploying to GitHub Pages...');
