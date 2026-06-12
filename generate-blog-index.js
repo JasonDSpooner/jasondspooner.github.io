@@ -1,4 +1,25 @@
-<!DOCTYPE html>
+#!/usr/bin/env node
+
+/**
+ * Generate blog index from articles.json
+ */
+
+const fs = require('fs');
+const path = require('path');
+
+const BLOG_DIR = path.join(__dirname, 'blog');
+const ARTICLES_JSON = path.join(BLOG_DIR, 'articles.json');
+const INDEX_PATH = path.join(BLOG_DIR, 'index.html');
+
+function generateIndex(articles) {
+  const articleList = articles.map(a => `
+        <li>
+          <span class="blog-date">${a.date}</span>
+          <h3><a href="articles/${a.slug}.html">${a.title}</a></h3>
+          <p class="blog-excerpt">${a.excerpt}</p>
+        </li>`).join('\n');
+
+  return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -34,18 +55,7 @@
       <p>Thoughts on technology, development, and life.</p>
       
       <ul class="blog-list">
-
-        <li>
-          <span class="blog-date">June 11, 2026</span>
-          <h3><a href="articles/test-article.html">Test Article</a></h3>
-          <p class="blog-excerpt">This is a test article to verify the generator works....</p>
-        </li>
-
-        <li>
-          <span class="blog-date">June 12, 2026</span>
-          <h3><a href="articles/getting-started-with-ai-automation.html">Getting Started with AI Automation in Your Workflow</a></h3>
-          <p class="blog-excerpt">How I use AI tools to automate repetitive tasks and boost productivity as a CTO.</p>
-        </li>
+${articleList}
       </ul>
     </section>
 
@@ -54,4 +64,23 @@
     </footer>
   </div>
 </body>
-</html>
+</html>`;
+}
+
+function main() {
+  if (!fs.existsSync(ARTICLES_JSON)) {
+    console.error('No articles.json found');
+    process.exit(1);
+  }
+
+  const articles = JSON.parse(fs.readFileSync(ARTICLES_JSON, 'utf8'));
+  const html = generateIndex(articles);
+  fs.writeFileSync(INDEX_PATH, html);
+  console.log(`✓ Blog index generated with ${articles.length} articles`);
+}
+
+if (require.main === module) {
+  main();
+}
+
+module.exports = { generateIndex };
