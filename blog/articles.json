@@ -1,0 +1,14 @@
+[
+  {
+    "slug": "test-article",
+    "title": "Test Article",
+    "date": "June 11, 2026",
+    "excerpt": "This is a test article to verify the generator works...."
+  },
+  {
+    "slug": "getting-started-with-ai-automation",
+    "title": "Getting Started with AI Automation in Your Workflow",
+    "date": "June 12, 2026",
+    "excerpt": "How I use AI tools to automate repetitive tasks and boost productivity as a CTO."
+  }
+]
