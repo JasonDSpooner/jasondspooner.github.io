@@ -112,6 +112,17 @@ function bluejaysPage(schedule, tracker, articles) {
     )
     .join('');
 
+  const scheduleCards = schedule
+    .map(
+      (row) => `
+        <div class="game-card">
+          <div class="meta">${row.date}</div>
+          <div class="score">${row.ha === 'HOME' ? 'vs' : 'at'} ${row.opponent}</div>
+          <div>${row.js && row.os ? `Score: ${row.js}-${row.os}` : 'Score: —'} · Result: ${row.result === 'W' ? 'W' : row.result === 'L' ? 'L' : '—'} · ${row.status}</div>
+        </div>`,
+    )
+    .join('');
+
   const recentRows = recentGames
     .map(
       (row) => `
@@ -123,40 +134,74 @@ function bluejaysPage(schedule, tracker, articles) {
     )
     .join('');
 
+  const recentCards = recentGames
+    .map(
+      (row) => `
+        <div class="game-card">
+          <div class="meta">${row.date}</div>
+          <div class="score">${formatResult(row)}</div>
+        </div>`,
+    )
+    .join('');
+
+  const playerCards = tracker
+    ? tracker.players
+        .map(
+          (p) => `
+        <div class="player-card">
+          <div class="name">${p.name} <span style="color:var(--muted);font-weight:400;">${p.pos}</span></div>
+          <div class="stats">
+            <div class="stat"><span>GM</span><span>${p.gm}</span></div>
+            <div class="stat"><span>HR</span><span>${p.hr}</span></div>
+            <div class="stat"><span>RBI</span><span>${p.rbi}</span></div>
+            <div class="stat"><span>vH</span><span>${p.vH}</span></div>
+            <div class="stat"><span>OPS</span><span>${p.ops}</span></div>
+            <div class="stat"><span>Exit Vel</span><span><strong>${p.exitVel}</strong></span></div>
+          </div>
+        </div>`,
+        )
+        .join('')
+    : '';
+
   const trackerSection = tracker
     ? `
       <section>
         <h2>Home Run Tracker — ${tracker.game.date} ${tracker.game.time}</h2>
-        <p><strong>${tracker.game.opponent}</strong> at ${tracker.game.venue} | ${tracker.game.weather}, ${tracker.game.wind}, ${tracker.game.temp}°F</p>
+        <p class="lead"><strong>${tracker.game.opponent}</strong> at ${tracker.game.venue}<br>${tracker.game.weather} · ${tracker.game.wind} · ${tracker.game.temp}°F</p>
         <p>Opposing pitcher: <strong>${tracker.pitcher.name}</strong> (${tracker.pitcher.hand}HP, HR/9 ${tracker.pitcher.hr9}) — lineup ${tracker.pitcher.mode === 'CONF' ? 'confirmed' : 'preview'}</p>
 
-        <table>
-          <thead>
-            <tr><th>Batter</th><th>Pos</th><th>GM</th><th>HR</th><th>RBI</th><th>vH</th><th>OPS</th><th>Exit Vel</th></tr>
-          </thead>
-          <tbody>
+        <div class="table-wrap desktop-only">
+          <table>
+            <thead>
+              <tr><th>Batter</th><th>Pos</th><th>GM</th><th>HR</th><th>RBI</th><th>vH</th><th>OPS</th><th>Exit Vel</th></tr>
+            </thead>
+            <tbody>
 ${tracker.players
   .map(
     (p) => `
-            <tr>
-              <td>${p.name}</td>
-              <td>${p.pos}</td>
-              <td>${p.gm}</td>
-              <td>${p.hr}</td>
-              <td>${p.rbi}</td>
-              <td>${p.vH}</td>
-              <td>${p.ops}</td>
-              <td><strong>${p.exitVel}</strong></td>
-            </tr>`,
+              <tr>
+                <td>${p.name}</td>
+                <td>${p.pos}</td>
+                <td>${p.gm}</td>
+                <td>${p.hr}</td>
+                <td>${p.rbi}</td>
+                <td>${p.vH}</td>
+                <td>${p.ops}</td>
+                <td><strong>${p.exitVel}</strong></td>
+              </tr>`,
   )
   .join('')}
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+        </div>
+        <div class="player-cards mobile-only">
+${playerCards}
+        </div>
       </section>`
     : '<p>No HR tracker data available.</p>';
 
   const articleLinks = articles.length
-    ? `<ul>${articles.map((a) => `<li><a href="blog/articles/${a.slug}.html">${a.title}</a> <span class="blog-date">${a.date}</span></li>`).join('')}</ul>`
+    ? `<ul class="articles-list">${articles.map((a) => `<li><a href="blog/articles/${a.slug}.html">${a.title}</a> <span class="blog-date">${a.date}</span></li>`).join('')}</ul>`
     : '<p>No Blue Jays articles yet.</p>';
 
   return `<!DOCTYPE html>
@@ -168,11 +213,32 @@ ${tracker.players
   <title>Toronto Blue Jays — Jason Spooner</title>
   <link rel="stylesheet" href="css/style.css">
   <style>
-    table { width: 100%; border-collapse: collapse; margin: var(--space-m) 0; }
+    .lead { color: var(--muted); margin-bottom: var(--space-m); }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: var(--space-m) 0; border: 1px solid var(--line); border-radius: 8px; }
+    .table-wrap table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: var(--step--1); }
     th, td { padding: var(--space-2xs) var(--space-xs); border-bottom: 1px solid var(--line); text-align: left; }
-    th { font-weight: 600; }
+    th { font-weight: 600; background: #f7f7f7; }
+    tr:last-child td { border-bottom: none; }
     .blog-date { color: var(--muted); font-size: var(--step--1); }
     section { margin-bottom: var(--space-xl); }
+    .game-card { border: 1px solid var(--line); border-radius: 8px; padding: var(--space-s); margin-bottom: var(--space-s); }
+    .game-card .meta { color: var(--muted); font-size: var(--step--1); }
+    .game-card .score { font-weight: 600; }
+    .player-cards { display: none; gap: var(--space-s); }
+    .player-card { border: 1px solid var(--line); border-radius: 8px; padding: var(--space-s); }
+    .player-card .name { font-weight: 600; font-size: var(--step-1); margin-bottom: var(--space-2xs); }
+    .player-card .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-2xs); font-size: var(--step--1); }
+    .player-card .stat { display: flex; justify-content: space-between; }
+    .player-card .stat span:first-child { color: var(--muted); }
+    .articles-list { list-style: none; margin: 0; padding: 0; }
+    .articles-list li { margin-bottom: var(--space-xs); }
+    nav { display: flex; flex-wrap: wrap; gap: var(--space-xs) var(--space-s); }
+    @media (max-width: 640px) {
+      .desktop-only { display: none; }
+      .player-cards { display: grid; }
+      .table-wrap table { min-width: 100%; }
+      th, td { padding: var(--space-3xs) var(--space-2xs); }
+    }
   </style>
 </head>
 <body>
@@ -196,28 +262,38 @@ ${tracker.players
 
     <section>
       <h2>Recent Results</h2>
-      <table>
-        <thead>
-          <tr><th>Date</th><th>Opponent</th><th>Result</th></tr>
-        </thead>
-        <tbody>
+      <div class="table-wrap desktop-only">
+        <table>
+          <thead>
+            <tr><th>Date</th><th>Opponent</th><th>Result</th></tr>
+          </thead>
+          <tbody>
 ${recentRows}
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
+      <div class="mobile-only">
+${recentCards}
+      </div>
     </section>
 
     ${trackerSection}
 
     <section>
       <h2>Schedule</h2>
-      <table>
-        <thead>
-          <tr><th>Date</th><th>Opponent</th><th>Score</th><th>Result</th><th>Status</th></tr>
-        </thead>
-        <tbody>
+      <div class="table-wrap desktop-only">
+        <table>
+          <thead>
+            <tr><th>Date</th><th>Opponent</th><th>Score</th><th>Result</th><th>Status</th></tr>
+          </thead>
+          <tbody>
 ${scheduleRows}
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
+      <div class="mobile-only">
+${scheduleCards}
+      </div>
     </section>
 
     <section>
