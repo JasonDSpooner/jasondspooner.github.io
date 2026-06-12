@@ -1,29 +1,17 @@
 {
-  "generatedAt": "2026-06-12T22:53:20.034Z",
+  "generatedAt": "2026-06-12T22:54:23.491Z",
   "results": [
     {
-      "slug": "mlb-preview-new-york-yankees-at-toronto-blue-jays",
-      "title": "MLB Preview: New York Yankees at Toronto Blue Jays",
+      "slug": "new-york-yankees-at-toronto-blue-jays-betting-preview",
+      "title": "New York Yankees at Toronto Blue Jays: Betting Preview",
       "status": "fail",
-      "summary": "REMOVED: The article incorrectly references the Toronto Blue Jays vs New York Yankees game on June 12, 2026, while the source data shows the game is scheduled for June 13, 2026.",
+      "summary": "REMOVED: The article incorrectly lists the New York Yankees as the away team in a matchup against the Toronto Blue Jays, while the source data shows the Blue Jays as the home team.",
       "issues": [
         {
-          "claim": "The Toronto Blue Jays host the New York Yankees on Friday, June 12, 2026, at Rogers Centre.",
-          "source": "The source data indicates the game between TOR BLUE JAYS and NY YANKEES is scheduled for June 13, 2026, at 01:37 AM UTC.",
+          "claim": "New York Yankees at Toronto Blue Jays",
+          "source": "Source data shows TOR BLUE JAYS as home team and NY YANKEES as away team in the matchup with start time 2026-06-13T01:37:00.000Z",
           "severity": "high",
-          "explanation": "The article states the game is on June 12, 2026, but the source data clearly lists the game date as June 13, 2026, which is a direct factual contradiction."
-        },
-        {
-          "claim": "Moneyline: Blue Jays +135 | Yankees +145",
-          "source": "The source data shows the moneyline odds as Blue Jays +135 and Yankees +145, which matches the article.",
-          "severity": "low",
-          "explanation": "While the odds match, the date contradiction is sufficient to warrant a 'fail' status; however, this part is accurate according to the source."
-        },
-        {
-          "claim": "Run line: Blue Jays -0.5 at 1.76 | Yankees +0.5 at 1.80",
-          "source": "The source data confirms the run line as Blue Jays -0.5 at -132 and Yankees +0.5 at -125, which differs from the article's stated odds.",
-          "severity": "high",
-          "explanation": "There is a discrepancy between the article’s stated run line odds (1.76 and 1.80) and the actual source odds (-132 and -125), which is a clear factual error."
+          "explanation": "The article states 'New York Yankees at Toronto Blue Jays' implying the Yankees are the away team, but the source data confirms the Blue Jays are the home team and the Yankees are the away team, which is correct. However, the article's phrasing suggests a mismatch in team roles; the article's structure implies the Yankees are the home team, which contradicts the source data indicating the Blue Jays are home."
         }
       ]
     },
