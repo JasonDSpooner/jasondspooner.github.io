@@ -88,7 +88,7 @@ function sportsHubPage(articlesBySport) {
     ).join('');
     return `
         <div class="sport-card">
-          <h3><a href="${key}.html">${label}</a></h3>
+          <h3><a href="../${key}.html">${label}</a></h3>
           <p>${description}</p>
           ${latest ? `<ul>${latest}</ul>` : `<p><em>No articles yet.</em></p>`}
         </div>`;
