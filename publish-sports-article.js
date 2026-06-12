@@ -250,7 +250,7 @@ Usage:
     const ext = path.extname(args.imagePath) || '.jpg';
     const destImage = path.join(imageDir, `featured${ext}`);
     fs.copyFileSync(args.imagePath, destImage);
-    const webPath = `images/${slug}/featured${ext}`;
+    const webPath = `../images/${slug}/featured${ext}`;
     htmlContent = `<figure><img src="${webPath}" alt="${escapeHtml(args.title)}" style="max-width:100%;height:auto;" /></figure>\n\n${htmlContent}`;
   }
 

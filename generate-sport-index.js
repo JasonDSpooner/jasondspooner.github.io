@@ -84,7 +84,7 @@ function sportsHubPage(articlesBySport) {
   const sections = SPORTS.map(({ key, label, description }) => {
     const articles = articlesBySport[key] || [];
     const latest = articles.slice(0, 3).map(a =>
-      `<li><a href="blog/articles/${a.slug}.html">${a.title}</a> <span class="blog-date">${a.date}</span></li>`
+      `<li><a href="../blog/articles/${a.slug}.html">${a.title}</a> <span class="blog-date">${a.date}</span></li>`
     ).join('');
     return `
         <div class="sport-card">
