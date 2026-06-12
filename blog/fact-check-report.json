@@ -1,64 +1,6 @@
 {
-  "generatedAt": "2026-06-12T20:49:01.268Z",
+  "generatedAt": "2026-06-12T20:52:28.553Z",
   "results": [
-    {
-      "slug": "world-cup-2026-preview-mexico-vs-argentina-set-for-historic-clash",
-      "title": "World Cup 2026 Preview: Mexico vs Argentina Set for Historic Clash",
-      "status": "fail",
-      "summary": "The article contains multiple factual contradictions regarding match dates, teams, and venues that directly conflict with the provided source data.",
-      "issues": [
-        {
-          "claim": "Mexico kicks off its World Cup campaign against South Africa on Friday, June 19, 2026, at Estadio Akron in Zapopan, Mexico.",
-          "source": "The source data shows Mexico vs South Africa is scheduled for June 11, 2026, at 21:00 UTC, not June 19, and the venue is not specified in the source data.",
-          "severity": "high",
-          "explanation": "The article incorrectly states the date (June 19 vs June 11) and venue (Estadio Akron) for the Mexico vs South Africa match, which contradicts the source data."
-        },
-        {
-          "claim": "Argentina begins its journey against Algeria on Wednesday, June 17, 2026, at GEHA Field at Arrowhead Stadium in Kansas City, Missouri.",
-          "source": "The source data shows Argentina vs Algeria is scheduled for June 17, 2026, at 03:00 UTC, but the venue is not listed in the source data, and the time zone conversion is inconsistent with the article's stated time.",
-          "severity": "high",
-          "explanation": "While the date matches, the article specifies a venue (GEHA Field at Arrowhead Stadium) and a time (8:00 PM MT / 10:00 PM ET), neither of which are confirmed in the source data."
-        },
-        {
-          "claim": "Mexico’s opening fixture is scheduled for 7:00 PM Mountain Time (9:00 PM ET)",
-          "source": "The actual start time in the source data is 21:00 UTC on June 11, 2026, which converts to 5:00 PM MT / 7:00 PM ET, not 7:00 PM MT / 9:00 PM ET.",
-          "severity": "high",
-          "explanation": "The article gives incorrect timing for the Mexico vs South Africa match, misrepresenting the time zone conversion and resulting in a discrepancy with the actual start time in UTC."
-        },
-        {
-          "claim": "Argentina’s early challenge is set for 8:00 PM Mountain Time (10:00 PM ET)",
-          "source": "The source data indicates Argentina vs Algeria starts at 03:00 UTC on June 17, which translates to 9:00 PM MT / 11:00 PM ET, not 8:00 PM MT / 10:00 PM ET.",
-          "severity": "high",
-          "explanation": "The article misrepresents the timing of Argentina’s first match, giving a time that does not align with the UTC start time in the source data."
-        },
-        {
-          "claim": "South Africa is listed as a significant underdog (+600) against Mexico.",
-          "source": "In the source data, South Africa is listed as the underdog with +600 odds, but Mexico is the favorite with -333 odds in the Mexico vs South Africa match.",
-          "severity": "medium",
-          "explanation": "The article correctly reflects the odds but misrepresents Mexico as the underdog when it is actually the favorite in the source data, leading to confusion."
-        }
-      ]
-    },
-    {
-      "slug": "cfl-week-3-preview-calgary-stampeders-face-saskatchewan-roughriders-in-western-rivalry-showdown",
-      "title": "CFL Week 3 Preview: Calgary Stampeders Face Saskatchewan Roughriders in Western Rivalry Showdown",
-      "status": "fail",
-      "summary": "The article incorrectly references a Calgary Stampeders vs. Saskatchewan Roughriders matchup in Week 3, which is not present in the source odds data.",
-      "issues": [
-        {
-          "claim": "Calgary Stampeders face Saskatchewan Roughriders in Western Rivalry Showdown",
-          "source": "Source data shows no match between Calgary Stampeders and Saskatchewan Roughriders; instead, Saskatchewan Roughriders play BC Lions on June 14, 2026.",
-          "severity": "high",
-          "explanation": "The article claims that the Calgary Stampeders and Saskatchewan Roughriders will face each other in Week 3, but the source data contains no such matchup. Instead, the Roughriders are scheduled to play the BC Lions on June 14, 2026, and the Stampeders are not listed at all in the provided odds data."
-        },
-        {
-          "claim": "Scheduled for Saturday, June 20, 2026, at McMahon Stadium in Calgary",
-          "source": "No game between Calgary Stampeders and Saskatchewan Roughriders is scheduled for June 20, 2026, in McMahon Stadium.",
-          "severity": "high",
-          "explanation": "The article specifies the date and venue for the Stampeders-Roughriders game as Saturday, June 20, 2026, at McMahon Stadium, but the source data does not show this matchup at all, nor does it list the Stampeders playing at McMahon Stadium in Week 3."
-        }
-      ]
-    },
     {
       "slug": "royals-vs-rangers-preview-a-value-play-in-the-mlb-odds",
       "title": "Royals vs Rangers Preview: A Value Play in the MLB Odds",
