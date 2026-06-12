@@ -1,25 +1,25 @@
 {
-  "generatedAt": "2026-06-12T20:52:28.553Z",
+  "generatedAt": "2026-06-12T20:53:37.391Z",
   "results": [
     {
       "slug": "royals-vs-rangers-preview-a-value-play-in-the-mlb-odds",
       "title": "Royals vs Rangers Preview: A Value Play in the MLB Odds",
       "status": "pass",
-      "summary": "The article accurately reflects the source data for the Royals vs Rangers matchup, including team names, odds, and game details.",
+      "summary": "The article accurately reflects the source data for the Royals vs Rangers matchup, including team names, odds, and spread lines.",
       "issues": []
     },
     {
       "slug": "mets-vs-cardinals-preview-a-value-bet-on-the-underdog-mets",
       "title": "Mets vs Cardinals Preview: A Value Bet on the Underdog Mets",
       "status": "pass",
-      "summary": "The article accurately reflects the Mets vs Cardinals game result and context based on the source data.",
+      "summary": "The article accurately reflects the Mets vs Cardinals game result and timing based on the source data.",
       "issues": []
     },
     {
       "slug": "mets-stun-cardinals-in-upset-victory-but-odds-hint-at-big-surprises-ahead",
       "title": "Mets Stun Cardinals in Upset Victory, But Odds Hint at Big Surprises Ahead",
       "status": "pass",
-      "summary": "The article accurately reflects the game results and details as presented in the source data.",
+      "summary": "The article accurately reflects the Mets' upset victory over the Cardinals based on the source data.",
       "issues": []
     }
   ]
