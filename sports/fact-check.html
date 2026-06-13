@@ -30,6 +30,7 @@
       <p>IT Leader · Developer · Creator</p>
       <nav>
         <a href="../index.html">Resume</a>
+        <a href="../fifa2026.html">FIFA 2026</a>
         <a href="../blog/index.html">Blog</a>
         <a href="index.html">Sports</a>
       </nav>
@@ -37,12 +38,12 @@
 
     <section>
       <h2>Sports Fact Check Report</h2>
-      <p class="generated">Generated: June 12, 2026 at 6:05 PM</p>
+      <p class="generated">Generated: June 13, 2026 at 9:45 AM</p>
 
       <div class="summary">
-        <div class="summary-box status-pass">Pass: 4</div>
-        <div class="summary-box status-warn">Warn: 4</div>
-        <div class="summary-box status-fail">Fail: 2</div>
+        <div class="summary-box status-pass">Pass: 3</div>
+        <div class="summary-box status-warn">Warn: 6</div>
+        <div class="summary-box status-fail">Fail: 6</div>
       </div>
 
       <table>
@@ -59,18 +60,141 @@
       <tr>
         <td><a href="../blog/articles/toronto-blue-jays-vs-new-york-yankees-betting-preview.html">Toronto Blue Jays vs New York Yankees: Betting Preview</a></td>
         <td><span class="badge status-warn">WARN</span></td>
-        <td>The moneyline and run line odds align perfectly with the source data, but the article includes a game total and pitcher details not found in the dataset.</td>
+        <td>The moneyline and run line odds match the source data for the Saturday afternoon game, but tie and total lines are missing from the provided source.</td>
         <td>
           <ul class="issue-list">
-        <li class="issue low">
-          <strong>[LOW]</strong> Total: 8
-          <p>The source data for the Blue Jays vs. Yankees game does not include a &#039;Total&#039; or Over/Under line.</p>
+        <li class="issue medium">
+          <strong>[MEDIUM]</strong> Tie: 2.95
+          <p>The source data for the matching game provides home and away odds (150 and 130) but does not include a listing for a &#039;Tie&#039; line.</p>
+          <p><em>Source: latest_odds (id: baea15ab-eff6-403e-a478-921a6ae2e9db)</em></p>
+        </li>
+        <li class="issue medium">
+          <strong>[MEDIUM]</strong> The total is set at 7.5 runs, with both the over and under offered at 1.80.
+          <p>The source data for the Saturday afternoon game does not include any information regarding the game total or over/under odds.</p>
+          <p><em>Source: latest_odds (id: baea15ab-eff6-403e-a478-921a6ae2e9db)</em></p>
+        </li></ul>
+        </td>
+      </tr>
+      <tr>
+        <td><a href="../blog/articles/canada-vs-bosnia-herzegovina-a-value-pick-in-the-fifa-world-cup-group-stage.html">Canada vs Bosnia &amp; Herzegovina: A Value Pick in the FIFA World Cup Group Stage</a></td>
+        <td><span class="badge status-fail">FAIL</span></td>
+        <td>REMOVED: The article correctly cites numerical odds from the source but fundamentally misidentifies the favorite as an underdog and contains a significant mathematical error regarding implied probability.</td>
+        <td>
+          <ul class="issue-list">
+        <li class="issue high">
+          <strong>[HIGH]</strong> Canada is listed as a -154 underdog against Bosnia &amp; Herzegovina, who are given a +300 moneyline.
+          <p>In sports betting, a negative odds value (-154) designates the favorite, while a positive value (+300) designates the underdog. The article incorrectly labels Canada as the underdog despite listing the favorite&#039;s price. The source data confirms Canada is the favored team.</p>
+          <p><em>Source: latest_odds (homeOdds: -154, awayOdds: 300)</em></p>
+        </li>
+        <li class="issue high">
+          <strong>[HIGH]</strong> The +300 odds imply a 75% chance of them [Bosnia &amp; Herzegovina] winning.
+          <p>The implied probability of +300 odds is 25% (100 / (300 + 100)), not 75%. While the article later mentions a 25% probability, the initial claim is a significant factual error regarding the betting lines provided in the source.</p>
+          <p><em>Source: latest_odds (awayOdds: 300)</em></p>
+        </li>
+        <li class="issue medium">
+          <strong>[MEDIUM]</strong> The over/under for the match is set at 2.5 goals, with both teams sitting at even money on the total.
+          <p>The source data provided does not contain any information regarding over/under lines or goal totals for this matchup.</p>
           <p><em>Source: latest_odds</em></p>
+        </li></ul>
+        </td>
+      </tr>
+      <tr>
+        <td><a href="../blog/articles/alouettes-vs-argonauts-montreal-gets-the-edge-in-cfl-betting-preview.html">Alouettes vs Argonauts: Montreal Gets the Edge in CFL Betting Preview</a></td>
+        <td><span class="badge status-fail">FAIL</span></td>
+        <td>The article correctly identifies the moneyline odds and the spread line, but it incorrectly reports the spread odds for the Toronto Argonauts.</td>
+        <td>
+          <ul class="issue-list">
+        <li class="issue high">
+          <strong>[HIGH]</strong> Toronto&#039;s +125 odds on the spread indicate they&#039;re being given a slight chance to compete
+          <p>The article claims the spread odds for Toronto are +125, which is a direct contradiction of the source data listing the odds as -125. This represents an opposite betting value.</p>
+          <p><em>Source: Sports Select pointspread awayOdds: -125</em></p>
+        </li></ul>
+        </td>
+      </tr>
+      <tr>
+        <td><a href="../blog/articles/pirates-vs-marlins-preview-why-pittsburgh-s-underdog-edge-shines-in-sports-select-odds.html">Pirates vs Marlins Preview: Why Pittsburgh&#039;s Underdog Edge Shines in Sports Select Odds</a></td>
+        <td><span class="badge status-fail">FAIL</span></td>
+        <td>REMOVED: The article correctly identifies the odds values from the source but fundamentally misinterprets which team is the favorite and which is the underdog, leading to a premise that contradicts betting logic.</td>
+        <td>
+          <ul class="issue-list">
+        <li class="issue high">
+          <strong>[HIGH]</strong> the betting market reflects Miami’s slight edge [with Pirates at +110 and Marlins at +165]
+          <p>In betting, the team with lower odds is the favorite. With the Pirates at +110 and the Marlins at +165, the Pirates are the favorites, while the article claims Miami has the &#039;edge&#039;.</p>
+          <p><em>Source: latest_odds (PIT PIRATES 110, MIA MARLINS 165)</em></p>
+        </li>
+        <li class="issue high">
+          <strong>[HIGH]</strong> Pittsburgh’s underdog status might be the better play
+          <p>The Pirates are listed as the favorites (+110) compared to the Marlins (+165) in the Sports Select Proline data.</p>
+          <p><em>Source: latest_odds (PIT PIRATES 110, MIA MARLINS 165)</em></p>
+        </li>
+        <li class="issue high">
+          <strong>[HIGH]</strong> the spread line sits at PIT -172 / MIA +103, suggesting the market expects Miami to cover by a half-run.
+          <p>A spread of -0.5 at -172 odds for Pittsburgh means the market favors Pittsburgh to win the game and cover the spread. The article incorrectly interprets these values as favoring Miami.</p>
+          <p><em>Source: latest_odds (PIT PIRATES -172, MIA MARLINS 103, spread -0.5)</em></p>
+        </li></ul>
+        </td>
+      </tr>
+      <tr>
+        <td><a href="../blog/articles/montreal-stuns-toronto-in-overtime-thriller-hamilton-edges-winnipeg.html">Montreal Stuns Toronto in Overtime Thriller, Hamilton Edges Winnipeg</a></td>
+        <td><span class="badge status-warn">WARN</span></td>
+        <td>The article correctly recaps the winners and final scores for both matchups, but includes odds, point totals, and scheduling claims that are not present in the source data.</td>
+        <td>
+          <ul class="issue-list">
+        <li class="issue medium">
+          <strong>[MEDIUM]</strong> The pre-game odds had the Argonauts as +270 underdogs and the Alouettes as -192 favorites, with an over/under of 51.5.
+          <p>The source data does not contain odds, moneylines, or over/under projections to verify these details.</p>
+          <p><em>Source: game_results</em></p>
+        </li>
+        <li class="issue medium">
+          <strong>[MEDIUM]</strong> Hamilton was favored by 2 points (-125/-125) with a projected total of 52.5 points.
+          <p>The source data does not contain point spread or total projection data for verification.</p>
+          <p><em>Source: game_results</em></p>
+        </li>
+        <li class="issue medium">
+          <strong>[MEDIUM]</strong> Montreal and Toronto are scheduled for a matchup on June 13th.
+          <p>The source data shows the Montreal vs. Toronto game occurred on June 12th; there is no record of an additional game scheduled for June 13th in the provided data.</p>
+          <p><em>Source: game_results</em></p>
         </li>
         <li class="issue low">
-          <strong>[LOW]</strong> home matchup against a left-handed starter
-          <p>The source data does not provide information regarding the handedness or identity of the starting pitchers.</p>
-          <p><em>Source: latest_odds</em></p>
+          <strong>[LOW]</strong> Montreal defeated Toronto in an overtime thriller.
+          <p>The source data lists the final score as 37-30 but does not specify if the game reached overtime.</p>
+          <p><em>Source: game_results</em></p>
+        </li></ul>
+        </td>
+      </tr>
+      <tr>
+        <td><a href="../blog/articles/canada-and-bosnia-herzegovina-battle-to-draw-in-fifa-world-cup-group-stage.html">Canada and Bosnia-Herzegovina Battle to Draw in FIFA World Cup Group Stage</a></td>
+        <td><span class="badge status-fail">FAIL</span></td>
+        <td>The article accurately reports the 1-1 draw and the South Korea victory, but it contains a major logical error regarding an upcoming fixture and mentions betting odds not present in the source data.</td>
+        <td>
+          <ul class="issue-list">
+        <li class="issue high">
+          <strong>[HIGH]</strong> Canada&#039;s next match is scheduled for June 12th at 21:00, where they will face Bosnia-Herzegovina again.
+          <p>The source data shows the Canada vs. Bosnia-Herzegovina match was played at 19:00 on June 12th. It is a logical and factual error to claim the teams play each other again only two hours later on the same day in a World Cup Group Stage.</p>
+          <p><em>Source: game_results</em></p>
+        </li>
+        <li class="issue medium">
+          <strong>[MEDIUM]</strong> Sports Select offering a -154 moneyline for Canada and +300 for Bosnia-Herzegovina... over/under line of 2.5 goals.
+          <p>The source data provided consists only of game results and does not include betting odds or lines to verify these specific claims.</p>
+          <p><em>Source: game_results</em></p>
+        </li></ul>
+        </td>
+      </tr>
+      <tr>
+        <td><a href="../blog/articles/pirates-fall-short-in-miami-marlins-pull-off-surprise-victory.html">Pirates Fall Short in Miami, Marlins Pull Off Surprise Victory</a></td>
+        <td><span class="badge status-fail">FAIL</span></td>
+        <td>The article correctly reports the score and winner but incorrectly identifies the game&#039;s venue as Miami and provides inconsistent betting data not found in the source.</td>
+        <td>
+          <ul class="issue-list">
+        <li class="issue high">
+          <strong>[HIGH]</strong> Pirates Fall Short in Miami, Marlins Pull Off Surprise Victory
+          <p>The source data identifies the Pittsburgh Pirates as the home team (homeTeam: &#039;Pittsburgh Pirates&#039;), indicating the game was played in Pittsburgh, not Miami.</p>
+          <p><em>Source: game_results</em></p>
+        </li>
+        <li class="issue medium">
+          <strong>[MEDIUM]</strong> Marlins, who were listed as +265 underdogs ... Sports Select offering odds of +265 on the Pirates ... which had the Pirates as significant underdogs.
+          <p>Betting odds and over-under lines are not present in the source data. Furthermore, the article contains an internal contradiction, describing both the Marlins and the Pirates as the +265 underdogs in different sections.</p>
+          <p><em>Source: game_results</em></p>
         </li></ul>
         </td>
       </tr>
@@ -85,27 +209,42 @@
       <tr>
         <td><a href="../blog/articles/cfl-preview-bc-lions-at-saskatchewan-roughriders.html">CFL Preview: BC Lions at Saskatchewan Roughriders</a></td>
         <td><span class="badge status-warn">WARN</span></td>
-        <td>The article includes a point total not present in the source data and lists a point spread that differs slightly from the source value.</td>
+        <td>The article&#039;s moneyline odds and schedule details are correct, but it includes a point total not present in the source data and a minor discrepancy in the point spread.</td>
         <td>
           <ul class="issue-list">
         <li class="issue medium">
           <strong>[MEDIUM]</strong> the total is 52.5
-          <p>The source data for the BC Lions at Saskatchewan Roughriders game does not provide a point total (over/under) line.</p>
-          <p><em>Source: latest_odds</em></p>
+          <p>The article cites a point total of 52.5, but the provided source data for the Roughriders vs. Lions game does not include total (over/under) odds.</p>
+          <p><em>Source: latest_odds (missing total/over-under fields)</em></p>
         </li>
         <li class="issue low">
           <strong>[LOW]</strong> The point spread is Saskatchewan -2.5
-          <p>The source data lists the point spread for Saskatchewan as -2, while the article lists it as -2.5.</p>
-          <p><em>Source: latest_odds</em></p>
+          <p>The article lists the spread as -2.5, while the source data shows the spread for Saskatchewan as -2.</p>
+          <p><em>Source: latest_odds (SK vs BC spread: -2)</em></p>
         </li></ul>
         </td>
       </tr>
       <tr>
         <td><a href="../blog/articles/hamilton-stuns-winnipeg-with-37-27-victory-in-battle-of-the-prairie.html">Hamilton Stuns Winnipeg with 37-27 Victory in Battle of the Prairie</a></td>
-        <td><span class="badge status-pass">PASS</span></td>
-        <td>The article&#039;s core facts, including the final score, winner, team names, and game date, are fully supported by the source data.</td>
+        <td><span class="badge status-warn">WARN</span></td>
+        <td>The final score, winner, and game date align with the source data, but specific details regarding betting odds, divisional standings, and scoring breakdowns could not be verified.</td>
         <td>
-          <em>No issues</em>
+          <ul class="issue-list">
+        <li class="issue medium">
+          <strong>[MEDIUM]</strong> Pre-game odds had the Blue Bombers as -105 moneyline favorites against Hamilton, who were listed at +170. The spread was set at -3 for Winnipeg, and the total was projected at 51.5 points.
+          <p>The provided source data contains game results (scores and winners) but does not include betting lines, point spreads, or over/under totals.</p>
+          <p><em>Source: game_results JSON</em></p>
+        </li>
+        <li class="issue low">
+          <strong>[LOW]</strong> The Tiger-Cats... secure a crucial win in the Western Division.
+          <p>The source data does not provide divisional alignments or standings information to verify the impact on the Western Division.</p>
+          <p><em>Source: game_results JSON</em></p>
+        </li>
+        <li class="issue low">
+          <strong>[LOW]</strong> Hamilton... outscored Winnipeg 27-10 in the second half.
+          <p>The source data provides only the final score (37-27) and lacks the quarter-by-quarter or half-time scoring breakdown necessary to verify this claim.</p>
+          <p><em>Source: game_results JSON</em></p>
+        </li></ul>
         </td>
       </tr>
       <tr>
@@ -127,63 +266,60 @@
       <tr>
         <td><a href="../blog/articles/mexico-faces-south-africa-in-world-cup-opener-betting-preview-and-takeaway.html">Mexico Faces South Africa in World Cup Opener: Betting Preview and Takeaway</a></td>
         <td><span class="badge status-fail">FAIL</span></td>
-        <td>The article correctly reports the primary moneyline odds but contains a high-severity date error for the Argentina fixture and cites betting lines not present in the source data.</td>
+        <td>REMOVED: The article incorrectly identifies Mexico&#039;s opponent and incorrectly attributes betting odds from the Argentina match to a non-existent Mexico vs South Africa fixture.</td>
         <td>
           <ul class="issue-list">
         <li class="issue high">
-          <strong>[HIGH]</strong> Argentina will face Algeria on Monday, June 15.
-          <p>The source data schedules the match for June 17 (Wednesday), contradicting the article&#039;s claim of Monday, June 15.</p>
-          <p><em>Source: The latest_odds entry for ARGENTINA vs ALGERIA lists the startTime as &#039;2026-06-17T03:00:00.000Z&#039;.</em></p>
+          <strong>[HIGH]</strong> Mexico begins its 2026 FIFA World Cup campaign against South Africa on Thursday, June 11, 2026.
+          <p>The source data shows Mexico playing Korea Republic on June 19 and South Africa playing Czechia on June 18; no matchup between Mexico and South Africa is listed in the schedule.</p>
+          <p><em>Source: latest_odds data</em></p>
+        </li>
+        <li class="issue high">
+          <strong>[HIGH]</strong> Mexico is listed at -333 to win outright against South Africa, while South Africa sits at +600.
+          <p>The odds of -333 and +600 are actually associated with the Argentina vs Algeria match in the source data, not a Mexico match.</p>
+          <p><em>Source: latest_odds data</em></p>
         </li>
         <li class="issue medium">
-          <strong>[MEDIUM]</strong> the over/under for the match is set at 2 goals
-          <p>The source data does not contain over/under or total goal lines; this claim is unsupported by the provided data.</p>
-          <p><em>Source: The latest_odds data for MEXICO vs SOUTH AFRICA only provides moneyline odds (homeOdds: -333, awayOdds: 600).</em></p>
-        </li></ul>
-        </td>
-      </tr>
-      <tr>
-        <td><a href="../blog/articles/royals-vs-rangers-preview-a-value-play-in-the-mlb-odds.html">Royals vs Rangers Preview: A Value Play in the MLB Odds</a></td>
-        <td><span class="badge status-fail">FAIL</span></td>
-        <td>REMOVED: The article contradicts the source data regarding the game date and incorrectly identifies the Rangers as the favored team.</td>
-        <td>
-          <ul class="issue-list">
-        <li class="issue high">
-          <strong>[HIGH]</strong> The Kansas City Royals and Texas Rangers face off tonight [June 12, 2026].
-          <p>The source data shows the game was scheduled for June 11, but the article (published June 12) claims the game is taking place &#039;tonight&#039;.</p>
-          <p><em>Source: latest_odds: KC ROYALS vs TEX RANGERS startTime is &#039;2026-06-11T20:10:00.000Z&#039;.</em></p>
+          <strong>[MEDIUM]</strong> Argentina will face Algeria on Monday, June 15.
+          <p>The source data lists the Argentina vs Algeria match for June 17, 2026, which is a Wednesday, not Monday, June 15.</p>
+          <p><em>Source: latest_odds data</em></p>
         </li>
-        <li class="issue high">
-          <strong>[HIGH]</strong> While the Rangers are favored by the spread...
-          <p>A -0.5 spread is assigned to the Royals in the source data, making them the favorite, whereas the article incorrectly states the Rangers are favored.</p>
-          <p><em>Source: latest_odds: KC ROYALS (home) vs TEX RANGERS (away) has a spread of -0.5.</em></p>
-        </li>
-        <li class="issue high">
-          <strong>[HIGH]</strong> The Rangers are priced at +145... This suggests that the market sees the Rangers as having a slight edge.
-          <p>In betting, higher positive odds indicate an underdog. The article incorrectly interprets the Rangers&#039; +145 odds as having an &#039;edge&#039; over the Royals&#039; +130.</p>
-          <p><em>Source: latest_odds: homeOdds (Royals) 130, awayOdds (Rangers) 145.</em></p>
-        </li>
-        <li class="issue medium">
-          <strong>[MEDIUM]</strong> The over-under for this game is set at 10.5 runs.
-          <p>The source data does not provide any over-under or total runs information for this matchup.</p>
-          <p><em>Source: latest_odds data for Royals vs Rangers.</em></p>
+        <li class="issue low">
+          <strong>[LOW]</strong> The over/under for the match is set at 2 goals.
+          <p>The source data does not provide over/under lines for any of the listed matches.</p>
+          <p><em>Source: latest_odds data</em></p>
         </li></ul>
         </td>
       </tr>
       <tr>
         <td><a href="../blog/articles/mets-vs-cardinals-preview-a-value-bet-on-the-underdog-mets.html">Mets vs Cardinals Preview: A Value Bet on the Underdog Mets</a></td>
         <td><span class="badge status-warn">WARN</span></td>
-        <td>No game_results data available for BASEBALL/MLB.</td>
+        <td>The provided source data does not contain any information regarding a matchup between the Mets and the Cardinals.</td>
         <td>
-          <em>No issues</em>
+          <ul class="issue-list">
+        <li class="issue medium">
+          <strong>[MEDIUM]</strong> Mets vs Cardinals Preview
+          <p>The source data does not contain the Mets vs Cardinals game mentioned in the article; the results provided show the Mets playing the Braves and the Cardinals playing the Twins on the dates surrounding the article&#039;s publication.</p>
+          <p><em>Source: game_results</em></p>
+        </li></ul>
         </td>
       </tr>
       <tr>
         <td><a href="../blog/articles/mets-stun-cardinals-in-upset-victory-but-odds-hint-at-big-surprises-ahead.html">Mets Stun Cardinals in Upset Victory, But Odds Hint at Big Surprises Ahead</a></td>
         <td><span class="badge status-warn">WARN</span></td>
-        <td>No game_results data available for BASEBALL/MLB.</td>
+        <td>The provided source data does not contain records for the Mets vs. Cardinals game or the specific matchups mentioned in the article&#039;s future outlook.</td>
         <td>
-          <em>No issues</em>
+          <ul class="issue-list">
+        <li class="issue medium">
+          <strong>[MEDIUM]</strong> The New York Mets delivered a stunning upset victory over the St. Louis Cardinals on Wednesday night... secure a dramatic 5-4 win.
+          <p>The source data only covers games from June 12-13, 2026, and does not include results for a game between the Mets and the Cardinals on Wednesday (June 10).</p>
+          <p><em>Source: game_results</em></p>
+        </li>
+        <li class="issue low">
+          <strong>[LOW]</strong> With several high-profile matchups scheduled, including games between the Yankees and Red Sox, and the Dodgers and Pirates...
+          <p>The source data shows that on June 12, the Yankees played the Blue Jays, the Red Sox played the Rangers, the Dodgers played the White Sox, and the Pirates played the Marlins, suggesting these specific head-to-head matchups were not scheduled for that date.</p>
+          <p><em>Source: game_results</em></p>
+        </li></ul>
         </td>
       </tr>
         </tbody>
