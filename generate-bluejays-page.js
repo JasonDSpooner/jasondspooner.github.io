@@ -97,6 +97,18 @@ function formatResult(row) {
   return `${location} ${opponent} — ${row.status}`;
 }
 
+function gameCardClass(row) {
+  if (row.result === 'W') return 'game-card win';
+  if (row.result === 'L') return 'game-card loss';
+  return 'game-card scheduled';
+}
+
+function gameCardBadge(row) {
+  if (row.result === 'W') return '<span class="badge win">W</span>';
+  if (row.result === 'L') return '<span class="badge loss">L</span>';
+  return '';
+}
+
 function bluejaysPage(schedule, tracker, articles) {
   const recentGames = schedule.slice().reverse().slice(0, 10);
   const scheduleRows = schedule
@@ -115,10 +127,14 @@ function bluejaysPage(schedule, tracker, articles) {
   const scheduleCards = schedule
     .map(
       (row) => `
-        <div class="game-card">
-          <div class="meta">${row.date}</div>
-          <div class="score">${row.ha === 'HOME' ? 'vs' : 'at'} ${row.opponent}</div>
-          <div>${row.js && row.os ? `Score: ${row.js}-${row.os}` : 'Score: —'} · Result: ${row.result === 'W' ? 'W' : row.result === 'L' ? 'L' : '—'} · ${row.status}</div>
+        <div class="${gameCardClass(row)}">
+          <div class="game-card-header">
+            <div class="game-card-date">${row.date}</div>
+            ${gameCardBadge(row)}
+          </div>
+          <div class="game-card-teams">${row.ha === 'HOME' ? 'vs' : 'at'} ${row.opponent}</div>
+          ${row.js && row.os ? `<div class="game-card-score">${row.js} - ${row.os}</div>` : ''}
+          <div class="game-card-status">${row.status}</div>
         </div>`,
     )
     .join('');
@@ -137,9 +153,12 @@ function bluejaysPage(schedule, tracker, articles) {
   const recentCards = recentGames
     .map(
       (row) => `
-        <div class="game-card">
-          <div class="meta">${row.date}</div>
-          <div class="score">${formatResult(row)}</div>
+        <div class="${gameCardClass(row)}">
+          <div class="game-card-header">
+            <div class="game-card-date">${row.date}</div>
+            ${gameCardBadge(row)}
+          </div>
+          <div class="game-card-teams">${formatResult(row)}</div>
         </div>`,
     )
     .join('');
@@ -149,15 +168,17 @@ function bluejaysPage(schedule, tracker, articles) {
         .map(
           (p) => `
         <div class="player-card">
-          <div class="name">${p.name} <span style="color:var(--muted);font-weight:400;">${p.pos}</span></div>
-          <div class="stats">
-            <div class="stat"><span>GM</span><span>${p.gm}</span></div>
-            <div class="stat"><span>HR</span><span>${p.hr}</span></div>
-            <div class="stat"><span>RBI</span><span>${p.rbi}</span></div>
-            <div class="stat"><span>vH</span><span>${p.vH}</span></div>
-            <div class="stat"><span>OPS</span><span>${p.ops}</span></div>
-            <div class="stat"><span>Exit Vel</span><span><strong>${p.exitVel}</strong></span></div>
+          <div class="player-card-header">
+            <span class="player-name">${p.name}</span>
+            <span class="player-pos">${p.pos}</span>
           </div>
+          <div class="player-stats">
+            <div class="stat"><span class="stat-label">GM</span><span class="stat-value">${p.gm}</span></div>
+            <div class="stat"><span class="stat-label">HR</span><span class="stat-value">${p.hr}</span></div>
+            <div class="stat"><span class="stat-label">RBI</span><span class="stat-value">${p.rbi}</span></div>
+            <div class="stat"><span class="stat-label">OPS</span><span class="stat-value">${p.ops}</span></div>
+          </div>
+          <div class="player-exit-vel">Exit Vel: <strong>${p.exitVel}</strong></div>
         </div>`,
         )
         .join('')
@@ -165,15 +186,27 @@ function bluejaysPage(schedule, tracker, articles) {
 
   const trackerSection = tracker
     ? `
-      <section>
-        <h2>Home Run Tracker — ${tracker.game.date} ${tracker.game.time}</h2>
-        <p class="lead"><strong>${tracker.game.opponent}</strong> at ${tracker.game.venue}<br>${tracker.game.weather} · ${tracker.game.wind} · ${tracker.game.temp}°F</p>
-        <p>Opposing pitcher: <strong>${tracker.pitcher.name}</strong> (${tracker.pitcher.hand}HP, HR/9 ${tracker.pitcher.hr9}) — lineup ${tracker.pitcher.mode === 'CONF' ? 'confirmed' : 'preview'}</p>
+      <section class="tracker-section">
+        <div class="section-header">
+          <h2>Home Run Tracker</h2>
+          <span class="section-tag">${tracker.game.date} ${tracker.game.time}</span>
+        </div>
+        <div class="tracker-matchup">
+          <div class="tracker-game-info">
+            <span class="tracker-opponent">${tracker.game.opponent}</span>
+            <span class="tracker-venue">${tracker.game.venue}</span>
+          </div>
+          <div class="tracker-pitcher">
+            <span class="tracker-pitcher-label">Opposing Pitcher</span>
+            <span class="tracker-pitcher-name">${tracker.pitcher.name}</span>
+            <span class="tracker-pitcher-detail">${tracker.pitcher.hand}HP · HR/9 ${tracker.pitcher.hr9} · Lineup ${tracker.pitcher.mode === 'CONF' ? 'Confirmed' : 'Preview'}</span>
+          </div>
+        </div>
 
         <div class="table-wrap desktop-only">
           <table>
             <thead>
-              <tr><th>Batter</th><th>Pos</th><th>GM</th><th>HR</th><th>RBI</th><th>vH</th><th>OPS</th><th>Exit Vel</th></tr>
+              <tr><th>Batter</th><th>Pos</th><th>GM</th><th>HR</th><th>RBI</th><th>OPS</th><th>Exit Vel</th></tr>
             </thead>
             <tbody>
 ${tracker.players
@@ -185,7 +218,6 @@ ${tracker.players
                 <td>${p.gm}</td>
                 <td>${p.hr}</td>
                 <td>${p.rbi}</td>
-                <td>${p.vH}</td>
                 <td>${p.ops}</td>
                 <td><strong>${p.exitVel}</strong></td>
               </tr>`,
@@ -198,11 +230,23 @@ ${tracker.players
 ${playerCards}
         </div>
       </section>`
-    : '<p>No HR tracker data available.</p>';
+    : '';
 
-  const articleLinks = articles.length
-    ? `<ul class="articles-list">${articles.map((a) => `<li><a href="blog/articles/${a.slug}.html">${a.title}</a> <span class="blog-date">${a.date}</span></li>`).join('')}</ul>`
-    : '<p>No Blue Jays articles yet.</p>';
+  const articleCards = articles.length
+    ? articles
+        .map(
+          (a, i) => `
+        <a href="blog/articles/${a.slug}.html" class="article-card${i === 0 ? ' featured' : ''}">
+          <div class="article-card-content">
+            <div class="article-card-date">${a.date}</div>
+            <h3 class="article-card-title">${a.title}</h3>
+            ${a.excerpt ? `<p class="article-card-excerpt">${a.excerpt}</p>` : ''}
+          </div>
+          <svg class="article-card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>`,
+        )
+        .join('')
+    : '<p class="empty-state">No Blue Jays articles yet.</p>';
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -213,31 +257,94 @@ ${playerCards}
   <title>Toronto Blue Jays — Jason Spooner</title>
   <link rel="stylesheet" href="css/style.css">
   <style>
-    .lead { color: var(--muted); margin-bottom: var(--space-m); }
-    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: var(--space-m) 0; border: 1px solid var(--line); border-radius: 8px; }
+    .hub-header { text-align: center; margin-bottom: var(--space-xl); }
+    .hub-header h2 { margin-bottom: var(--space-2xs); }
+    .hub-header p { color: var(--muted); }
+    .section-header { display: flex; align-items: baseline; gap: var(--space-s); margin-bottom: var(--space-m); flex-wrap: wrap; }
+    .section-header h2 { margin: 0; }
+    .section-tag { color: var(--muted); font-size: var(--step--1); }
+
+    /* Articles - top priority */
+    .articles-grid { display: grid; gap: var(--space-s); }
+    .article-card { display: flex; align-items: center; justify-content: space-between; gap: var(--space-m); padding: var(--space-m); border: 1px solid var(--line); border-radius: 10px; text-decoration: none; color: inherit; transition: box-shadow 0.15s, border-color 0.15s; }
+    .article-card:hover { border-color: #3366cc; box-shadow: 0 2px 12px rgba(51,102,204,0.1); }
+    .article-card.featured { border-left: 4px solid #3366cc; background: #fafcff; }
+    .article-card-content { flex: 1; min-width: 0; }
+    .article-card-date { font-size: var(--step--1); color: var(--muted); margin-bottom: var(--space-3xs); }
+    .article-card-title { font-size: var(--step-0); font-weight: 600; margin: 0 0 var(--space-3xs); line-height: 1.3; }
+    .article-card.featured .article-card-title { font-size: var(--step-1); }
+    .article-card-excerpt { font-size: var(--step--1); color: var(--muted); margin: 0; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .article-card-arrow { width: 20px; height: 20px; flex-shrink: 0; color: var(--muted); }
+
+    /* Game cards */
+    .game-cards-grid { display: grid; gap: var(--space-s); }
+    .game-card { padding: var(--space-m); border-radius: 10px; border: 1px solid var(--line); }
+    .game-card.win { border-left: 4px solid #2d8a4e; background: #f6fbf8; }
+    .game-card.loss { border-left: 4px solid #c0392b; background: #fdf6f5; }
+    .game-card.scheduled { border-left: 4px solid #888; }
+    .game-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-2xs); }
+    .game-card-date { font-size: var(--step--1); color: var(--muted); }
+    .badge { font-size: var(--step--2); font-weight: 700; padding: 2px 8px; border-radius: 4px; }
+    .badge.win { background: #2d8a4e; color: #fff; }
+    .badge.loss { background: #c0392b; color: #fff; }
+    .game-card-teams { font-weight: 600; font-size: var(--step-0); margin-bottom: var(--space-2xs); }
+    .game-card-score { font-size: var(--step-1); color: var(--muted); margin-bottom: var(--space-2xs); }
+    .game-card-status { font-size: var(--step--1); color: var(--muted); }
+
+    /* HR Tracker */
+    .tracker-section { border: 1px solid var(--line); border-radius: 10px; padding: var(--space-m); }
+    .tracker-matchup { display: grid; gap: var(--space-m); margin-bottom: var(--space-m); }
+    .tracker-game-info { display: flex; flex-direction: column; gap: var(--space-2xs); }
+    .tracker-opponent { font-weight: 600; font-size: var(--step-1); }
+    .tracker-venue { font-size: var(--step--1); color: var(--muted); }
+    .tracker-pitcher { display: flex; flex-direction: column; gap: var(--space-2xs); }
+    .tracker-pitcher-label { font-size: var(--step--2); color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .tracker-pitcher-name { font-weight: 600; font-size: var(--step-0); }
+    .tracker-pitcher-detail { font-size: var(--step--1); color: var(--muted); }
+
+    /* Player cards */
+    .player-cards { display: none; gap: var(--space-s); }
+    .player-card { border: 1px solid var(--line); border-radius: 10px; padding: var(--space-m); }
+    .player-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-xs); }
+    .player-name { font-weight: 600; font-size: var(--step-0); }
+    .player-pos { font-size: var(--step--1); color: var(--muted); background: #f0f0f0; padding: 2px 8px; border-radius: 4px; }
+    .player-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-xs); }
+    .stat { display: flex; flex-direction: column; gap: 2px; }
+    .stat-label { font-size: var(--step--2); color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .stat-value { font-weight: 600; font-size: var(--step-0); }
+    .player-exit-vel { margin-top: var(--space-xs); padding-top: var(--space-xs); border-top: 1px solid var(--line); font-size: var(--step--1); color: var(--muted); }
+    .player-exit-vel strong { color: #3366cc; }
+
+    .empty-state { color: var(--muted); padding: var(--space-xl); text-align: center; }
+
+    nav { display: flex; flex-wrap: wrap; gap: var(--space-xs) var(--space-s); }
+
+    /* Table overrides */
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: var(--space-m) 0; border: 1px solid var(--line); border-radius: 10px; }
     .table-wrap table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: var(--step--1); }
     th, td { padding: var(--space-2xs) var(--space-xs); border-bottom: 1px solid var(--line); text-align: left; }
     th { font-weight: 600; background: #f7f7f7; }
     tr:last-child td { border-bottom: none; }
-    .blog-date { color: var(--muted); font-size: var(--step--1); }
+
     section { margin-bottom: var(--space-xl); }
-    .game-card { border: 1px solid var(--line); border-radius: 8px; padding: var(--space-s); margin-bottom: var(--space-s); }
-    .game-card .meta { color: var(--muted); font-size: var(--step--1); }
-    .game-card .score { font-weight: 600; }
-    .player-cards { display: none; gap: var(--space-s); }
-    .player-card { border: 1px solid var(--line); border-radius: 8px; padding: var(--space-s); }
-    .player-card .name { font-weight: 600; font-size: var(--step-1); margin-bottom: var(--space-2xs); }
-    .player-card .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-2xs); font-size: var(--step--1); }
-    .player-card .stat { display: flex; justify-content: space-between; }
-    .player-card .stat span:first-child { color: var(--muted); }
-    .articles-list { list-style: none; margin: 0; padding: 0; }
-    .articles-list li { margin-bottom: var(--space-xs); }
-    nav { display: flex; flex-wrap: wrap; gap: var(--space-xs) var(--space-s); }
+
     @media (max-width: 640px) {
       .desktop-only { display: none; }
-      .player-cards { display: grid; }
+      .player-cards { display: grid; gap: var(--space-s); }
+      .player-card { box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+      .player-stats { grid-template-columns: repeat(2, 1fr); }
       .table-wrap table { min-width: 100%; }
       th, td { padding: var(--space-3xs) var(--space-2xs); }
+      section { margin-bottom: var(--space-2xl); }
+      .hub-header { margin-bottom: var(--space-l); }
+      .article-card { padding: var(--space-s); }
+      .article-card.featured { padding: var(--space-m); }
+    }
+
+    @media (min-width: 641px) {
+      .articles-grid { grid-template-columns: 1fr 1fr; }
+      .article-card.featured { grid-column: 1 / -1; }
+      .tracker-matchup { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -254,24 +361,28 @@ ${playerCards}
       </nav>
     </header>
 
-    <section>
-      <h2>🍁 Toronto Blue Jays Hub</h2>
-      <p>Live schedule, results, and home-run tracker data pulled from the Blue Jays Smart Bet system.</p>
+    <section class="hub-header">
+      <h2>Toronto Blue Jays Hub</h2>
+      <p>Scores, analysis, and odds — all in one place</p>
     </section>
 
     <section>
-      <h2>Recent Results</h2>
-      <div class="table-wrap desktop-only">
-        <table>
-          <thead>
-            <tr><th>Date</th><th>Opponent</th><th>Result</th></tr>
-          </thead>
-          <tbody>
-${recentRows}
-          </tbody>
-        </table>
+      <div class="section-header">
+        <h2>Latest Articles</h2>
       </div>
-      <div class="mobile-only">
+      <div class="articles-grid">
+${articleCards}
+      </div>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <h2>Recent Games</h2>
+      </div>
+      <div class="game-cards-grid desktop-only">
+${recentCards}
+      </div>
+      <div class="game-cards-grid mobile-only">
 ${recentCards}
       </div>
     </section>
@@ -279,7 +390,9 @@ ${recentCards}
     ${trackerSection}
 
     <section>
-      <h2>Schedule</h2>
+      <div class="section-header">
+        <h2>Full Schedule</h2>
+      </div>
       <div class="table-wrap desktop-only">
         <table>
           <thead>
@@ -290,14 +403,9 @@ ${scheduleRows}
           </tbody>
         </table>
       </div>
-      <div class="mobile-only">
+      <div class="game-cards-grid mobile-only">
 ${scheduleCards}
       </div>
-    </section>
-
-    <section>
-      <h2>Blue Jays Articles</h2>
-      ${articleLinks}
     </section>
 
     <footer>
