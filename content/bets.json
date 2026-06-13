@@ -4,11 +4,11 @@
     "date": "2026-06-13",
     "sport": "CFL",
     "matchup": "Montreal Alouettes vs Toronto Argonauts",
-    "bet_type": "moneyline",
-    "selection": "Montreal Alouettes",
+    "bet_type": "spread",
+    "selection": "Montreal Alouettes -3.5",
     "odds": 1.95,
-    "wager": 50.00,
+    "wager": 2.00,
     "result": "win",
-    "payout": 97.50
+    "payout": 3.90
   }
 ]

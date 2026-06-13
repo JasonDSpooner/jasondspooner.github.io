@@ -1,16 +1,23 @@
 {
   "startingBalance": 30,
-  "currentBalance": 103.9,
-  "runningBalance": 103.9,
+  "currentBalance": 31.90,
+  "runningBalance": 31.90,
   "bets": [
     {
       "id": "20260613-001",
-      "matchup": "Montreal Alouettes vs Toronto Argonauts",
       "date": "2026-06-13",
-      "selection": "Montreal Alouettes",
+      "sport": "CFL",
+      "league": "CFL",
+      "matchup": "Montreal Alouettes vs Toronto Argonauts",
+      "betType": "spread",
+      "selection": "Montreal Alouettes -3.5",
       "odds": 1.95,
+      "stake": 2,
       "wager": 2,
-      "status": "win"
+      "result": "win",
+      "status": "win",
+      "payout": 3.90,
+      "runningBalance": 31.90
     }
   ]
 }

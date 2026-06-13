@@ -48,6 +48,7 @@ function generateIndex(articles) {
         <a href="index.html">Blog</a>
         <a href="../sports/index.html">Sports</a>
         <a href="../bluejays.html">Blue Jays</a>
+        <a href="../two-dollar-better.html">The Better</a>
       </nav>
     </header>
 
