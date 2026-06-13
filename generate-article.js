@@ -48,6 +48,9 @@ function updateArticlesIndex(slug, title, date, excerpt, tags) {
     articles = JSON.parse(fs.readFileSync(ARTICLES_JSON, 'utf8'));
   }
   
+  // Remove any existing entry with the same slug to avoid duplicates
+  articles = articles.filter(a => a.slug !== slug);
+  
   // Add new article at the beginning
   const entry = { slug, title, date, excerpt };
   if (Array.isArray(tags) && tags.length > 0) {
