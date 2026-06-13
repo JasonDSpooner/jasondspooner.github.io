@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The $2 Better — a fictional cranky Alberta sports bettor tracking $2 daily wagers on MLB and CFL.">
+  <title>The $2 Better — Jason Spooner</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .hero { background: var(--line); padding: var(--space-m); border-radius: 12px; margin-bottom: var(--space-l); }
+    .hero h2 { margin-top: 0; }
+    .bankroll-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: var(--space-s); margin: var(--space-m) 0; }
+    .bankroll-card { background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: var(--space-s); text-align: center; }
+    .bankroll-card .number { font-size: var(--step-3); font-weight: 700; color: var(--accent); }
+    .bankroll-card .label { font-size: var(--step--1); color: var(--muted); }
+    .bet-table { width: 100%; border-collapse: collapse; margin-top: var(--space-s); }
+    .bet-table th, .bet-table td { text-align: left; padding: var(--space-2xs); border-bottom: 1px solid var(--line); }
+    .bet-table th { font-size: var(--step--1); color: var(--muted); }
+    .status-win { color: #16a34a; font-weight: 600; }
+    .status-loss { color: #dc2626; font-weight: 600; }
+    .status-pending { color: var(--muted); font-weight: 600; }
+    .latest-wager { border: 1px solid var(--line); border-radius: 8px; padding: var(--space-m); margin-top: var(--space-s); }
+    .latest-wager h3 { margin-top: 0; }
+    .cranky-quote { font-style: italic; color: var(--muted); border-left: 4px solid var(--accent); padding-left: var(--space-s); margin: var(--space-m) 0; }
+    .error-message { color: #dc2626; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Jason Spooner</h1>
+      <p>IT Leader · Developer · Creator</p>
+      <nav>
+        <a href="index.html">Resume</a>
+        <a href="blog/index.html">Blog</a>
+        <a href="sports/index.html">Sports</a>
+        <a href="bluejays.html">Blue Jays</a>
+        <a href="two-dollar-better.html">The Better</a>
+        <a href="fred-tools-guide.html">Tools Guide</a>
+      </nav>
+    </header>
+
+    <section>
+      <h2>💰 The $2 Better</h2>
+      <p class="meta">A fictional cranky old Albertan who thinks the bookies are always up to something.</p>
+
+      <div class="hero">
+        <p class="cranky-quote">"Two bucks. That's all I'm willing to trust this league with. You want more? Go ask the house. They'll take your shirt and your self respect."</p>
+        <p>The $2 Better reads the lines, mutters about trends, and places one fictional $2 wager per day on MLB or CFL point spreads and totals. Follow along as he hunts for magic in the noise.</p>
+      </div>
+
+      <h3>Bankroll</h3>
+      <div class="bankroll-grid" id="bankroll">
+        <div class="bankroll-card"><div class="number">—</div><div class="label">Current</div></div>
+        <div class="bankroll-card"><div class="number">—</div><div class="label">Started With</div></div>
+        <div class="bankroll-card"><div class="number">—</div><div class="label">Profit / Loss</div></div>
+        <div class="bankroll-card"><div class="number">—</div><div class="label">Bets Placed</div></div>
+      </div>
+
+      <h3>Latest Wager</h3>
+      <div class="latest-wager" id="latest-wager">
+        <p>Loading latest wager…</p>
+      </div>
+
+      <h3>Bet History</h3>
+      <table class="bet-table" id="bet-history">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Matchup</th>
+            <th>Selection</th>
+            <th>Odds</th>
+            <th>Stake</th>
+            <th>Result</th>
+            <th>Payout</th>
+            <th>Balance</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <footer>
+      <p>© Jason Spooner</p>
+    </footer>
+  </div>
+
+  <script>
+    async function loadBetter() {
+      try {
+        const res = await fetch('content/two-dollar-better.json');
+        if (!res.ok) throw new Error('Could not load tracker data');
+        const data = await res.json();
+
+        const starting = data.startingBalance ?? 30;
+        const current = data.currentBalance ?? starting;
+        const profit = current - starting;
+        const bets = Array.isArray(data.bets) ? data.bets : [];
+
+        document.getElementById('bankroll').innerHTML = `
+          <div class="bankroll-card"><div class="number">$${current.toFixed(2)}</div><div class="label">Current</div></div>
+          <div class="bankroll-card"><div class="number">$${starting.toFixed(2)}</div><div class="label">Started With</div></div>
+          <div class="bankroll-card"><div class="number" style="color:${profit >= 0 ? '#16a34a' : '#dc2626'}">$${profit >= 0 ? '+' : ''}${profit.toFixed(2)}</div><div class="label">Profit / Loss</div></div>
+          <div class="bankroll-card"><div class="number">${bets.length}</div><div class="label">Bets Placed</div></div>
+        `;
+
+        if (bets.length === 0) {
+          document.getElementById('latest-wager').innerHTML = '<p>No wagers yet. Check back after the next daily pick.</p>';
+          document.querySelector('#bet-history tbody').innerHTML = '<tr><td colspan="8" style="text-align:center;color:var(--muted)">No bets on the ledger yet.</td></tr>';
+          return;
+        }
+
+        const sorted = bets.slice().sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+        const latest = sorted[0];
+
+        const latestHtml = `
+          <h3>${latest.matchup || 'Daily Wager'}</h3>
+          <p class="meta">${latest.date || '—'} · ${latest.sport || ''} ${latest.league || ''}</p>
+          <p><strong>Bet:</strong> ${latest.selection || '—'} (${latest.betType || 'wager'})</p>
+          <p><strong>Stake:</strong> $${(latest.stake ?? latest.wager ?? 2).toFixed(2)} · <strong>Odds:</strong> ${latest.odds || '—'}</p>
+          <p><strong>Result:</strong> <span class="status-${latest.result || latest.status || 'pending'}">${(latest.result || latest.status || 'pending').toUpperCase()}</span></p>
+          ${latest.payout != null ? `<p><strong>Payout:</strong> $${Number(latest.payout).toFixed(2)}</p>` : ''}
+          <p><a href="blog/articles/daily-wager-${(latest.date || '').replace(/-/g, '')}.html">Read the full rant →</a></p>
+        `;
+        document.getElementById('latest-wager').innerHTML = latestHtml;
+
+        const rows = sorted.map(bet => {
+          const result = bet.result || bet.status || 'pending';
+          const payout = bet.payout != null ? `$${Number(bet.payout).toFixed(2)}` : '—';
+          const balance = bet.runningBalance != null ? `$${Number(bet.runningBalance).toFixed(2)}` : '—';
+          return `
+            <tr>
+              <td>${bet.date || '—'}</td>
+              <td>${bet.matchup || '—'}</td>
+              <td>${bet.selection || '—'}</td>
+              <td>${bet.odds || '—'}</td>
+              <td>$${(bet.stake ?? bet.wager ?? 2).toFixed(2)}</td>
+              <td class="status-${result}">${result.toUpperCase()}</td>
+              <td>${payout}</td>
+              <td>${balance}</td>
+            </tr>
+          `;
+        }).join('');
+        document.querySelector('#bet-history tbody').innerHTML = rows;
+      } catch (err) {
+        document.getElementById('bankroll').innerHTML = `<p class="error-message">Error loading tracker: ${err.message}</p>`;
+        document.getElementById('latest-wager').innerHTML = `<p class="error-message">${err.message}</p>`;
+      }
+    }
+
+    loadBetter();
+  </script>
+</body>
+</html>

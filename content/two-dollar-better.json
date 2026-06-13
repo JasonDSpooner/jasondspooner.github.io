@@ -1,0 +1,16 @@
+{
+  "startingBalance": 30,
+  "currentBalance": 103.9,
+  "runningBalance": 103.9,
+  "bets": [
+    {
+      "id": "20260613-001",
+      "matchup": "Montreal Alouettes vs Toronto Argonauts",
+      "date": "2026-06-13",
+      "selection": "Montreal Alouettes",
+      "odds": 1.95,
+      "wager": 2,
+      "status": "win"
+    }
+  ]
+}
