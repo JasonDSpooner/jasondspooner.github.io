@@ -110,7 +110,16 @@ function gameCardBadge(row) {
 }
 
 function bluejaysPage(schedule, tracker, articles) {
-  const recentGames = schedule.slice().reverse().slice(0, 10);
+  // Find next upcoming game and last completed game for hero section
+  const completedGames = schedule.filter((r) => r.result === 'W' || r.result === 'L');
+  const upcomingGames = schedule.filter((r) => r.status.toLowerCase().includes('scheduled'));
+  const lastGame = completedGames.length ? completedGames[completedGames.length - 1] : null;
+  const nextGame = upcomingGames.length ? upcomingGames[0] : null;
+
+  // Recent games for the "Last 5" section
+  const recentCompleted = completedGames.slice(-5).reverse();
+  const recentScheduled = upcomingGames.slice(0, 3);
+
   const scheduleRows = schedule
     .map(
       (row) => `
@@ -139,18 +148,7 @@ function bluejaysPage(schedule, tracker, articles) {
     )
     .join('');
 
-  const recentRows = recentGames
-    .map(
-      (row) => `
-          <tr>
-            <td>${row.date}</td>
-            <td>${row.ha === 'HOME' ? 'vs' : 'at'} ${row.opponent}</td>
-            <td>${formatResult(row)}</td>
-          </tr>`,
-    )
-    .join('');
-
-  const recentCards = recentGames
+  const recentCards = recentCompleted
     .map(
       (row) => `
         <div class="${gameCardClass(row)}">
@@ -159,6 +157,19 @@ function bluejaysPage(schedule, tracker, articles) {
             ${gameCardBadge(row)}
           </div>
           <div class="game-card-teams">${formatResult(row)}</div>
+        </div>`,
+    )
+    .join('');
+
+  const upcomingCards = recentScheduled
+    .map(
+      (row) => `
+        <div class="game-card scheduled">
+          <div class="game-card-header">
+            <div class="game-card-date">${row.date}</div>
+          </div>
+          <div class="game-card-teams">${row.ha === 'HOME' ? 'vs' : 'at'} ${row.opponent}</div>
+          <div class="game-card-status">${row.status}</div>
         </div>`,
     )
     .join('');
@@ -248,6 +259,32 @@ ${playerCards}
         .join('')
     : '<p class="empty-state">No Blue Jays articles yet.</p>';
 
+  // Build hero section content
+  let heroContent = '';
+  if (lastGame) {
+    const lastResult = lastGame.result === 'W' ? 'WIN' : 'LOSS';
+    const lastScore = lastGame.js && lastGame.os ? `${lastGame.js}-${lastGame.os}` : '';
+    const lastLocation = lastGame.ha === 'HOME' ? 'vs' : 'at';
+    heroContent += `
+      <div class="hero-last-game">
+        <div class="hero-label">Last Game</div>
+        <div class="hero-result ${lastGame.result.toLowerCase()}">${lastResult}</div>
+        <div class="hero-matchup">${lastLocation} ${lastGame.opponent}</div>
+        <div class="hero-score">${lastScore}</div>
+        <div class="hero-date">${lastGame.date}</div>
+      </div>`;
+  }
+  if (nextGame) {
+    const nextLocation = nextGame.ha === 'HOME' ? 'vs' : 'at';
+    heroContent += `
+      <div class="hero-next-game">
+        <div class="hero-label">Next Game</div>
+        <div class="hero-matchup">${nextLocation} ${nextGame.opponent}</div>
+        <div class="hero-date">${nextGame.date}</div>
+        <div class="hero-status">${nextGame.status}</div>
+      </div>`;
+  }
+
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -257,14 +294,38 @@ ${playerCards}
   <title>Toronto Blue Jays — Jason Spooner</title>
   <link rel="stylesheet" href="css/style.css">
   <style>
-    .hub-header { text-align: center; margin-bottom: var(--space-xl); }
+    /* Hub Header */
+    .hub-header { text-align: center; margin-bottom: var(--space-l); }
     .hub-header h2 { margin-bottom: var(--space-2xs); }
     .hub-header p { color: var(--muted); }
+
+    /* Hero Section - Mobile First */
+    .hero { display: grid; gap: var(--space-s); margin-bottom: var(--space-xl); }
+    .hero-last-game, .hero-next-game { 
+      padding: var(--space-m); 
+      border-radius: 12px; 
+      border: 1px solid var(--line);
+      text-align: center;
+    }
+    .hero-last-game { background: linear-gradient(135deg, #f0f9f4 0%, #fff 100%); }
+    .hero-last-game.win { border-left: 4px solid #2d8a4e; }
+    .hero-last-game.loss { border-left: 4px solid #c0392b; }
+    .hero-next-game { background: linear-gradient(135deg, #f0f4f9 0%, #fff 100%); border-left: 4px solid #3366cc; }
+    .hero-label { font-size: var(--step--2); color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-2xs); }
+    .hero-result { font-size: var(--step-3); font-weight: 700; margin-bottom: var(--space-2xs); }
+    .hero-result.win { color: #2d8a4e; }
+    .hero-result.loss { color: #c0392b; }
+    .hero-matchup { font-size: var(--step-1); font-weight: 600; margin-bottom: var(--space-3xs); }
+    .hero-score { font-size: var(--step-2); color: var(--muted); margin-bottom: var(--space-3xs); }
+    .hero-date { font-size: var(--step--1); color: var(--muted); }
+    .hero-status { font-size: var(--step--1); color: var(--muted); }
+
+    /* Section Headers */
     .section-header { display: flex; align-items: baseline; gap: var(--space-s); margin-bottom: var(--space-m); flex-wrap: wrap; }
     .section-header h2 { margin: 0; }
     .section-tag { color: var(--muted); font-size: var(--step--1); }
 
-    /* Articles - top priority */
+    /* Articles */
     .articles-grid { display: grid; gap: var(--space-s); }
     .article-card { display: flex; align-items: center; justify-content: space-between; gap: var(--space-m); padding: var(--space-m); border: 1px solid var(--line); border-radius: 10px; text-decoration: none; color: inherit; transition: box-shadow 0.15s, border-color 0.15s; }
     .article-card:hover { border-color: #3366cc; box-shadow: 0 2px 12px rgba(51,102,204,0.1); }
@@ -326,6 +387,9 @@ ${playerCards}
     th { font-weight: 600; background: #f7f7f7; }
     tr:last-child td { border-bottom: none; }
 
+    /* View All link */
+    .view-all { display: block; text-align: center; margin-top: var(--space-m); font-size: var(--step--1); color: var(--accent); }
+
     section { margin-bottom: var(--space-xl); }
 
     @media (max-width: 640px) {
@@ -339,9 +403,14 @@ ${playerCards}
       .hub-header { margin-bottom: var(--space-l); }
       .article-card { padding: var(--space-s); }
       .article-card.featured { padding: var(--space-m); }
+      .hero { grid-template-columns: 1fr; }
+      .hero-last-game, .hero-next-game { padding: var(--space-l) var(--space-m); }
+      .hero-result { font-size: var(--step-4); }
+      .hero-matchup { font-size: var(--step-2); }
     }
 
     @media (min-width: 641px) {
+      .hero { grid-template-columns: 1fr 1fr; }
       .articles-grid { grid-template-columns: 1fr 1fr; }
       .article-card.featured { grid-column: 1 / -1; }
       .tracker-matchup { grid-template-columns: 1fr 1fr; }
@@ -366,6 +435,10 @@ ${playerCards}
       <p>Scores, analysis, and odds — all in one place</p>
     </section>
 
+    <section class="hero">
+${heroContent}
+    </section>
+
     <section>
       <div class="section-header">
         <h2>Latest Articles</h2>
@@ -375,19 +448,25 @@ ${articleCards}
       </div>
     </section>
 
+    ${trackerSection}
+
     <section>
       <div class="section-header">
-        <h2>Recent Games</h2>
+        <h2>Last 5 Games</h2>
       </div>
-      <div class="game-cards-grid desktop-only">
-${recentCards}
-      </div>
-      <div class="game-cards-grid mobile-only">
+      <div class="game-cards-grid">
 ${recentCards}
       </div>
     </section>
 
-    ${trackerSection}
+    <section>
+      <div class="section-header">
+        <h2>Upcoming</h2>
+      </div>
+      <div class="game-cards-grid">
+${upcomingCards}
+      </div>
+    </section>
 
     <section>
       <div class="section-header">

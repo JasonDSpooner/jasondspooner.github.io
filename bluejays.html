@@ -7,14 +7,38 @@
   <title>Toronto Blue Jays — Jason Spooner</title>
   <link rel="stylesheet" href="css/style.css">
   <style>
-    .hub-header { text-align: center; margin-bottom: var(--space-xl); }
+    /* Hub Header */
+    .hub-header { text-align: center; margin-bottom: var(--space-l); }
     .hub-header h2 { margin-bottom: var(--space-2xs); }
     .hub-header p { color: var(--muted); }
+
+    /* Hero Section - Mobile First */
+    .hero { display: grid; gap: var(--space-s); margin-bottom: var(--space-xl); }
+    .hero-last-game, .hero-next-game { 
+      padding: var(--space-m); 
+      border-radius: 12px; 
+      border: 1px solid var(--line);
+      text-align: center;
+    }
+    .hero-last-game { background: linear-gradient(135deg, #f0f9f4 0%, #fff 100%); }
+    .hero-last-game.win { border-left: 4px solid #2d8a4e; }
+    .hero-last-game.loss { border-left: 4px solid #c0392b; }
+    .hero-next-game { background: linear-gradient(135deg, #f0f4f9 0%, #fff 100%); border-left: 4px solid #3366cc; }
+    .hero-label { font-size: var(--step--2); color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-2xs); }
+    .hero-result { font-size: var(--step-3); font-weight: 700; margin-bottom: var(--space-2xs); }
+    .hero-result.win { color: #2d8a4e; }
+    .hero-result.loss { color: #c0392b; }
+    .hero-matchup { font-size: var(--step-1); font-weight: 600; margin-bottom: var(--space-3xs); }
+    .hero-score { font-size: var(--step-2); color: var(--muted); margin-bottom: var(--space-3xs); }
+    .hero-date { font-size: var(--step--1); color: var(--muted); }
+    .hero-status { font-size: var(--step--1); color: var(--muted); }
+
+    /* Section Headers */
     .section-header { display: flex; align-items: baseline; gap: var(--space-s); margin-bottom: var(--space-m); flex-wrap: wrap; }
     .section-header h2 { margin: 0; }
     .section-tag { color: var(--muted); font-size: var(--step--1); }
 
-    /* Articles - top priority */
+    /* Articles */
     .articles-grid { display: grid; gap: var(--space-s); }
     .article-card { display: flex; align-items: center; justify-content: space-between; gap: var(--space-m); padding: var(--space-m); border: 1px solid var(--line); border-radius: 10px; text-decoration: none; color: inherit; transition: box-shadow 0.15s, border-color 0.15s; }
     .article-card:hover { border-color: #3366cc; box-shadow: 0 2px 12px rgba(51,102,204,0.1); }
@@ -76,6 +100,9 @@
     th { font-weight: 600; background: #f7f7f7; }
     tr:last-child td { border-bottom: none; }
 
+    /* View All link */
+    .view-all { display: block; text-align: center; margin-top: var(--space-m); font-size: var(--step--1); color: var(--accent); }
+
     section { margin-bottom: var(--space-xl); }
 
     @media (max-width: 640px) {
@@ -89,9 +116,14 @@
       .hub-header { margin-bottom: var(--space-l); }
       .article-card { padding: var(--space-s); }
       .article-card.featured { padding: var(--space-m); }
+      .hero { grid-template-columns: 1fr; }
+      .hero-last-game, .hero-next-game { padding: var(--space-l) var(--space-m); }
+      .hero-result { font-size: var(--step-4); }
+      .hero-matchup { font-size: var(--step-2); }
     }
 
     @media (min-width: 641px) {
+      .hero { grid-template-columns: 1fr 1fr; }
       .articles-grid { grid-template-columns: 1fr 1fr; }
       .article-card.featured { grid-column: 1 / -1; }
       .tracker-matchup { grid-template-columns: 1fr 1fr; }
@@ -114,6 +146,23 @@
     <section class="hub-header">
       <h2>Toronto Blue Jays Hub</h2>
       <p>Scores, analysis, and odds — all in one place</p>
+    </section>
+
+    <section class="hero">
+
+      <div class="hero-last-game">
+        <div class="hero-label">Last Game</div>
+        <div class="hero-result w">WIN</div>
+        <div class="hero-matchup">vs New York Yankees</div>
+        <div class="hero-score">08-05</div>
+        <div class="hero-date">2026-06-12</div>
+      </div>
+      <div class="hero-next-game">
+        <div class="hero-label">Next Game</div>
+        <div class="hero-matchup">vs New York Yankees</div>
+        <div class="hero-date">2026-06-13</div>
+        <div class="hero-status">Scheduled</div>
+      </div>
     </section>
 
     <section>
@@ -172,158 +221,6 @@ The New York Mets delivered a stunning upset victory over the St. Louis Cardinal
           </div>
           <svg class="article-card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-      </div>
-    </section>
-
-    <section>
-      <div class="section-header">
-        <h2>Recent Games</h2>
-      </div>
-      <div class="game-cards-grid desktop-only">
-
-        <div class="game-card scheduled">
-          <div class="game-card-header">
-            <div class="game-card-date">2026-06-20</div>
-            
-          </div>
-          <div class="game-card-teams">at Chicago Cubs — Scheduled</div>
-        </div>
-        <div class="game-card scheduled">
-          <div class="game-card-header">
-            <div class="game-card-date">2026-06-19</div>
-            
-          </div>
-          <div class="game-card-teams">at Chicago Cubs — Scheduled</div>
-        </div>
-        <div class="game-card scheduled">
-          <div class="game-card-header">
-            <div class="game-card-date">2026-06-18</div>
-            
-          </div>
-          <div class="game-card-teams">at Boston Red Sox — Scheduled</div>
-        </div>
-        <div class="game-card scheduled">
-          <div class="game-card-header">
-            <div class="game-card-date">2026-06-17</div>
-            
-          </div>
-          <div class="game-card-teams">at Boston Red Sox — Scheduled</div>
-        </div>
-        <div class="game-card scheduled">
-          <div class="game-card-header">
-            <div class="game-card-date">2026-06-16</div>
-            
-          </div>
-          <div class="game-card-teams">at Boston Red Sox — Scheduled</div>
-        </div>
-        <div class="game-card scheduled">
-          <div class="game-card-header">
-            <div class="game-card-date">2026-06-14</div>
-            
-          </div>
-          <div class="game-card-teams">vs New York Yankees — Scheduled</div>
-        </div>
-        <div class="game-card scheduled">
-          <div class="game-card-header">
-            <div class="game-card-date">2026-06-13</div>
-            
-          </div>
-          <div class="game-card-teams">vs New York Yankees — Scheduled</div>
-        </div>
-        <div class="game-card win">
-          <div class="game-card-header">
-            <div class="game-card-date">2026-06-12</div>
-            <span class="badge win">W</span>
-          </div>
-          <div class="game-card-teams">W 08-05 vs New York Yankees</div>
-        </div>
-        <div class="game-card loss">
-          <div class="game-card-header">
-            <div class="game-card-date">2026-06-10</div>
-            <span class="badge loss">L</span>
-          </div>
-          <div class="game-card-teams">L 04-07 vs Philadelphia Phillie</div>
-        </div>
-        <div class="game-card win">
-          <div class="game-card-header">
-            <div class="game-card-date">2026-06-09</div>
-            <span class="badge win">W</span>
-          </div>
-          <div class="game-card-teams">W 03-02 vs Philadelphia Phillie</div>
-        </div>
-      </div>
-      <div class="game-cards-grid mobile-only">
-
-        <div class="game-card scheduled">
-          <div class="game-card-header">
-            <div class="game-card-date">2026-06-20</div>
-            
-          </div>
-          <div class="game-card-teams">at Chicago Cubs — Scheduled</div>
-        </div>
-        <div class="game-card scheduled">
-          <div class="game-card-header">
-            <div class="game-card-date">2026-06-19</div>
-            
-          </div>
-          <div class="game-card-teams">at Chicago Cubs — Scheduled</div>
-        </div>
-        <div class="game-card scheduled">
-          <div class="game-card-header">
-            <div class="game-card-date">2026-06-18</div>
-            
-          </div>
-          <div class="game-card-teams">at Boston Red Sox — Scheduled</div>
-        </div>
-        <div class="game-card scheduled">
-          <div class="game-card-header">
-            <div class="game-card-date">2026-06-17</div>
-            
-          </div>
-          <div class="game-card-teams">at Boston Red Sox — Scheduled</div>
-        </div>
-        <div class="game-card scheduled">
-          <div class="game-card-header">
-            <div class="game-card-date">2026-06-16</div>
-            
-          </div>
-          <div class="game-card-teams">at Boston Red Sox — Scheduled</div>
-        </div>
-        <div class="game-card scheduled">
-          <div class="game-card-header">
-            <div class="game-card-date">2026-06-14</div>
-            
-          </div>
-          <div class="game-card-teams">vs New York Yankees — Scheduled</div>
-        </div>
-        <div class="game-card scheduled">
-          <div class="game-card-header">
-            <div class="game-card-date">2026-06-13</div>
-            
-          </div>
-          <div class="game-card-teams">vs New York Yankees — Scheduled</div>
-        </div>
-        <div class="game-card win">
-          <div class="game-card-header">
-            <div class="game-card-date">2026-06-12</div>
-            <span class="badge win">W</span>
-          </div>
-          <div class="game-card-teams">W 08-05 vs New York Yankees</div>
-        </div>
-        <div class="game-card loss">
-          <div class="game-card-header">
-            <div class="game-card-date">2026-06-10</div>
-            <span class="badge loss">L</span>
-          </div>
-          <div class="game-card-teams">L 04-07 vs Philadelphia Phillie</div>
-        </div>
-        <div class="game-card win">
-          <div class="game-card-header">
-            <div class="game-card-date">2026-06-09</div>
-            <span class="badge win">W</span>
-          </div>
-          <div class="game-card-teams">W 03-02 vs Philadelphia Phillie</div>
-        </div>
       </div>
     </section>
 
@@ -579,6 +476,80 @@ The New York Mets delivered a stunning upset victory over the St. Louis Cardinal
         </div>
         </div>
       </section>
+
+    <section>
+      <div class="section-header">
+        <h2>Last 5 Games</h2>
+      </div>
+      <div class="game-cards-grid">
+
+        <div class="game-card win">
+          <div class="game-card-header">
+            <div class="game-card-date">2026-06-12</div>
+            <span class="badge win">W</span>
+          </div>
+          <div class="game-card-teams">W 08-05 vs New York Yankees</div>
+        </div>
+        <div class="game-card loss">
+          <div class="game-card-header">
+            <div class="game-card-date">2026-06-10</div>
+            <span class="badge loss">L</span>
+          </div>
+          <div class="game-card-teams">L 04-07 vs Philadelphia Phillie</div>
+        </div>
+        <div class="game-card win">
+          <div class="game-card-header">
+            <div class="game-card-date">2026-06-09</div>
+            <span class="badge win">W</span>
+          </div>
+          <div class="game-card-teams">W 03-02 vs Philadelphia Phillie</div>
+        </div>
+        <div class="game-card loss">
+          <div class="game-card-header">
+            <div class="game-card-date">2026-06-08</div>
+            <span class="badge loss">L</span>
+          </div>
+          <div class="game-card-teams">L 02-05 vs Philadelphia Phillie</div>
+        </div>
+        <div class="game-card win">
+          <div class="game-card-header">
+            <div class="game-card-date">2026-06-07</div>
+            <span class="badge win">W</span>
+          </div>
+          <div class="game-card-teams">W 06-04 vs Baltimore Orioles</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <h2>Upcoming</h2>
+      </div>
+      <div class="game-cards-grid">
+
+        <div class="game-card scheduled">
+          <div class="game-card-header">
+            <div class="game-card-date">2026-06-13</div>
+          </div>
+          <div class="game-card-teams">vs New York Yankees</div>
+          <div class="game-card-status">Scheduled</div>
+        </div>
+        <div class="game-card scheduled">
+          <div class="game-card-header">
+            <div class="game-card-date">2026-06-14</div>
+          </div>
+          <div class="game-card-teams">vs New York Yankees</div>
+          <div class="game-card-status">Scheduled</div>
+        </div>
+        <div class="game-card scheduled">
+          <div class="game-card-header">
+            <div class="game-card-date">2026-06-16</div>
+          </div>
+          <div class="game-card-teams">at Boston Red Sox</div>
+          <div class="game-card-status">Scheduled</div>
+        </div>
+      </div>
+    </section>
 
     <section>
       <div class="section-header">
