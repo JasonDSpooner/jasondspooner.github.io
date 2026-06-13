@@ -1,49 +1,23 @@
 {
-  "generatedAt": "2026-06-13T15:45:53.598Z",
+  "generatedAt": "2026-06-13T15:49:42.488Z",
   "results": [
     {
       "slug": "toronto-blue-jays-vs-new-york-yankees-betting-preview",
       "title": "Toronto Blue Jays vs New York Yankees: Betting Preview",
       "status": "warn",
-      "summary": "The moneyline and run line odds match the source data for the Saturday afternoon game, but tie and total lines are missing from the provided source.",
+      "summary": "The moneyline and point spread odds align perfectly with the source data, but the game total and tie odds are missing from the provided dataset.",
       "issues": [
         {
           "claim": "Tie: 2.95",
-          "source": "latest_odds (id: baea15ab-eff6-403e-a478-921a6ae2e9db)",
-          "severity": "medium",
-          "explanation": "The source data for the matching game provides home and away odds (150 and 130) but does not include a listing for a 'Tie' line."
+          "source": "latest_odds",
+          "severity": "low",
+          "explanation": "The Sports Select proline source in the data only provides home and away odds (150 and 130) for this matchup, with no 3-way/tie option listed."
         },
         {
           "claim": "The total is set at 7.5 runs, with both the over and under offered at 1.80.",
-          "source": "latest_odds (id: baea15ab-eff6-403e-a478-921a6ae2e9db)",
-          "severity": "medium",
-          "explanation": "The source data for the Saturday afternoon game does not include any information regarding the game total or over/under odds."
-        }
-      ]
-    },
-    {
-      "slug": "canada-vs-bosnia-herzegovina-a-value-pick-in-the-fifa-world-cup-group-stage",
-      "title": "Canada vs Bosnia & Herzegovina: A Value Pick in the FIFA World Cup Group Stage",
-      "status": "fail",
-      "summary": "REMOVED: The article correctly cites numerical odds from the source but fundamentally misidentifies the favorite as an underdog and contains a significant mathematical error regarding implied probability.",
-      "issues": [
-        {
-          "claim": "Canada is listed as a -154 underdog against Bosnia & Herzegovina, who are given a +300 moneyline.",
-          "source": "latest_odds (homeOdds: -154, awayOdds: 300)",
-          "severity": "high",
-          "explanation": "In sports betting, a negative odds value (-154) designates the favorite, while a positive value (+300) designates the underdog. The article incorrectly labels Canada as the underdog despite listing the favorite's price. The source data confirms Canada is the favored team."
-        },
-        {
-          "claim": "The +300 odds imply a 75% chance of them [Bosnia & Herzegovina] winning.",
-          "source": "latest_odds (awayOdds: 300)",
-          "severity": "high",
-          "explanation": "The implied probability of +300 odds is 25% (100 / (300 + 100)), not 75%. While the article later mentions a 25% probability, the initial claim is a significant factual error regarding the betting lines provided in the source."
-        },
-        {
-          "claim": "The over/under for the match is set at 2.5 goals, with both teams sitting at even money on the total.",
           "source": "latest_odds",
           "severity": "medium",
-          "explanation": "The source data provided does not contain any information regarding over/under lines or goal totals for this matchup."
+          "explanation": "The source data for the Saturday afternoon game (id: baea15ab-eff6-403e-a478-921a6ae2e9db) does not contain game totals or over/under prop bets."
         }
       ]
     },
@@ -51,39 +25,13 @@
       "slug": "alouettes-vs-argonauts-montreal-gets-the-edge-in-cfl-betting-preview",
       "title": "Alouettes vs Argonauts: Montreal Gets the Edge in CFL Betting Preview",
       "status": "fail",
-      "summary": "The article correctly identifies the moneyline odds and the spread line, but it incorrectly reports the spread odds for the Toronto Argonauts.",
+      "summary": "The article correctly details the matchup and moneyline odds but contains a factual contradiction regarding the point spread odds for Toronto.",
       "issues": [
         {
           "claim": "Toronto's +125 odds on the spread indicate they're being given a slight chance to compete",
-          "source": "Sports Select pointspread awayOdds: -125",
+          "source": "latest_odds[0].sources[1].awayOdds: -125",
           "severity": "high",
-          "explanation": "The article claims the spread odds for Toronto are +125, which is a direct contradiction of the source data listing the odds as -125. This represents an opposite betting value."
-        }
-      ]
-    },
-    {
-      "slug": "pirates-vs-marlins-preview-why-pittsburgh-s-underdog-edge-shines-in-sports-select-odds",
-      "title": "Pirates vs Marlins Preview: Why Pittsburgh's Underdog Edge Shines in Sports Select Odds",
-      "status": "fail",
-      "summary": "REMOVED: The article correctly identifies the odds values from the source but fundamentally misinterprets which team is the favorite and which is the underdog, leading to a premise that contradicts betting logic.",
-      "issues": [
-        {
-          "claim": "the betting market reflects Miami’s slight edge [with Pirates at +110 and Marlins at +165]",
-          "source": "latest_odds (PIT PIRATES 110, MIA MARLINS 165)",
-          "severity": "high",
-          "explanation": "In betting, the team with lower odds is the favorite. With the Pirates at +110 and the Marlins at +165, the Pirates are the favorites, while the article claims Miami has the 'edge'."
-        },
-        {
-          "claim": "Pittsburgh’s underdog status might be the better play",
-          "source": "latest_odds (PIT PIRATES 110, MIA MARLINS 165)",
-          "severity": "high",
-          "explanation": "The Pirates are listed as the favorites (+110) compared to the Marlins (+165) in the Sports Select Proline data."
-        },
-        {
-          "claim": "the spread line sits at PIT -172 / MIA +103, suggesting the market expects Miami to cover by a half-run.",
-          "source": "latest_odds (PIT PIRATES -172, MIA MARLINS 103, spread -0.5)",
-          "severity": "high",
-          "explanation": "A spread of -0.5 at -172 odds for Pittsburgh means the market favors Pittsburgh to win the game and cover the spread. The article incorrectly interprets these values as favoring Miami."
+          "explanation": "The source data lists the spread odds for the Argonauts as -125, but the article incorrectly identifies them as +125, which is the opposite betting value."
         }
       ]
     },
@@ -91,51 +39,45 @@
       "slug": "montreal-stuns-toronto-in-overtime-thriller-hamilton-edges-winnipeg",
       "title": "Montreal Stuns Toronto in Overtime Thriller, Hamilton Edges Winnipeg",
       "status": "warn",
-      "summary": "The article correctly recaps the winners and final scores for both matchups, but includes odds, point totals, and scheduling claims that are not present in the source data.",
+      "summary": "The final scores and winners match the source data, but the betting lines and future schedule details are not supported by the provided source.",
       "issues": [
         {
-          "claim": "The pre-game odds had the Argonauts as +270 underdogs and the Alouettes as -192 favorites, with an over/under of 51.5.",
-          "source": "game_results",
-          "severity": "medium",
-          "explanation": "The source data does not contain odds, moneylines, or over/under projections to verify these details."
-        },
-        {
-          "claim": "Hamilton was favored by 2 points (-125/-125) with a projected total of 52.5 points.",
-          "source": "game_results",
-          "severity": "medium",
-          "explanation": "The source data does not contain point spread or total projection data for verification."
-        },
-        {
-          "claim": "Montreal and Toronto are scheduled for a matchup on June 13th.",
-          "source": "game_results",
-          "severity": "medium",
-          "explanation": "The source data shows the Montreal vs. Toronto game occurred on June 12th; there is no record of an additional game scheduled for June 13th in the provided data."
-        },
-        {
-          "claim": "Montreal defeated Toronto in an overtime thriller.",
+          "claim": "Montreal's win was especially surprising given the pre-game odds which had the Argonauts as +270 underdogs, with the Alouettes favored at -192.",
           "source": "game_results",
           "severity": "low",
-          "explanation": "The source data lists the final score as 37-30 but does not specify if the game reached overtime."
+          "explanation": "The source data contains game results only and does not include pre-game odds or betting lines to verify this claim."
+        },
+        {
+          "claim": "Hamilton were favored by 2 points according to the spread line (-125 for Hamilton, -125 for Winnipeg).",
+          "source": "game_results",
+          "severity": "low",
+          "explanation": "The source data does not contain point spreads or moneyline values."
+        },
+        {
+          "claim": "clash between Montreal and Toronto scheduled for June 13th.",
+          "source": "game_results",
+          "severity": "medium",
+          "explanation": "The source data shows these two teams played on June 12th; there is no scheduling data in the source to verify a back-to-back game on June 13th."
         }
       ]
     },
     {
       "slug": "canada-and-bosnia-herzegovina-battle-to-draw-in-fifa-world-cup-group-stage",
       "title": "Canada and Bosnia-Herzegovina Battle to Draw in FIFA World Cup Group Stage",
-      "status": "fail",
-      "summary": "The article accurately reports the 1-1 draw and the South Korea victory, but it contains a major logical error regarding an upcoming fixture and mentions betting odds not present in the source data.",
+      "status": "warn",
+      "summary": "The match result and score are confirmed by the source data, but information regarding betting odds and upcoming fixtures is not present in the provided source.",
       "issues": [
         {
-          "claim": "Canada's next match is scheduled for June 12th at 21:00, where they will face Bosnia-Herzegovina again.",
-          "source": "game_results",
-          "severity": "high",
-          "explanation": "The source data shows the Canada vs. Bosnia-Herzegovina match was played at 19:00 on June 12th. It is a logical and factual error to claim the teams play each other again only two hours later on the same day in a World Cup Group Stage."
+          "claim": "Sports Select offering a -154 moneyline for Canada and +300 for Bosnia-Herzegovina.",
+          "source": "No source data provided for odds.",
+          "severity": "medium",
+          "explanation": "The provided source data contains game results but does not include betting odds or lines to verify this claim."
         },
         {
-          "claim": "Sports Select offering a -154 moneyline for Canada and +300 for Bosnia-Herzegovina... over/under line of 2.5 goals.",
-          "source": "game_results",
+          "claim": "Canada's next match is scheduled for June 12th at 21:00, where they will face Bosnia-Herzegovina again.",
+          "source": "No source data provided for upcoming fixtures.",
           "severity": "medium",
-          "explanation": "The source data provided consists only of game results and does not include betting odds or lines to verify these specific claims."
+          "explanation": "The source data does not contain schedule or upcoming fixture information to verify this claim."
         }
       ]
     },
@@ -143,19 +85,19 @@
       "slug": "pirates-fall-short-in-miami-marlins-pull-off-surprise-victory",
       "title": "Pirates Fall Short in Miami, Marlins Pull Off Surprise Victory",
       "status": "fail",
-      "summary": "The article correctly reports the score and winner but incorrectly identifies the game's venue as Miami and provides inconsistent betting data not found in the source.",
+      "summary": "The article incorrectly identifies the game's venue and includes betting data that cannot be verified by the source.",
       "issues": [
         {
-          "claim": "Pirates Fall Short in Miami, Marlins Pull Off Surprise Victory",
-          "source": "game_results",
+          "claim": "The game was played in Miami ('Pirates Fall Short in Miami').",
+          "source": "game_results[14].homeTeam",
           "severity": "high",
-          "explanation": "The source data identifies the Pittsburgh Pirates as the home team (homeTeam: 'Pittsburgh Pirates'), indicating the game was played in Pittsburgh, not Miami."
+          "explanation": "The source data lists the Pittsburgh Pirates as the home team, which indicates the game was played at their home stadium in Pittsburgh, not in Miami."
         },
         {
-          "claim": "Marlins, who were listed as +265 underdogs ... Sports Select offering odds of +265 on the Pirates ... which had the Pirates as significant underdogs.",
+          "claim": "The Marlins were listed as +265 underdogs and the over-under was set at 8.5 runs.",
           "source": "game_results",
           "severity": "medium",
-          "explanation": "Betting odds and over-under lines are not present in the source data. Furthermore, the article contains an internal contradiction, describing both the Marlins and the Pirates as the +265 underdogs in different sections."
+          "explanation": "The provided source data contains game results but does not include betting odds or over-under lines to verify these specific claims."
         }
       ]
     },
@@ -170,47 +112,28 @@
       "slug": "cfl-preview-bc-lions-at-saskatchewan-roughriders",
       "title": "CFL Preview: BC Lions at Saskatchewan Roughriders",
       "status": "warn",
-      "summary": "The article's moneyline odds and schedule details are correct, but it includes a point total not present in the source data and a minor discrepancy in the point spread.",
+      "summary": "The article provides a game total not found in the source data and a point spread that differs slightly from the listed value.",
       "issues": [
         {
-          "claim": "the total is 52.5",
-          "source": "latest_odds (missing total/over-under fields)",
-          "severity": "medium",
-          "explanation": "The article cites a point total of 52.5, but the provided source data for the Roughriders vs. Lions game does not include total (over/under) odds."
+          "claim": "The point spread is Saskatchewan -2.5.",
+          "source": "latest_odds (Sports Select pointspread)",
+          "severity": "low",
+          "explanation": "The source data lists the spread as -2, while the article claims it is -2.5."
         },
         {
-          "claim": "The point spread is Saskatchewan -2.5",
-          "source": "latest_odds (SK vs BC spread: -2)",
-          "severity": "low",
-          "explanation": "The article lists the spread as -2.5, while the source data shows the spread for Saskatchewan as -2."
+          "claim": "the total is 52.5",
+          "source": "latest_odds",
+          "severity": "medium",
+          "explanation": "The source data does not provide any information regarding the game total (over/under) for this matchup."
         }
       ]
     },
     {
       "slug": "hamilton-stuns-winnipeg-with-37-27-victory-in-battle-of-the-prairie",
       "title": "Hamilton Stuns Winnipeg with 37-27 Victory in Battle of the Prairie",
-      "status": "warn",
-      "summary": "The final score, winner, and game date align with the source data, but specific details regarding betting odds, divisional standings, and scoring breakdowns could not be verified.",
-      "issues": [
-        {
-          "claim": "Pre-game odds had the Blue Bombers as -105 moneyline favorites against Hamilton, who were listed at +170. The spread was set at -3 for Winnipeg, and the total was projected at 51.5 points.",
-          "source": "game_results JSON",
-          "severity": "medium",
-          "explanation": "The provided source data contains game results (scores and winners) but does not include betting lines, point spreads, or over/under totals."
-        },
-        {
-          "claim": "The Tiger-Cats... secure a crucial win in the Western Division.",
-          "source": "game_results JSON",
-          "severity": "low",
-          "explanation": "The source data does not provide divisional alignments or standings information to verify the impact on the Western Division."
-        },
-        {
-          "claim": "Hamilton... outscored Winnipeg 27-10 in the second half.",
-          "source": "game_results JSON",
-          "severity": "low",
-          "explanation": "The source data provides only the final score (37-27) and lacks the quarter-by-quarter or half-time scoring breakdown necessary to verify this claim."
-        }
-      ]
+      "status": "pass",
+      "summary": "The article's key factual claims, including the final score (37-27), the winner (Hamilton), and the game date (June 12, 2026), are perfectly supported by the source data.",
+      "issues": []
     },
     {
       "slug": "mexico-vs-argentina-a-world-cup-2026-knockout-preview",
@@ -227,48 +150,16 @@
       "issues": []
     },
     {
-      "slug": "mexico-faces-south-africa-in-world-cup-opener-betting-preview-and-takeaway",
-      "title": "Mexico Faces South Africa in World Cup Opener: Betting Preview and Takeaway",
-      "status": "fail",
-      "summary": "REMOVED: The article incorrectly identifies Mexico's opponent and incorrectly attributes betting odds from the Argentina match to a non-existent Mexico vs South Africa fixture.",
-      "issues": [
-        {
-          "claim": "Mexico begins its 2026 FIFA World Cup campaign against South Africa on Thursday, June 11, 2026.",
-          "source": "latest_odds data",
-          "severity": "high",
-          "explanation": "The source data shows Mexico playing Korea Republic on June 19 and South Africa playing Czechia on June 18; no matchup between Mexico and South Africa is listed in the schedule."
-        },
-        {
-          "claim": "Mexico is listed at -333 to win outright against South Africa, while South Africa sits at +600.",
-          "source": "latest_odds data",
-          "severity": "high",
-          "explanation": "The odds of -333 and +600 are actually associated with the Argentina vs Algeria match in the source data, not a Mexico match."
-        },
-        {
-          "claim": "Argentina will face Algeria on Monday, June 15.",
-          "source": "latest_odds data",
-          "severity": "medium",
-          "explanation": "The source data lists the Argentina vs Algeria match for June 17, 2026, which is a Wednesday, not Monday, June 15."
-        },
-        {
-          "claim": "The over/under for the match is set at 2 goals.",
-          "source": "latest_odds data",
-          "severity": "low",
-          "explanation": "The source data does not provide over/under lines for any of the listed matches."
-        }
-      ]
-    },
-    {
       "slug": "mets-vs-cardinals-preview-a-value-bet-on-the-underdog-mets",
       "title": "Mets vs Cardinals Preview: A Value Bet on the Underdog Mets",
       "status": "warn",
-      "summary": "The provided source data does not contain any information regarding a matchup between the Mets and the Cardinals.",
+      "summary": "The provided source data does not contain any information regarding a Mets vs. Cardinals matchup or any games played on June 11, 2026.",
       "issues": [
         {
-          "claim": "Mets vs Cardinals Preview",
+          "claim": "The New York Mets face off against the St. Louis Cardinals... at 7:10 PM ET on June 11th.",
           "source": "game_results",
           "severity": "medium",
-          "explanation": "The source data does not contain the Mets vs Cardinals game mentioned in the article; the results provided show the Mets playing the Braves and the Cardinals playing the Twins on the dates surrounding the article's publication."
+          "explanation": "No source data was available for June 11, 2026. Furthermore, the source data shows the Mets playing the Braves on June 12 and the Cardinals playing the Twins on June 13, with no recorded matchup between the Mets and Cardinals."
         }
       ]
     },
@@ -276,19 +167,19 @@
       "slug": "mets-stun-cardinals-in-upset-victory-but-odds-hint-at-big-surprises-ahead",
       "title": "Mets Stun Cardinals in Upset Victory, But Odds Hint at Big Surprises Ahead",
       "status": "warn",
-      "summary": "The provided source data does not contain records for the Mets vs. Cardinals game or the specific matchups mentioned in the article's future outlook.",
+      "summary": "The primary game discussed in the article (Mets vs. Cardinals) is not present in the provided source data, which begins on June 12, 2026.",
       "issues": [
         {
-          "claim": "The New York Mets delivered a stunning upset victory over the St. Louis Cardinals on Wednesday night... secure a dramatic 5-4 win.",
+          "claim": "The New York Mets delivered a stunning 5-4 victory over the St. Louis Cardinals on Wednesday night.",
           "source": "game_results",
           "severity": "medium",
-          "explanation": "The source data only covers games from June 12-13, 2026, and does not include results for a game between the Mets and the Cardinals on Wednesday (June 10)."
+          "explanation": "The provided source data starts on June 12, 2026, and does not contain the results for the Wednesday (June 10, 2026) game between the Mets and the Cardinals."
         },
         {
-          "claim": "With several high-profile matchups scheduled, including games between the Yankees and Red Sox, and the Dodgers and Pirates...",
+          "claim": "The Mets’ win sets the stage for an intriguing matchup against the Atlanta Braves on Friday.",
           "source": "game_results",
           "severity": "low",
-          "explanation": "The source data shows that on June 12, the Yankees played the Blue Jays, the Red Sox played the Rangers, the Dodgers played the White Sox, and the Pirates played the Marlins, suggesting these specific head-to-head matchups were not scheduled for that date."
+          "explanation": "While the source data confirms the Mets played the Braves on Friday, June 12, the final score was 7-5, not the 5-4 result described for the previous game."
         }
       ]
     }
