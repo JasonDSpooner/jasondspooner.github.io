@@ -1,12 +1,25 @@
 {
-  "generatedAt": "2026-06-12T23:26:16.290Z",
+  "generatedAt": "2026-06-13T00:05:17.193Z",
   "results": [
     {
       "slug": "toronto-blue-jays-vs-new-york-yankees-betting-preview",
       "title": "Toronto Blue Jays vs New York Yankees: Betting Preview",
-      "status": "pass",
-      "summary": "The article accurately reflects the source data for the Toronto Blue Jays vs New York Yankees matchup.",
-      "issues": []
+      "status": "warn",
+      "summary": "The moneyline and run line odds align perfectly with the source data, but the article includes a game total and pitcher details not found in the dataset.",
+      "issues": [
+        {
+          "claim": "Total: 8",
+          "source": "latest_odds",
+          "severity": "low",
+          "explanation": "The source data for the Blue Jays vs. Yankees game does not include a 'Total' or Over/Under line."
+        },
+        {
+          "claim": "home matchup against a left-handed starter",
+          "source": "latest_odds",
+          "severity": "low",
+          "explanation": "The source data does not provide information regarding the handedness or identity of the starting pitchers."
+        }
+      ]
     },
     {
       "slug": "cfl-weekend-roundup-week-2-outlook",
@@ -18,15 +31,28 @@
     {
       "slug": "cfl-preview-bc-lions-at-saskatchewan-roughriders",
       "title": "CFL Preview: BC Lions at Saskatchewan Roughriders",
-      "status": "pass",
-      "summary": "All claims in the article align with the source data, with no clear contradictions.",
-      "issues": []
+      "status": "warn",
+      "summary": "The article includes a point total not present in the source data and lists a point spread that differs slightly from the source value.",
+      "issues": [
+        {
+          "claim": "the total is 52.5",
+          "source": "latest_odds",
+          "severity": "medium",
+          "explanation": "The source data for the BC Lions at Saskatchewan Roughriders game does not provide a point total (over/under) line."
+        },
+        {
+          "claim": "The point spread is Saskatchewan -2.5",
+          "source": "latest_odds",
+          "severity": "low",
+          "explanation": "The source data lists the point spread for Saskatchewan as -2, while the article lists it as -2.5."
+        }
+      ]
     },
     {
       "slug": "hamilton-stuns-winnipeg-with-37-27-victory-in-battle-of-the-prairie",
       "title": "Hamilton Stuns Winnipeg with 37-27 Victory in Battle of the Prairie",
       "status": "pass",
-      "summary": "The article accurately reflects the game result between Hamilton and Winnipeg, with no clear contradictions to the source data.",
+      "summary": "The article's core facts, including the final score, winner, team names, and game date, are fully supported by the source data.",
       "issues": []
     },
     {
@@ -46,29 +72,67 @@
     {
       "slug": "mexico-faces-south-africa-in-world-cup-opener-betting-preview-and-takeaway",
       "title": "Mexico Faces South Africa in World Cup Opener: Betting Preview and Takeaway",
-      "status": "pass",
-      "summary": "All claims in the article align with the source data, with no clear factual contradictions.",
-      "issues": []
+      "status": "fail",
+      "summary": "The article correctly reports the primary moneyline odds but contains a high-severity date error for the Argentina fixture and cites betting lines not present in the source data.",
+      "issues": [
+        {
+          "claim": "Argentina will face Algeria on Monday, June 15.",
+          "source": "The latest_odds entry for ARGENTINA vs ALGERIA lists the startTime as '2026-06-17T03:00:00.000Z'.",
+          "severity": "high",
+          "explanation": "The source data schedules the match for June 17 (Wednesday), contradicting the article's claim of Monday, June 15."
+        },
+        {
+          "claim": "the over/under for the match is set at 2 goals",
+          "source": "The latest_odds data for MEXICO vs SOUTH AFRICA only provides moneyline odds (homeOdds: -333, awayOdds: 600).",
+          "severity": "medium",
+          "explanation": "The source data does not contain over/under or total goal lines; this claim is unsupported by the provided data."
+        }
+      ]
     },
     {
       "slug": "royals-vs-rangers-preview-a-value-play-in-the-mlb-odds",
       "title": "Royals vs Rangers Preview: A Value Play in the MLB Odds",
-      "status": "pass",
-      "summary": "The article accurately reflects the source data for the Royals vs Rangers matchup, including team names, odds, and game details.",
-      "issues": []
+      "status": "fail",
+      "summary": "REMOVED: The article contradicts the source data regarding the game date and incorrectly identifies the Rangers as the favored team.",
+      "issues": [
+        {
+          "claim": "The Kansas City Royals and Texas Rangers face off tonight [June 12, 2026].",
+          "source": "latest_odds: KC ROYALS vs TEX RANGERS startTime is '2026-06-11T20:10:00.000Z'.",
+          "severity": "high",
+          "explanation": "The source data shows the game was scheduled for June 11, but the article (published June 12) claims the game is taking place 'tonight'."
+        },
+        {
+          "claim": "While the Rangers are favored by the spread...",
+          "source": "latest_odds: KC ROYALS (home) vs TEX RANGERS (away) has a spread of -0.5.",
+          "severity": "high",
+          "explanation": "A -0.5 spread is assigned to the Royals in the source data, making them the favorite, whereas the article incorrectly states the Rangers are favored."
+        },
+        {
+          "claim": "The Rangers are priced at +145... This suggests that the market sees the Rangers as having a slight edge.",
+          "source": "latest_odds: homeOdds (Royals) 130, awayOdds (Rangers) 145.",
+          "severity": "high",
+          "explanation": "In betting, higher positive odds indicate an underdog. The article incorrectly interprets the Rangers' +145 odds as having an 'edge' over the Royals' +130."
+        },
+        {
+          "claim": "The over-under for this game is set at 10.5 runs.",
+          "source": "latest_odds data for Royals vs Rangers.",
+          "severity": "medium",
+          "explanation": "The source data does not provide any over-under or total runs information for this matchup."
+        }
+      ]
     },
     {
       "slug": "mets-vs-cardinals-preview-a-value-bet-on-the-underdog-mets",
       "title": "Mets vs Cardinals Preview: A Value Bet on the Underdog Mets",
-      "status": "pass",
-      "summary": "The article accurately reflects the Mets vs Cardinals game result and timing as per the source data.",
+      "status": "warn",
+      "summary": "No game_results data available for BASEBALL/MLB.",
       "issues": []
     },
     {
       "slug": "mets-stun-cardinals-in-upset-victory-but-odds-hint-at-big-surprises-ahead",
       "title": "Mets Stun Cardinals in Upset Victory, But Odds Hint at Big Surprises Ahead",
-      "status": "pass",
-      "summary": "The article accurately reflects the Mets' upset victory over the Cardinals based on the source data.",
+      "status": "warn",
+      "summary": "No game_results data available for BASEBALL/MLB.",
       "issues": []
     }
   ]

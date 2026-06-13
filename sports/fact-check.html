@@ -38,12 +38,12 @@
 
     <section>
       <h2>Sports Fact Check Report</h2>
-      <p class="generated">Generated: June 12, 2026 at 5:26 PM</p>
+      <p class="generated">Generated: June 12, 2026 at 6:05 PM</p>
 
       <div class="summary">
-        <div class="summary-box status-pass">Pass: 10</div>
-        <div class="summary-box status-warn">Warn: 0</div>
-        <div class="summary-box status-fail">Fail: 0</div>
+        <div class="summary-box status-pass">Pass: 4</div>
+        <div class="summary-box status-warn">Warn: 4</div>
+        <div class="summary-box status-fail">Fail: 2</div>
       </div>
 
       <table>
@@ -59,10 +59,20 @@
           
       <tr>
         <td><a href="../blog/articles/toronto-blue-jays-vs-new-york-yankees-betting-preview.html">Toronto Blue Jays vs New York Yankees: Betting Preview</a></td>
-        <td><span class="badge status-pass">PASS</span></td>
-        <td>The article accurately reflects the source data for the Toronto Blue Jays vs New York Yankees matchup.</td>
+        <td><span class="badge status-warn">WARN</span></td>
+        <td>The moneyline and run line odds align perfectly with the source data, but the article includes a game total and pitcher details not found in the dataset.</td>
         <td>
-          <em>No issues</em>
+          <ul class="issue-list">
+        <li class="issue low">
+          <strong>[LOW]</strong> Total: 8
+          <p>The source data for the Blue Jays vs. Yankees game does not include a &#039;Total&#039; or Over/Under line.</p>
+          <p><em>Source: latest_odds</em></p>
+        </li>
+        <li class="issue low">
+          <strong>[LOW]</strong> home matchup against a left-handed starter
+          <p>The source data does not provide information regarding the handedness or identity of the starting pitchers.</p>
+          <p><em>Source: latest_odds</em></p>
+        </li></ul>
         </td>
       </tr>
       <tr>
@@ -75,16 +85,26 @@
       </tr>
       <tr>
         <td><a href="../blog/articles/cfl-preview-bc-lions-at-saskatchewan-roughriders.html">CFL Preview: BC Lions at Saskatchewan Roughriders</a></td>
-        <td><span class="badge status-pass">PASS</span></td>
-        <td>All claims in the article align with the source data, with no clear contradictions.</td>
+        <td><span class="badge status-warn">WARN</span></td>
+        <td>The article includes a point total not present in the source data and lists a point spread that differs slightly from the source value.</td>
         <td>
-          <em>No issues</em>
+          <ul class="issue-list">
+        <li class="issue medium">
+          <strong>[MEDIUM]</strong> the total is 52.5
+          <p>The source data for the BC Lions at Saskatchewan Roughriders game does not provide a point total (over/under) line.</p>
+          <p><em>Source: latest_odds</em></p>
+        </li>
+        <li class="issue low">
+          <strong>[LOW]</strong> The point spread is Saskatchewan -2.5
+          <p>The source data lists the point spread for Saskatchewan as -2, while the article lists it as -2.5.</p>
+          <p><em>Source: latest_odds</em></p>
+        </li></ul>
         </td>
       </tr>
       <tr>
         <td><a href="../blog/articles/hamilton-stuns-winnipeg-with-37-27-victory-in-battle-of-the-prairie.html">Hamilton Stuns Winnipeg with 37-27 Victory in Battle of the Prairie</a></td>
         <td><span class="badge status-pass">PASS</span></td>
-        <td>The article accurately reflects the game result between Hamilton and Winnipeg, with no clear contradictions to the source data.</td>
+        <td>The article&#039;s core facts, including the final score, winner, team names, and game date, are fully supported by the source data.</td>
         <td>
           <em>No issues</em>
         </td>
@@ -107,32 +127,62 @@
       </tr>
       <tr>
         <td><a href="../blog/articles/mexico-faces-south-africa-in-world-cup-opener-betting-preview-and-takeaway.html">Mexico Faces South Africa in World Cup Opener: Betting Preview and Takeaway</a></td>
-        <td><span class="badge status-pass">PASS</span></td>
-        <td>All claims in the article align with the source data, with no clear factual contradictions.</td>
+        <td><span class="badge status-fail">FAIL</span></td>
+        <td>The article correctly reports the primary moneyline odds but contains a high-severity date error for the Argentina fixture and cites betting lines not present in the source data.</td>
         <td>
-          <em>No issues</em>
+          <ul class="issue-list">
+        <li class="issue high">
+          <strong>[HIGH]</strong> Argentina will face Algeria on Monday, June 15.
+          <p>The source data schedules the match for June 17 (Wednesday), contradicting the article&#039;s claim of Monday, June 15.</p>
+          <p><em>Source: The latest_odds entry for ARGENTINA vs ALGERIA lists the startTime as &#039;2026-06-17T03:00:00.000Z&#039;.</em></p>
+        </li>
+        <li class="issue medium">
+          <strong>[MEDIUM]</strong> the over/under for the match is set at 2 goals
+          <p>The source data does not contain over/under or total goal lines; this claim is unsupported by the provided data.</p>
+          <p><em>Source: The latest_odds data for MEXICO vs SOUTH AFRICA only provides moneyline odds (homeOdds: -333, awayOdds: 600).</em></p>
+        </li></ul>
         </td>
       </tr>
       <tr>
         <td><a href="../blog/articles/royals-vs-rangers-preview-a-value-play-in-the-mlb-odds.html">Royals vs Rangers Preview: A Value Play in the MLB Odds</a></td>
-        <td><span class="badge status-pass">PASS</span></td>
-        <td>The article accurately reflects the source data for the Royals vs Rangers matchup, including team names, odds, and game details.</td>
+        <td><span class="badge status-fail">FAIL</span></td>
+        <td>REMOVED: The article contradicts the source data regarding the game date and incorrectly identifies the Rangers as the favored team.</td>
         <td>
-          <em>No issues</em>
+          <ul class="issue-list">
+        <li class="issue high">
+          <strong>[HIGH]</strong> The Kansas City Royals and Texas Rangers face off tonight [June 12, 2026].
+          <p>The source data shows the game was scheduled for June 11, but the article (published June 12) claims the game is taking place &#039;tonight&#039;.</p>
+          <p><em>Source: latest_odds: KC ROYALS vs TEX RANGERS startTime is &#039;2026-06-11T20:10:00.000Z&#039;.</em></p>
+        </li>
+        <li class="issue high">
+          <strong>[HIGH]</strong> While the Rangers are favored by the spread...
+          <p>A -0.5 spread is assigned to the Royals in the source data, making them the favorite, whereas the article incorrectly states the Rangers are favored.</p>
+          <p><em>Source: latest_odds: KC ROYALS (home) vs TEX RANGERS (away) has a spread of -0.5.</em></p>
+        </li>
+        <li class="issue high">
+          <strong>[HIGH]</strong> The Rangers are priced at +145... This suggests that the market sees the Rangers as having a slight edge.
+          <p>In betting, higher positive odds indicate an underdog. The article incorrectly interprets the Rangers&#039; +145 odds as having an &#039;edge&#039; over the Royals&#039; +130.</p>
+          <p><em>Source: latest_odds: homeOdds (Royals) 130, awayOdds (Rangers) 145.</em></p>
+        </li>
+        <li class="issue medium">
+          <strong>[MEDIUM]</strong> The over-under for this game is set at 10.5 runs.
+          <p>The source data does not provide any over-under or total runs information for this matchup.</p>
+          <p><em>Source: latest_odds data for Royals vs Rangers.</em></p>
+        </li></ul>
         </td>
       </tr>
       <tr>
         <td><a href="../blog/articles/mets-vs-cardinals-preview-a-value-bet-on-the-underdog-mets.html">Mets vs Cardinals Preview: A Value Bet on the Underdog Mets</a></td>
-        <td><span class="badge status-pass">PASS</span></td>
-        <td>The article accurately reflects the Mets vs Cardinals game result and timing as per the source data.</td>
+        <td><span class="badge status-warn">WARN</span></td>
+        <td>No game_results data available for BASEBALL/MLB.</td>
         <td>
           <em>No issues</em>
         </td>
       </tr>
       <tr>
         <td><a href="../blog/articles/mets-stun-cardinals-in-upset-victory-but-odds-hint-at-big-surprises-ahead.html">Mets Stun Cardinals in Upset Victory, But Odds Hint at Big Surprises Ahead</a></td>
-        <td><span class="badge status-pass">PASS</span></td>
-        <td>The article accurately reflects the Mets&#039; upset victory over the Cardinals based on the source data.</td>
+        <td><span class="badge status-warn">WARN</span></td>
+        <td>No game_results data available for BASEBALL/MLB.</td>
         <td>
           <em>No issues</em>
         </td>
