@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A complete guide to the tools and services used across Jason Spooner's projects, prepared for Fred.">
+  <title>Fred's Guide — Tools & Links Used Across the Projects</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JFFSXHW0Q1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JFFSXHW0Q1');
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Fred's Guide — Tools & Links</h1>
+      <p>Everything we used to build the Smart Bet systems, AI content pipeline, and creative projects.</p>
+      <nav>
+        <a href="index.html">Resume</a>
+        <a href="blog/index.html">Blog</a>
+        <a href="sports/index.html">Sports</a>
+        <a href="bluejays.html">Blue Jays</a>
+        <a href="fred-tools-guide.html">Tools Guide</a>
+      </nav>
+    </header>
+
+
+<p><strong>A quick note for Fred:</strong></p>
+<p>Thank you for all of your time, effort, and guidance in working with
+me on these projects. The systems below are the result of a lot of late
+nights, experimentation, and learning, and your support has made it
+possible to turn ideas into real, working tools. This guide pulls
+together every major tool, service, library, and platform we used, with
+links to the official docs and to our own work so you can see exactly
+how the pieces fit together.</p>
+<hr />
+<h2 id="how-to-read-this-guide">How to read this guide</h2>
+<ul>
+<li><strong>Our project / material</strong> — links to our repos, live
+sites, or public docs.</li>
+<li><strong>Tool / service</strong> — links to the official homepage or
+docs.</li>
+<li><strong>What we used it for</strong> — one-line context so the board
+can see why it matters.</li>
+</ul>
+<hr />
+<h2 id="ai-llm-tooling">1. AI &amp; LLM tooling</h2>
+<ul>
+<li><strong><a href="https://paperclip.ing">Paperclip</a></strong> —
+AI-agent control plane that runs the sports-writing agents,
+fact-checker, and daily routines.
+<ul>
+<li>Our sports pipeline: <a
+href="https://jasondspooner.github.io/sports/index.html">jasondspooner.github.io/sports</a></li>
+</ul></li>
+<li><strong><a href="https://opencode.ai">OpenCode CLI</a></strong> —
+Free local text generation for the MLB/CFL/FIFA/Content Marketing
+writers.</li>
+<li><strong><a href="https://github.com/google-gemini/gemini-cli">Google
+Gemini CLI</a></strong> — Free local text generation; currently used by
+the fact-checker.
+<ul>
+<li>Live fact-check report: <a
+href="https://jasondspooner.github.io/sports/fact-check.html">jasondspooner.github.io/sports/fact-check.html</a></li>
+</ul></li>
+<li><strong><a
+href="https://pollinations.ai">Pollinations.ai</a></strong> —
+Featured-image generation for articles.</li>
+<li><strong><a href="https://hermes-agent.nousresearch.com/docs">Hermes
+Agent (Nous Research)</a></strong> — Self-improving agent runtime used
+by TaskMan / Juan’s World.</li>
+<li><strong><a href="https://kimi.moonshot.cn">Kimi / Moonshot
+AI</a></strong> — Conversational LLM fallback in Juan’s World app.</li>
+<li><strong><a href="https://ollama.com">Ollama</a></strong> — Local
+LLaVA vision review for coloring-book image QC.</li>
+<li><strong><a href="https://openai.com">OpenAI</a></strong> — GPT/Codex
+models via OpenCode and Pollinations.</li>
+<li><strong><a href="https://www.anthropic.com">Anthropic
+Claude</a></strong> — Claude models via OpenCode / Pollinations.</li>
+</ul>
+<hr />
+<h2 id="sports-data-betting-tools">2. Sports data &amp; betting
+tools</h2>
+<ul>
+<li><strong><a href="https://statsapi.mlb.com">MLB Stats
+API</a></strong> — Live Blue Jays schedule, scores, player stats, and
+home-run tracker data.
+<ul>
+<li>Our Blue Jays hub: <a
+href="https://jasondspooner.github.io/bluejays.html">jasondspooner.github.io/bluejays.html</a></li>
+</ul></li>
+<li><strong><a href="https://www.sportselect.com">WCLC Sport
+Select</a></strong> — Alberta sports-betting odds scraping.</li>
+<li><strong><a href="https://open-meteo.com">Open-Meteo</a></strong> —
+Weather data for betting models and venue conditions.</li>
+<li><strong><a href="https://www.espn.com">ESPN</a></strong> — General
+sports data reference.</li>
+<li><strong><a href="https://www.actionnetwork.com">Action
+Network</a></strong> — Odds / betting market reference.</li>
+<li><strong><a href="https://github.com/statsbomb/open-data">StatsBomb
+open-data</a></strong> — Foundation dataset for the FIFA 2026 Smart Bet
+system.
+<ul>
+<li>Our FIFA 2026 project: <a
+href="https://github.com/vote4arealclown/SBFGSfifa2026pre">github.com/vote4arealclown/SBFGSfifa2026pre</a></li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="programming-languages-runtimes">3. Programming languages &amp;
+runtimes</h2>
+<ul>
+<li><strong><a href="https://www.python.org">Python</a></strong> —
+Dominant language for analytics, scrapers, betting models, and AI
+pipelines.</li>
+<li><strong><a href="https://nodejs.org">Node.js</a></strong> — Website
+generators, adapter glue, and Puppeteer scrapers.</li>
+<li><strong><a
+href="https://www.typescriptlang.org">TypeScript</a></strong> — Next.js
+frontends and Paperclip UI.</li>
+<li><strong><a
+href="https://gnucobol.sourceforge.io">GnuCOBOL</a></strong> — Retro
+terminal apps for baseball stats, betting, and expense tracking.</li>
+<li><strong><a
+href="https://www.postgresql.org/docs/current/libpq.html">libpq
+(PostgreSQL C API)</a></strong> — Bridge COBOL to PostgreSQL.</li>
+</ul>
+<hr />
+<h2 id="web-frameworks-ui-libraries">4. Web frameworks &amp; UI
+libraries</h2>
+<ul>
+<li><strong><a href="https://nextjs.org">Next.js</a></strong> — React
+framework for SaskPoly, Juan’s World, and Jason’s Journal.
+<ul>
+<li><a href="https://juansworld.xyz">juansworld.xyz</a> | <a
+href="https://saskpoly.xyz">saskpoly.xyz</a></li>
+</ul></li>
+<li><strong><a href="https://react.dev">React</a></strong> — UI library
+for most frontends.</li>
+<li><strong><a href="https://fastapi.tiangolo.com">FastAPI</a></strong>
+— Python API backend for SBFGS analytics and FlowPace.</li>
+<li><strong><a
+href="https://flask.palletsprojects.com">Flask</a></strong> — Python web
+backend for TaskMan, Juan’s World, schedule app, and KDP tool.</li>
+<li><strong><a href="https://vitejs.dev">Vite</a></strong> — Build tool
+for React SPAs.</li>
+<li><strong><a href="https://streamlit.io">Streamlit</a></strong> —
+Quick UI for the Amazon Nova copy/image panel.</li>
+<li><strong><a href="https://getbootstrap.com">Bootstrap 5</a></strong>
+— Dashboard UI for SBFGS.</li>
+<li><strong><a href="https://tailwindcss.com">Tailwind CSS</a></strong>
+— Styling for Vercel sites.</li>
+<li><strong><a href="https://textual.textualize.io">Textual</a></strong>
+— Interactive terminal dashboards.</li>
+<li><strong><a
+href="https://github.com/Textualize/rich">Rich</a></strong> — Terminal
+formatting and tables.</li>
+</ul>
+<hr />
+<h2 id="databases-storage">5. Databases &amp; storage</h2>
+<ul>
+<li><strong><a href="https://www.postgresql.org">PostgreSQL</a></strong>
+— Analytics database for Smart Bet systems.</li>
+<li><strong><a href="https://www.sqlite.org">SQLite</a></strong> — Local
+embedded database for apps.</li>
+<li><strong><a href="https://supabase.com">Supabase</a></strong> — Auth
++ managed Postgres for Next.js apps.</li>
+<li><strong><a href="https://upstash.com">Upstash Redis</a></strong> —
+Serverless Redis, rate limiting, and sessions.</li>
+<li><strong><a href="https://www.prisma.io">Prisma</a></strong> — ORM
+for Supabase in SaskPoly.</li>
+<li><strong><a href="https://vercel.com/docs/storage/vercel-kv">Vercel
+KV</a></strong> — Serverless Redis for Jason’s Journal.</li>
+</ul>
+<hr />
+<h2 id="scraping-automation-browser-control">6. Scraping, automation
+&amp; browser control</h2>
+<ul>
+<li><strong><a href="https://pptr.dev">Puppeteer</a></strong> — WCLC /
+Sport Select odds scraping.</li>
+<li><strong><a href="https://playwright.dev">Playwright</a></strong> —
+Browser automation and end-to-end testing.</li>
+<li><strong><a
+href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">BeautifulSoup</a></strong>
+— HTML parsing for scrapers.</li>
+<li><strong><a
+href="https://requests.readthedocs.io/en/latest/">Requests</a></strong>
+— HTTP calls for APIs and scrapers.</li>
+<li><strong><a
+href="https://wiki.archlinux.org/title/Systemd/Timers">cron / systemd
+timers</a></strong> — Scheduled odds fetching and report
+generation.</li>
+</ul>
+<hr />
+<h2 id="hosting-deployment-cicd">7. Hosting, deployment &amp; CI/CD</h2>
+<ul>
+<li><strong><a href="https://vercel.com">Vercel</a></strong> — Hosting
+for Next.js/React apps and serverless functions.</li>
+<li><strong><a href="https://pages.github.com">GitHub Pages</a></strong>
+— Static portfolio and sports sites.
+<ul>
+<li>Portfolio: <a
+href="https://vote4arealclown.github.io">vote4arealclown.github.io</a></li>
+<li>Sports hub: <a
+href="https://jasondspooner.github.io/sports/index.html">jasondspooner.github.io/sports</a></li>
+</ul></li>
+<li><strong><a
+href="https://www.pythonanywhere.com">PythonAnywhere</a></strong> —
+Legacy Flask app hosting and docs.</li>
+<li><strong><a href="https://github.com/features/actions">GitHub
+Actions</a></strong> — Deployment and automation through Vercel and
+GitHub Pages.</li>
+</ul>
+<hr />
+<h2 id="publishing-media-creative-tooling">8. Publishing, media &amp;
+creative tooling</h2>
+<ul>
+<li><strong><a href="https://pandoc.org">Pandoc</a></strong> — Markdown
+→ PDF / EPUB for KDP books.</li>
+<li><strong><a href="https://www.latex-project.org">LaTeX</a></strong> —
+PDF typesetting for books.</li>
+<li><strong><a href="https://www.reportlab.com">ReportLab</a></strong> —
+PDF interiors for KDP.</li>
+<li><strong><a href="https://python-pillow.org">Pillow</a></strong> —
+Image processing and coloring-page prep.</li>
+<li><strong><a href="https://ffmpeg.org">ffmpeg</a></strong> —
+Video/audio processing and YouTube content.</li>
+<li><strong><a
+href="https://github.com/yt-dlp/yt-dlp">yt-dlp</a></strong> — YouTube
+video/audio backup.</li>
+<li><strong><a href="https://kdp.amazon.com">Amazon KDP</a></strong> —
+Self-publishing platform for books and coloring books.</li>
+</ul>
+<hr />
+<h2 id="infrastructure-virtualization-cloud">9. Infrastructure,
+virtualization &amp; cloud</h2>
+<ul>
+<li><strong><a href="https://www.proxmox.com">Proxmox</a></strong> —
+Virtualization / private cloud.</li>
+<li><strong><a href="https://www.vmware.com">VMware</a></strong> —
+Legacy-app virtualization.</li>
+<li><strong><a href="https://azure.microsoft.com">Microsoft
+Azure</a></strong> — Cloud / serverless workloads.</li>
+<li><strong><a
+href="https://www.microsoft.com/en-us/microsoft-365/sharepoint/collaboration">SharePoint</a></strong>
+— Legacy SharePoint support and development.</li>
+</ul>
+<hr />
+<h2 id="web3-prediction-markets-saskpoly">10. Web3 / prediction markets
+(SaskPoly)</h2>
+<ul>
+<li><strong><a href="https://www.rainbowkit.com">RainbowKit</a></strong>
+— Wallet connection UI.</li>
+<li><strong><a href="https://wagmi.sh">Wagmi</a></strong> — React hooks
+for Ethereum.</li>
+<li><strong><a href="https://hardhat.org">Hardhat</a></strong> —
+Ethereum development environment.</li>
+<li><strong><a href="https://viem.sh">Viem</a></strong> — Ethereum
+library.</li>
+<li><strong><a href="https://hyperliquid.xyz">Hyperliquid</a></strong> —
+Perp / spot trading for trading bots.</li>
+</ul>
+<hr />
+<h2 id="project-specific-quick-links">11. Project-specific quick
+links</h2>
+<h3 id="smart-bet-sports-betting">Smart Bet / sports betting</h3>
+<ul>
+<li>Smart Bet Blue Jays (production): <a
+href="https://github.com/JasonDSpooner/blue-jays-smart-bet-system">github.com/JasonDSpooner/blue-jays-smart-bet-system</a></li>
+<li>Smart Bet Blue Jays (dev): <a
+href="https://github.com/vote4arealclown/SBFGS-dev0511">github.com/vote4arealclown/SBFGS-dev0511</a></li>
+<li>Smart Bet FIFA 2026: <a
+href="https://github.com/vote4arealclown/SBFGSfifa2026pre">github.com/vote4arealclown/SBFGSfifa2026pre</a></li>
+<li>Public sports hub: <a
+href="https://jasondspooner.github.io/sports/index.html">jasondspooner.github.io/sports</a></li>
+<li>Blue Jays hub: <a
+href="https://jasondspooner.github.io/bluejays.html">jasondspooner.github.io/bluejays.html</a></li>
+<li>Fact-check report: <a
+href="https://jasondspooner.github.io/sports/fact-check.html">jasondspooner.github.io/sports/fact-check.html</a></li>
+</ul>
+<h3 id="creative-public-sites">Creative / public sites</h3>
+<ul>
+<li>Portfolio: <a
+href="https://vote4arealclown.github.io">vote4arealclown.github.io</a></li>
+<li>Storyboard AI live: <a
+href="https://storyboard-ai-ochre.vercel.app">storyboard-ai-ochre.vercel.app</a></li>
+<li>Storyboard AI repo: <a
+href="https://github.com/vote4arealclown/storyboard-ai">github.com/vote4arealclown/storyboard-ai</a></li>
+<li>Juan’s World: <a
+href="https://juansworld.xyz">juansworld.xyz</a></li>
+<li>SaskPoly: <a href="https://saskpoly.xyz">saskpoly.xyz</a></li>
+</ul>
+<h3 id="ai-agent-orchestration">AI-agent orchestration</h3>
+<ul>
+<li>Paperclip: <a href="https://paperclip.ing">paperclip.ing</a></li>
+<li>Paperclip GitHub: <a
+href="https://github.com/paperclipai/paperclip">github.com/paperclipai/paperclip</a></li>
+</ul>
+<p><em>This guide was prepared for Fred as a complete reference to the
+tools, services, and projects we have built together.</em></p>
+
+
+    <footer>
+      <p>Prepared for Fred · <a href="index.html">jasondspooner.github.io</a></p>
+      <p><em>Special thanks to Jimmy for all his market help and patience along the way.</em></p>
+    </footer>
+  </div>
+</body>
+</html>

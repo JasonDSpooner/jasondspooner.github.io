@@ -248,7 +248,6 @@ ${playerCards}
       <p>IT Leader · Developer · Creator</p>
       <nav>
         <a href="index.html">Resume</a>
-        <a href="fifa2026.html">FIFA 2026</a>
         <a href="blog/index.html">Blog</a>
         <a href="sports/index.html">Sports</a>
         <a href="bluejays.html">Blue Jays</a>
