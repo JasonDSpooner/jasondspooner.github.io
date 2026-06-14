@@ -1,0 +1,20 @@
+[
+  {
+    "source": "Sports Select",
+    "date": "2026-06-14",
+    "matchup": "Montreal Alouettes vs Toronto Argonauts",
+    "odds": {
+      "home": 1.95,
+      "away": 1.85
+    }
+  },
+  {
+    "source": "Bet365",
+    "date": "2026-06-14",
+    "matchup": "Montreal Alouettes vs Toronto Argonauts",
+    "odds": {
+      "home": 1.92,
+      "away": 1.88
+    }
+  }
+]
