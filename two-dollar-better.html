@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="The $2 Better — a fictional cranky Alberta sports bettor tracking $2 daily wagers on MLB and CFL.">
+  <meta name="description" content="The $2 Better — a fictional cranky Alberta sports bettor tracking $2 daily wagers on MLB and CFL point spreads and totals.">
   <title>The $2 Better — Jason Spooner</title>
   <link rel="stylesheet" href="css/style.css">
   <style>
     .hero { background: var(--line); padding: var(--space-m); border-radius: 12px; margin-bottom: var(--space-l); }
     .hero h2 { margin-top: 0; }
+    .rule-list { margin: var(--space-s) 0; padding-left: var(--space-m); }
+    .rule-list li { margin-bottom: var(--space-2xs); }
     .bankroll-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: var(--space-s); margin: var(--space-m) 0; }
     .bankroll-card { background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: var(--space-s); text-align: center; }
     .bankroll-card .number { font-size: var(--step-3); font-weight: 700; color: var(--accent); }
@@ -22,6 +24,8 @@
     .latest-wager { border: 1px solid var(--line); border-radius: 8px; padding: var(--space-m); margin-top: var(--space-s); }
     .latest-wager h3 { margin-top: 0; }
     .cranky-quote { font-style: italic; color: var(--muted); border-left: 4px solid var(--accent); padding-left: var(--space-s); margin: var(--space-m) 0; }
+    .info-box { background: var(--line); border-radius: 8px; padding: var(--space-s); margin: var(--space-s) 0; }
+    .info-box h4 { margin-top: 0; }
     .error-message { color: #dc2626; }
   </style>
 </head>
@@ -42,11 +46,23 @@
 
     <section>
       <h2>💰 The $2 Better</h2>
-      <p class="meta">A fictional cranky old Albertan who thinks the bookies are always up to something.</p>
+      <p class="meta">A fictional, cranky old Albertan who treats sports betting like a pension he never asked for.</p>
 
       <div class="hero">
-        <p class="cranky-quote">"Two bucks. That's all I'm willing to trust this league with. You want more? Go ask the house. They'll take your shirt and your self respect."</p>
-        <p>The $2 Better reads the lines, mutters about trends, and places one fictional $2 wager per day on MLB or CFL point spreads and totals. Follow along as he hunts for magic in the noise.</p>
+        <p class="cranky-quote">"Two bucks. That's all I'm willing to trust this league with. You want more? Go ask the house. They'll take your shirt and your self respect, then charge you a service fee for the embarrassment."</p>
+        <p>Meet <strong>The $2 Better</strong>. He's retired, skeptical, and convinced every referee has a side hustle. Every day he studies the MLB and CFL schedules, grumbles about the lines, and places exactly <strong>one fictional $2 wager</strong>. He doesn't chase losses, he doesn't parlay, and he absolutely does not bet moneylines. He bets <strong>point spreads</strong> and <strong>totals</strong> because at least then he can pretend the math is on his side.</p>
+        <p>This page tracks his imaginary bankroll. It's not gambling advice. It's a character study in cheap hope.</p>
+      </div>
+
+      <div class="info-box">
+        <h4>How it works</h4>
+        <ul class="rule-list">
+          <li><strong>$2 per day, one bet per day.</strong> No exceptions. The man has principles.</li>
+          <li><strong>Spreads and totals only.</strong> No moneylines, no prolines, no "sure things" from a guy named Darryl at the Legion.</li>
+          <li><strong>Decimal odds.</strong> A $2 bet at 1.95 returns $3.90 if it wins, for a net profit of $1.90.</li>
+          <li><strong>The bankroll starts at $30.00.</strong> When a bet wins, profit is added. When it loses, the $2 stake is gone.</li>
+          <li><strong>Results update the next day.</strong> Wins, losses, and the occasional push are recorded in the ledger below.</li>
+        </ul>
       </div>
 
       <h3>Bankroll</h3>
@@ -78,6 +94,11 @@
         </thead>
         <tbody></tbody>
       </table>
+
+      <div class="info-box" style="margin-top: var(--space-l);">
+        <h4>Why read this?</h4>
+        <p>If you've ever yelled at a television because a kicker missed a field goal that had nothing to do with your life, you already understand the $2 Better. He's a reminder that sports are entertainment, not income, and that the best bet is usually the one you don't make. But where's the fun in that?</p>
+      </div>
     </section>
 
     <footer>

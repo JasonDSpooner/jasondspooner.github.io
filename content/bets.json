@@ -10,5 +10,17 @@
     "wager": 2.00,
     "result": "win",
     "payout": 3.90
+  },
+  {
+    "id": "20260614-001",
+    "date": "2026-06-14",
+    "sport": "MLB",
+    "matchup": "New York Yankees at Toronto Blue Jays",
+    "bet_type": "total",
+    "selection": "Over 8.5",
+    "odds": 1.91,
+    "wager": 2.00,
+    "result": "pending",
+    "payout": null
   }
 ]

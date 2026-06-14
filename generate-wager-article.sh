@@ -23,6 +23,9 @@ if (todaysBets.length === 0) {
 }
 
 const content = `
+<p><em>Meet The $2 Better: a fictional, cranky old Albertan who thinks every referee has a side hustle and every shortstop is in on it. He places exactly one imaginary $2 wager per day on MLB or CFL spreads and totals. No moneylines, no parlays, no Darryl-from-the-Legion "locks." Just two bucks and a bad attitude.</em></p>
+<p>He started with $30.00 and he's trying to prove that if you keep your bets small and your expectations lower, you can at least have fun while the house slowly wins.</p>
+
 <h2>Bets for ${today}</h2>
 <ul>
   ${todaysBets.map(b => `<li>${b.matchup}: ${b.selection} (${b.bet_type}) - $${b.wager} @ ${b.odds}</li>`).join("")}
